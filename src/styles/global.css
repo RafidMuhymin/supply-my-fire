@@ -54,6 +54,56 @@
       @apply opacity-50 cursor-not-allowed;
     }
   }
+
+  body {
+    @apply font-normal text-base leading-normal tracking-[-0.01em];
+  }
+
+  h1 {
+    @apply font-serif text-[46px] md:text-[58px] lg:text-[66px] leading-[1.3] lg:leading-[1.14] tracking-normal;
+  }
+
+  h2 {
+    @apply font-serif text-[32px] md:text-[40px] lg:text-[46px] leading-[1.3] tracking-normal;
+  }
+}
+
+/* Frequently used custom typography variants */
+@layer components {
+  /* Heading/H8 Bold */
+  .text-h3-variant-1 {
+    @apply font-bold text-lg md:text-xl leading-normal tracking-normal;
+  }
+
+  /* Merges "Body Text/B1 medium" & "B1 Bold" */
+  .text-h3-variant-2 {
+    @apply font-medium text-base md:text-lg leading-normal tracking-none;
+  }
+
+  /* Heading/H7 */
+  .text-h3-variant-3 {
+    @apply font-semibold text-xl md:text-[22px] lg:text-2xl leading-normal tracking-none;
+  }
+
+  /* Heading/H6 Medium */
+  .text-h3-variant-4 {
+    @apply font-medium text-[22px] md:text-[25px] lg:text-[28px] leading-6.75 tracking-[-0.04em];
+  }
+
+  /* Body Text/B2 normal */
+  .text-body-variant-1 {
+    @apply text-sm md:text-base tracking-[-0.04em] md:tracking-[-0.01em];
+  }
+
+  /* Body Text/B1 normal */
+  .text-body-variant-2 {
+    @apply text-base md:text-lg leading-normal tracking-none;
+  }
+
+  /* Body Text/B3 small */
+  .text-small {
+    @apply text-xs md:text-sm;
+  }
 }
 
 @utility hide-scrollbar {
