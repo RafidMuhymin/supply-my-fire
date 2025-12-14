@@ -55,6 +55,10 @@
     }
   }
 
+  section:not(.no-section-padding) {
+    @apply px-5 sm:px-8 md:px-12 lg:px-15;
+  }
+
   body {
     @apply font-normal text-base leading-normal tracking-[-0.01em];
   }
