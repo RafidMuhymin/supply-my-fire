@@ -1,5 +1,18 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { fileURLToPath } from "node:url";
+
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  vite: {
+    resolve: {
+      alias: [
+        {
+          find: /^@\/(.*)$/,
+          replacement: fileURLToPath(new URL("./src/$1", import.meta.url)),
+        },
+      ],
+    },
+  },
+});
