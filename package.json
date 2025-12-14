@@ -13,6 +13,7 @@
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.5",
     "sass": "^1.96.0",
+    "sharp": "^0.34.5",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.18",
     "unslugify": "^1.0.4"
