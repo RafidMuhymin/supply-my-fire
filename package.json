@@ -12,6 +12,7 @@
     "@sindresorhus/slugify": "^3.0.0",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.5",
+    "astro-icon": "^1.1.5",
     "sass": "^1.96.0",
     "sharp": "^0.34.5",
     "tailwind-merge": "^3.4.0",
