@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-onest);
+  --font-serif: var(--font-dm-serif-display);
+}
+
+html {
+  @apply font-sans;
+}
