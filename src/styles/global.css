@@ -4,6 +4,16 @@
   --font-sans: var(--font-onest);
   --font-serif: var(--font-dm-serif-display);
 
+  --color-zinc: #48464c;
+  --color-muted: #b0b0b0;
+  --color-secondary: #2c2c2c;
+  --color-primary-50: #fffce8;
+  --color-primary-100: #fef6b9;
+  --color-primary-200: #fef297;
+  --color-primary-500: #fce31d;
+  --color-primary-700: #b3a115;
+  --color-primary-900: #6a5f0c;
+
   --animate-fade-in: fadeIn 0.4s ease-in-out;
 
   @keyframes fadeIn {
