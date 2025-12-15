@@ -1,0 +1,71 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import { twMerge } from "tailwind-merge";
+
+interface BaseProps {
+  variant: "primary" | "white" | "transparent";
+  width: "fit" | "full";
+  text?: string;
+  class?: string;
+}
+
+interface AnchorProps
+  extends BaseProps, Omit<HTMLAttributes<"a">, keyof BaseProps | "href"> {
+  href: string;
+  for?: never;
+}
+
+interface LabelProps
+  extends BaseProps, Omit<HTMLAttributes<"label">, keyof BaseProps | "for"> {
+  for: string;
+  href?: never;
+}
+
+interface ButtonProps
+  extends BaseProps, Omit<HTMLAttributes<"button">, keyof BaseProps> {
+  href?: never;
+  for?: never;
+}
+
+type Props = AnchorProps | LabelProps | ButtonProps;
+
+const {
+  href,
+  for: _for,
+  class: _class,
+  text,
+  variant,
+  width,
+  ...attrs
+} = Astro.props;
+
+const Tag = (href ? "a" : _for ? "label" : "button") as any;
+
+const variantStyles = {
+  primary: "bg-primary text-secondary",
+  white: "bg-white text-secondary",
+  transparent: "bg-transparent text-white border border-yellow-50",
+};
+
+const widthStyles = {
+  fit: "w-fit",
+  full: "w-full",
+};
+---
+
+<Tag
+  {href}
+  for={_for}
+  class={twMerge(
+    "flex items-center justify-center font-bold px-5.5 py-4 rounded-full cursor-pointer hover:opacity-80 hover:scale-105 transition-all",
+    variantStyles[variant],
+    widthStyles[width],
+    _class
+  )}
+  {...attrs}
+>
+  <Fragment set:html={text} />
+
+  <slot />
+</Tag>
