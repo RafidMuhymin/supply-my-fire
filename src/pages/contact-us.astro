@@ -1,0 +1,21 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import Hero from "@pages/contact-us/Hero.astro";
+import Connect from "@pages/contact-us/Connect.astro";
+import SendEnquiry from "@pages/contact-us/SendEnquiry.astro";
+import Showroom from "@pages/contact-us/Showroom.astro";
+---
+
+<Layout
+  title="Contact Us - Supply My Fire"
+  description="Get in touch with Supply My Fire. Visit our showroom or send us an enquiry."
+>
+  <div>
+    <Hero />
+    <Connect />
+  </div>
+
+  <SendEnquiry />
+  <Showroom />
+</Layout>

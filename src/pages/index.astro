@@ -1,10 +1,35 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
+
+import Hero from "@pages/home/Hero.astro";
+import Planning from "@pages/home/Planning.astro";
+import WhyChooseSMF from "@pages/home/WhyChooseSMF.astro";
+import Services from "@pages/home/Services.astro";
+import Products from "@pages/home/Products.astro";
+import Areas from "@pages/home/Areas.astro";
+import PerfectFireplace from "@pages/home/PerfectFireplace.astro";
+import Testimonials from "@pages/home/Testimonials.astro";
+import FAQs from "@pages/home/FAQs.astro";
+import Showroom from "@pages/home/Showroom.astro";
+import Ready from "@pages/home/Ready.astro";
 ---
 
 <Layout
   title="Gas Fires and Stoves - Supply My Fire"
   description="A modern gas fire is a great way to provide instant heat and warmth to your home. Let us help you find the perfect fire or stove for your home."
 >
-  Hello World
+  <div>
+    <Hero />
+    <Planning />
+    <WhyChooseSMF />
+  </div>
+
+  <Services />
+  <Products />
+  <Areas />
+  <PerfectFireplace />
+  <Testimonials />
+  <FAQs />
+  <Showroom />
+  <Ready />
 </Layout>
