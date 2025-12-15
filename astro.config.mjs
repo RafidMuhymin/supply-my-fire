@@ -21,7 +21,14 @@ export default defineConfig({
     },
   },
 
-  integrations: [icon(), sitemap()],
+  integrations: [
+    icon({
+      svgoOptions: {
+        cleanupIDs: false,
+      },
+    }),
+    sitemap(),
+  ],
 
   experimental: {
     fonts: [
