@@ -81,12 +81,12 @@
 
   /* Merges "Body Text/B1 medium" & "B1 Bold" */
   .text-h3-variant-2 {
-    @apply font-medium text-base md:text-lg leading-normal tracking-none;
+    @apply font-medium text-base md:text-lg leading-normal tracking-normal;
   }
 
   /* Heading/H7 */
   .text-h3-variant-3 {
-    @apply font-semibold text-xl md:text-[22px] lg:text-2xl leading-normal tracking-none;
+    @apply font-semibold text-xl md:text-[22px] lg:text-2xl leading-normal tracking-normal;
   }
 
   /* Heading/H6 Medium */
@@ -101,7 +101,7 @@
 
   /* Body Text/B1 normal */
   .text-body-variant-2 {
-    @apply text-base md:text-lg leading-normal tracking-none;
+    @apply text-base md:text-lg leading-normal tracking-normal;
   }
 
   /* Body Text/B3 small */
