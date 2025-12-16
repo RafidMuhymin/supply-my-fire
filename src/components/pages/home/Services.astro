@@ -1,0 +1,81 @@
+---
+import ServiceImg1 from "@/assets/images/service-img-1.png";
+import ServiceImg2 from "@/assets/images/service-img-2.jpg";
+import ServiceImg3 from "@/assets/images/service-img-3.jpg";
+import serviceImg4 from "@/assets/images/service-img-4.jpg";
+import serviceImg5 from "@/assets/images/service-img-5.jpg";
+
+import { Image } from "astro:assets";
+
+const services = [
+  {
+    title: "Bespoke Media Walls",
+    description:
+      "Transform your living space with custom media walls combining stunning electric or gas fireplaces with integrated entertainment systems. Concealed wiring, custom lighting, and professional design-build service.",
+    image: ServiceImg1,
+    size: "col-span-12",
+  },
+  {
+    title: "Electric Fires & Stoves",
+    description:
+      "No chimney? No problem. Realistic flame effects with instant heat, positioned almost anywhere in your home. Latest technology from Solution Fires, Vision Fires, and Gazco.",
+    image: ServiceImg2,
+    size: "col-span-7",
+  },
+  {
+    title: "Fireplaces & Mantels",
+    description:
+      "Premium limestone, marble, and wooden fireplaces for period and contemporary homes. Custom sizing available.",
+    image: ServiceImg3,
+    size: "col-span-5",
+  },
+  {
+    title: "Wood Burning Stoves",
+    description:
+      "ECO 2022 DEFRA approved stoves from leading manufacturers. Expert HETAS installation throughout Cardiff and South Wales.",
+    image: serviceImg4,
+    size: "col-span-6",
+  },
+  {
+    title: "Gas Fires & Stoves",
+    description:
+      "High-efficiency gas fires with exceptional flame quality. Balanced flue options for homes without chimneys.",
+    image: serviceImg5,
+    size: "col-span-6",
+  },
+];
+---
+
+<section>
+  <h2 class="text-center mb-8 lg:mb-12">
+    Our <span class="italic">Specialist</span> Services
+  </h2>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+    {
+      services.map((service) => (
+        <div
+          class={`relative group overflow-hidden rounded-lg ${service.size}`}
+        >
+          <div class="relative h-75 lg:h-100 overflow-hidden">
+            <Image
+              src={service.image}
+              alt={service.title}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+
+            <div class="absolute inset-0 bg-linear-to-r from-black to-black/0 " />
+          </div>
+
+          <div class="absolute bottom-5 lg:bottom-7.5 left-5 lg:left-7.5">
+            <h3 class="text-h3-variant-4 text-white mb-4">{service.title}</h3>
+
+            <p class="text-body-variant-1 text-neutral-300 max-w-147 pr-4">
+              {service.description}
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
