@@ -51,7 +51,7 @@ const services = [
     Our <span class="italic">Specialist</span> Services
   </h2>
 
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+  <div class="lg:grid lg:grid-cols-12 space-y-5 lg:space-y-0 gap-5">
     {
       services.map((service) => (
         <div
@@ -67,7 +67,7 @@ const services = [
             <div class="absolute inset-0 bg-linear-to-r from-black to-black/0 " />
           </div>
 
-          <div class="absolute bottom-5 lg:bottom-7.5 left-5 lg:left-7.5">
+          <div class="absolute bottom-5 md:bottom-7.5 left-5 md:left-7.5">
             <h3 class="text-h3-variant-4 text-white mb-4">{service.title}</h3>
 
             <p class="text-body-variant-1 text-neutral-300 max-w-147 pr-4">
