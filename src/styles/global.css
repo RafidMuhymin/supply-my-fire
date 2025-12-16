@@ -7,6 +7,7 @@
   --color-zinc: #48464c;
   --color-muted: #b0b0b0;
   --color-secondary: #2c2c2c;
+
   --color-primary-50: #fffce8;
   --color-primary-100: #fef6b9;
   --color-primary-200: #fef297;
@@ -53,6 +54,10 @@
     &:disabled {
       @apply opacity-50 cursor-not-allowed;
     }
+  }
+
+  section {
+    @apply px-2.5;
   }
 
   section:not(.no-section-padding) {
@@ -107,6 +112,10 @@
   /* Body Text/B3 small */
   .text-small {
     @apply text-xs md:text-sm;
+  }
+
+  .box-variant-1 {
+    @apply px-5 sm:px-8 md:px-12 py-10 md:py-15;
   }
 }
 

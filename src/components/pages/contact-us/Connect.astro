@@ -1,0 +1,119 @@
+---
+import Button from "@/components/Button.astro";
+import { Icon } from "astro-icon/components";
+
+const contactData = [
+  {
+    id: 1,
+    title: "Visit Our Showroom",
+    icon_type: "showroom",
+    description:
+      "See electric fires operating, feel the heat, touch finish samples. Expert advice on-site at our Whitchurch Road location.",
+    details: [
+      {
+        content: "Free parking | Tuesday-Saturday",
+        icon: "car",
+      },
+    ],
+    action_button_text: "Book Showroom Visit",
+    action_url: "/book-visit",
+  },
+  {
+    id: 2,
+    title: "Free Home Survey",
+    icon_type: "survey",
+    description:
+      "We'll visit your Cardiff property to assess your space, take measurements, and discuss your fireplace vision at no cost or obligation",
+    details: [
+      {
+        content: "Available throughout Cardiff, South Wales, Bristol & Bath",
+        icon: "location",
+      },
+    ],
+    action_button_text: "Request Home Survey",
+    action_url: "/request-survey",
+  },
+  {
+    id: 3,
+    title: "Speak to Our Team",
+    icon_type: "phone",
+    description:
+      "Prefer to talk? Call us directly or send a WhatsApp message for quick responses to your questions.",
+    details: [
+      {
+        content: "029 2030 9664",
+        icon: "call",
+      },
+      {
+        content: "07532 669665",
+        icon: "whatsapp",
+      },
+    ],
+    action_button_text: "Call Now",
+    action_url: "tel:02920309664",
+  },
+  {
+    id: 4,
+    title: "Email Your Question",
+    icon_type: "email",
+    description:
+      "Send us your questions, project details, or information requests. We'll respond within 24 hours during business days.",
+    details: [
+      {
+        content: "info@supplymyfire.com",
+        icon: "mailbox",
+      },
+    ],
+    action_button_text: "Send Email",
+    action_url: "mailto:info@supplymyfire.com",
+  },
+];
+---
+
+<section class="box-variant-1 noise bg-neutral-100 relative overflow-hidden">
+  <!-- <NoiseLayer /> -->
+
+  <div class="grid gap-10">
+    <h2 class="text-center text-secondary">
+      How Would You <i>Like to Connect?</i>
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+      {
+        contactData.map((contact) => (
+          <div class="border border-neutral-200 bg-white p-6 rounded-lg flex flex-col">
+            <div class="flex flex-col gap-10 flex-1">
+              <div class="border border-neutral-200 rounded-lg p-3.5 w-fit h-fit">
+                <Icon name={contact.icon_type} class="size-8.5" />
+              </div>
+
+              <div class="flex flex-col gap-8 flex-1">
+                <div class="grid gap-2">
+                  <h3 class="text-h3-variant-3">{contact.title}</h3>
+                  <p>{contact.description}</p>
+                </div>
+
+                <div class="flex flex-col flex-1 justify-between">
+                  <div class="grid gap-4">
+                    {contact.details.map((detail) => (
+                      <div class="flex items-center gap-2">
+                        <Icon name={detail.icon} class="size-5  shrink-0" />
+                        <span class="font-medium text-sm">
+                          {detail.content}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  <a href={contact.action_url} class="mt-10 md:mt-4">
+                    <Button variant="primary" width="full">
+                      {contact.action_button_text}
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
