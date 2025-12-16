@@ -1,4 +1,8 @@
 ---
+import type { GetStaticPaths } from "astro";
+
+import fs from "node:fs";
+
 import Layout from "@/layouts/Layout.astro";
 
 import Hero from "@pages/location/Hero.astro";
@@ -13,6 +17,14 @@ import Testimonials from "@pages/location/Testimonials.astro";
 import FAQs from "@pages/location/FAQs.astro";
 import Showroom from "@pages/location/Showroom.astro";
 import Ready from "@pages/location/Ready.astro";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const locations = await fs.promises.readdir("src/data/locations");
+
+  return locations.map((location) => ({
+    params: { location },
+  }));
+};
 ---
 
 <Layout
