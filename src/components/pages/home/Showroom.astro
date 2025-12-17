@@ -1,0 +1,87 @@
+---
+import Button from "@/components/Button.astro";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+
+import CardiffShowroomMap from "@/assets/images/cardiff-showroom-map.png";
+
+const contacts = [
+  {
+    icon: "location",
+    title: "Address:",
+    text: "112 Whitchurch Road, Cardiff, CF14 3LY",
+  },
+  {
+    icon: "call",
+    title: "Phone:",
+    text: "029 2030 9664",
+  },
+  {
+    icon: "watch",
+    title: "Opening Hours:",
+    text: `<br/>Tuesday-Friday: 10:00 AM - 4:00 PM <br/> Saturday: 10:00 AM - 2:00 PM <br/> Monday & Sunday: Closed`,
+  },
+];
+---
+
+<section class="bg-neutral-100">
+  <h2 class="text-center">
+    Visit Our Cardiff <span class="italic">Showroom</span>
+  </h2>
+
+  <div class="lg:grid grid-cols-2 gap-6 xl:gap-10.5 items-center mt-7">
+    <div class="max-w-172 mx-auto mb-6 lg:mb-0">
+      <h3 class="text-2xl lg:text-[36px] font-serif text-secondary">
+        See Our Range in Person
+      </h3>
+
+      <p class="text-body-variant-1 text-neutral-500 mt-6">
+        Serving customers from across South Wales and beyond. If you're outside
+        Cardiff, we offer free home surveys throughout Newport, Swansea,
+        Bristol, Bath and surrounding areas.
+      </p>
+
+      <div class="space-y-3.5 mt-6 lg:mt-11">
+        {
+          contacts.map((contact) => (
+            <div class="flex items-start">
+              <div class="bg-white p-3 rounded-full w-fit mr-3">
+                <Icon name={contact.icon} size={18} />
+              </div>
+
+              <p class="mt-2 font-semibold leading-6.5">
+                {contact.title}{" "}
+                <span set:html={contact.text} class="font-normal" />
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="flex flex-col sm:flex-row mt-8 lg:mt-14 gap-2 lg:gap-3">
+        <Button
+          href="#"
+          width="fit"
+          variant="primary"
+          text="Book Appointment"
+          class="w-full sm:w-fit"
+        />
+        <Button
+          href="#"
+          width="fit"
+          variant="white"
+          text="Book Survey in Your Area"
+          class="w-full sm:w-fit"
+        />
+      </div>
+    </div>
+
+    <div class="h-full w-full max-h-90 lg:max-h-138 max-w-172 mx-auto">
+      <Image
+        src={CardiffShowroomMap}
+        alt="Cardiff Showroom Map"
+        class="w-full h-full object-cover rounded-2xl"
+      />
+    </div>
+  </div>
+</section>
