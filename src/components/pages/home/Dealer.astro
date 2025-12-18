@@ -1,0 +1,106 @@
+---
+import { Image } from "astro:assets";
+
+import Dealer1 from "@/assets/images/dealer-1.png";
+import Dealer2 from "@/assets/images/dealer-2.png";
+import Dealer3 from "@/assets/images/dealer-3.png";
+import Dealer4 from "@/assets/images/dealer-4.png";
+import Dealer5 from "@/assets/images/dealer-5.png";
+import Dealer6 from "@/assets/images/dealer-6.png";
+import Dealer7 from "@/assets/images/dealer-7.png";
+import Dealer8 from "@/assets/images/dealer-8.png";
+import Dealer9 from "@/assets/images/dealer-9.png";
+import Dealer10 from "@/assets/images/dealer-10.png";
+import Dealer11 from "@/assets/images/dealer-11.png";
+
+const brands1 = [
+  {
+    logo: Dealer1,
+    alt: "Dealer-1 Logo",
+  },
+  {
+    logo: Dealer2,
+    alt: "Dealer-2 Logo",
+  },
+  {
+    logo: Dealer3,
+    alt: "Dealer-3 Logo",
+  },
+  {
+    logo: Dealer4,
+    alt: "Dealer-4 Logo",
+  },
+];
+
+const brands2 = [
+  {
+    logo: Dealer5,
+    alt: "Dealer-5 Logo",
+  },
+  {
+    logo: Dealer6,
+    alt: "Dealer-6 Logo",
+  },
+  {
+    logo: Dealer7,
+    alt: "Dealer-7 Logo",
+  },
+  {
+    logo: Dealer8,
+    alt: "Dealer-8 Logo",
+  },
+  {
+    logo: Dealer9,
+    alt: "Dealer-9 Logo",
+  },
+];
+const brands3 = [
+  {
+    logo: Dealer10,
+    alt: "Dealer-10 Logo",
+  },
+  {
+    logo: Dealer11,
+    alt: "Dealer-11 Logo",
+  },
+];
+---
+
+<section class="lg:mx-18 xl:mx-37.5">
+  <h2 class="text-center">
+    Cardiff's Primary Dealer for<br />
+    Industry-<span class="italic">Leading Brands</span>
+  </h2>
+
+  <div class="space-y-10 mt-9">
+    <div class="flex items-center gap-6 lg:gap-25 w-full mx-auto">
+      {
+        brands1.map((brand) => (
+          <div class="w-full">
+            <Image src={brand.logo} alt={brand.alt} />
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="flex items-center gap-6 lg:gap-25 w-full mx-auto">
+      {
+        brands2.map((brand) => (
+          <div class="w-full">
+            <Image src={brand.logo} alt={brand.alt} />
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="flex items-center gap-6 lg:gap-25 w-fit mx-auto">
+      {
+        brands3.map((brand) => (
+          <div class="w-full">
+            <Image src={brand.logo} alt={brand.alt} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
