@@ -26,25 +26,29 @@ const formFields = [
 ];
 ---
 
-<section class="">
-  <div class="bg-primary-900/30 py-16 px-12 rounded-[20px] mx-auto">
+<section>
+  <div class="bg-primary-900/30 box-variant-1 rounded-[20px] mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-11 items-start">
-      <!-- Left Side -->
-      <div class="flex flex-col justify-between h-full lg:col-span-5 mr-36">
+      <div
+        class="flex flex-col justify-between h-full lg:col-span-5 lg:mr-12 xl:mr-36"
+      >
         <div>
-          <h2 class="">Let's Talk</h2>
+          <h2>Let's Talk</h2>
 
           <p
             class="text-body-variant-1 text-neutral-500 lg:text-secondary mt-2.5"
           >
-            Have questions or want to learn more? Get in<br />
+            Have questions or want to learn more? Get in<br
+              class="hidden xl:block"
+            />
             touch with our team—we're here to help!
           </p>
         </div>
 
-        <!-- Email Support Card -->
-        <div class="bg-primary-900/20 rounded-[20px] p-7.5">
-          <div class="flex items-center justify-center gap-2.5 mb-7.5">
+        <div
+          class="bg-primary-900/20 rounded-[20px] p-7.5 mt-6 lg:mt-0 mb-10 lg:"
+        >
+          <div class="flex items-center justify-center gap-2.5 mb-24 sm:mb-7.5">
             <Icon name="mailbox-2" size={22} />
             <h3 class="text-lg lg:text-xl lg:font-serif text-[#222222]">
               Email Support
@@ -57,7 +61,6 @@ const formFields = [
         </div>
       </div>
 
-      <!-- Right Side - Contact Form -->
       <div class="bg-white rounded-2xl p-6 lg:col-span-6">
         <div class="mb-4">
           <h3 class="text-[26px] lg:text-3xl lg:font-serif leading-12.5">
