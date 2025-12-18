@@ -1,0 +1,87 @@
+---
+import Smith from "@/assets/images/smith.jpg";
+import Wick from "@/assets/images/wick.jpg";
+import Sunny from "@/assets/images/sunny.jpg";
+
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+const members = [
+  {
+    img: Smith,
+    name: "William Smith",
+    role: "Founder & Director",
+    description:
+      "William Smith founded Supply My Fire in 4 with 2 years of industry experience. A Cardiff resident for 6 years, He holds HETAS and Gas Safe certifications and has completed over 7 installations across South Wales. His expertise in media wall design has made Supply My Fire Cardiff's go-to specialists.",
+    speciality: [
+      "HETAS Approved",
+      "Gas Safe Registered",
+      "40+ Years Combined Experience",
+    ],
+  },
+  {
+    img: Wick,
+    name: "John Wick",
+    role: "Lead Installation Specialist",
+    description:
+      "John Wick brings 8 years of installation experience to every project. Specializing in complex media wall builds and period property adaptations, He ensures every Cardiff installation meets the highest standards. His attention to detail and tidy working practices have earned countless five-star reviews.",
+    speciality: [
+      "HETAS Certified",
+      "Gas Safe Registered",
+      "40+ Years Combined Experience",
+    ],
+  },
+  {
+    img: Sunny,
+    name: "Kam Sunny",
+    role: "Showroom Manager",
+    description:
+      "As showroom manager, Kam Sunny helps Cardiff customers navigate the overwhelming world of fireplace choices. With expert knowledge of electric fires, gas technology, and design trends, He ensures you choose the perfect solution for your home and budget.",
+    speciality: ["Product Training", "10+ with Supply My Fire"],
+  },
+];
+---
+
+<section>
+  <h2 class="text-center mb-2.5">
+    Meet Our <span class="italic">Cardiff Team</span>
+  </h2>
+
+  <p class="text-center text-body-variant-2">
+    Behind every stunning fireplace installation is our experienced
+    Cardiff-based team. From initial consultation to final <br
+      class="hidden lg:block"
+    />installation, you'll work with passionate professionals who take pride in
+    transforming Cardiff homes.
+  </p>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-5 mt-8 lg:mt-12.5">
+    {
+      members.map((member) => (
+        <div>
+          <Image
+            src={member.img}
+            alt={member.name}
+            class="h-full max-h-136 w-full object-cover rounded-xl"
+          />
+
+          <h3 class="text-h3-variant-4 mt-6 mb-2">{member.name}</h3>
+
+          <p class="text-body-variant-2 text-black">{member.role}</p>
+
+          <p class="text-body-variant-2 my-6">{member.description}</p>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-2 ">
+            {member.speciality.map((item) => (
+              <div class="flex items-start gap-2 mb-5">
+                <Icon name="check" size={16} />
+
+                <p class="-mt-1 clear-starttext-sm">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
