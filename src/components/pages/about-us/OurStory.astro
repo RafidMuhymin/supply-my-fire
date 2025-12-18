@@ -1,0 +1,140 @@
+---
+import { Image } from "astro:assets";
+
+import StoryImg from "@/assets/images/story-img.jpg";
+
+const steps = [
+  {
+    number: "01",
+    year: "2015",
+    description: "Company Founded",
+  },
+  {
+    number: "02",
+    year: "2018",
+    description: "Achieved HETAS approval",
+  },
+  {
+    number: "03",
+    year: "2020",
+    description: "Cardiff showroom opened on Whitchurch Road",
+  },
+  {
+    number: "04",
+    year: "2022",
+    description: "Became primary dealer for Solution Fires & Vision Fires",
+  },
+  {
+    number: "05",
+    year: "2023",
+    description: "Expanded services to Bristol & Bath",
+  },
+  {
+    number: "06",
+    year: "Present",
+    description: "1000+ Cardiff installations completed",
+  },
+];
+---
+
+<section>
+  <div class="grid grid-cols-1 lg:grid-cols-8 gap-8 lg:gap-12.5">
+    <div class="lg:col-span-5">
+      <h2>Our <span class="italic">Story</span></h2>
+
+      <div
+        class="space-y-6 mt-2.5 text-sm md:text-lg leading-6 tracking-[0.04] text-neutral-500"
+      >
+        <p>
+          Supply My Fire was founded in [Year] with a simple mission: to bring
+          warmth and style to Cardiff homes through expert fireplace
+          installation and exceptional customer service.
+        </p>
+
+        <p>
+          What started as [brief origin story - how the business began,
+          founder's background in the industry] has grown into Cardiff's trusted
+          fireplace and media wall specialists. Based on Whitchurch Road, we've
+          spent over [X] years serving Cardiff homeowners, from Victorian
+          terraces in Pontcanna to modern apartments in the city centre.
+        </p>
+
+        <p>
+          Our journey hasn't been about rapid expansion or chasing trends.
+          Instead, we've focused on building lasting relationships with Cardiff
+          customers, staying at the forefront of fireplace technology, and
+          maintaining the highest installation standards. This commitment earned
+          us primary dealer status for Solution Fires, Vision Fires, Gazco, and
+          Stovax - recognition that we're among Britain's leading fireplace
+          retailers.
+        </p>
+
+        <p>
+          We've watched media walls evolve from a niche request to Cardiff's
+          most popular fireplace solution. We've helped hundreds of homeowners
+          navigate the transition from open fires to efficient wood burning
+          stoves. And we've guided countless families through choosing the
+          perfect electric fire for homes without chimneys.
+        </p>
+
+        <p>
+          Today, Supply My Fire continues to be a family-run business that
+          treats every Cardiff home like our own. Our team brings together
+          decades of experience in HETAS and Gas Safe installation, bespoke
+          design expertise, and a genuine passion for creating stunning focal
+          points that transform living spaces.
+        </p>
+
+        <p>
+          From our Cardiff showroom to your living room, we're here to provide
+          the expert advice, premium products, and professional installation
+          that make your fireplace dreams a reality.
+        </p>
+      </div>
+    </div>
+
+    <div class="lg:col-span-3">
+      <Image
+        src={StoryImg}
+        alt="Our Story Image"
+        class="lg:h-full max-h-100 sm:max-h-125 md:max-h-150 lg:max-h-full rounded-[20px]"
+      />
+    </div>
+  </div>
+
+  <div
+    class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 sm:space-y-7.5 lg:space-y-0 mt-7.5 lg:mt-13 ml-5 sm:ml-0"
+  >
+    {
+      steps.map((step, i) => (
+        <div
+          class:list={[
+            i !== steps.length - 1 && "border-l-2 sm:border-l-0",
+            "pl-12 sm:pl-0 border-dashed border-primary-900 relative ",
+          ]}
+        >
+          <div
+            class:list={[
+              i !== steps.length - 1 && "sm:border-t-2",
+              "mt-2 sm:mt-9 border-dashed border-primary-900 mb-7",
+            ]}
+          >
+            <p class="absolute -ml-5 sm:-ml-1 sm:static mb-5 top-3 left-0 -mt-4 bg-primary-900 text-white text-sm rounded-[40px] max-w-fit px-3 py-0.75">
+              {step.number}
+            </p>
+
+            <div class="sm:mr-8  -mt-4 mb-10">
+              <h3 class="text-2xl md:text-3xl xl:text-[46px] font-serif leading-normal md:leading-15 mb-2 md:mb-1">
+                {step.year}
+              </h3>
+
+              <p class="text-neutral-500 lg:text-black text-body-variant-1">
+                {step.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
