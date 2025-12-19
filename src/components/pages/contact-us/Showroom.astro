@@ -1,0 +1,199 @@
+---
+import { Image } from "astro:assets";
+import map from "@/assets/images/cardiff-showroom-map.png";
+import Button from "@/components/Button.astro";
+import { Icon } from "astro-icon/components";
+
+const features = [
+  "Operating electric fires from Solution Fires, Vision Fires, Gazco & Stovax",
+  "Fireplace surrounds and mantel displays",
+  "Media wall design examples",
+  "Material and finish samples",
+  "3D design examples of previous installations",
+  "Knowledgeable team for advice and guidance",
+];
+
+const informations: Array<{
+  id: string;
+  icon: string;
+  header: string;
+  content: Array<{
+    text?: string;
+    label?: string;
+    value?: string;
+    action?: string;
+    type: "text" | "key-value" | "link";
+  }> | null;
+}> = [
+  {
+    id: "section_address",
+    icon: "location",
+    header: "Showroom Address:",
+    content: [
+      {
+        value: "112 Whitchurch Road Cardiff CF14 3LY",
+        type: "text",
+      },
+    ],
+  },
+  {
+    id: "section_parking",
+    icon: "car",
+    header: "Free parking available",
+    content: null,
+  },
+  {
+    id: "section_accessibility",
+    icon: "wheelChair",
+    header: "Wheelchair accessible",
+    content: null,
+  },
+  {
+    id: "section_hours",
+    icon: "time",
+    header: "Opening Hours:",
+    content: [
+      {
+        label: "Tuesday-Friday",
+        value: "10:00 AM - 4:00 PM",
+        type: "key-value",
+      },
+      {
+        label: "Saturday",
+        value: "10:00 AM - 2:00 PM",
+        type: "key-value",
+      },
+      {
+        label: "Monday & Sunday",
+        value: "Closed",
+        type: "key-value",
+      },
+    ],
+  },
+  {
+    id: "section_contact",
+    icon: "call",
+    header: "Contact:",
+    content: [
+      {
+        label: "Phone",
+        value: "029 2030 9664",
+        action: "tel:+442920309664",
+        type: "link",
+      },
+      {
+        label: "WhatsApp",
+        value: "07532 669665",
+        action: "https://wa.me/447532669665",
+        type: "link",
+      },
+    ],
+  },
+];
+
+const serviceButtons: Array<{
+  label: string;
+  variant: "primary" | "white" | "transparent";
+}> = [
+  {
+    label: "Book Showroom Appointment",
+    variant: "primary",
+  },
+  {
+    label: "Get Directions",
+    variant: "white",
+  },
+  {
+    label: "Call Showroom",
+    variant: "white",
+  },
+];
+---
+
+<section class="no-section-padding">
+  <div class="box-variant-1 rounded-[10px] bg-neutral-100 noise">
+    <div class="grid gap-7.5 md:gap-10">
+      <h2 class="text-center">Visit Our Cardiff <i>Showroom</i></h2>
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-10">
+        <div class="max-w-153.5 grid gap-11">
+          <div class="grid gap-8">
+            <div class="grid gap-6">
+              <h3 class="text-4xl font-serif max-md:hidden">
+                Showroom Details
+              </h3>
+              <h3 class="text-[26px] font-serif md:hidden">
+                See Our Full Range at Our Whitchurch Road Showroom
+              </h3>
+              <p class="text-body-variant-1 leading-6">
+                Our Whitchurch Road showroom is the best place to experience our
+                fireplace and media wall products. See electric fires operating,
+                compare flame effects, touch material samples, and discuss your
+                ideas with our expert team.
+              </p>
+              <ul class="list-disc pl-5">
+                {
+                  features.map((feature) => (
+                    <li class="text-body-variant-1 leading-6">{feature}</li>
+                  ))
+                }
+              </ul>
+            </div>
+            <div class="grid gap-3.5">
+              {
+                informations.map((info) => (
+                  <div
+                    class={`flex  gap-3 ${info.content !== null && info.content.length > 1 ? "" : "items-center"}`}
+                  >
+                    <div class="bg-white rounded-full p-3 size-fit">
+                      <Icon name={info.icon} class="size-4.5 shrink-0" />
+                    </div>
+                    <div
+                      class={`flex ${info.content && info.content.length === 1 ? " max-sm:flex-col sm:gap-1" : " flex-col"} `}
+                    >
+                      <span class=" font-semibold">{info.header}</span>
+                      {info.content &&
+                        info.content.map((line) => (
+                          <div>
+                            {info.content && info.content.length === 1 && (
+                              <span class="text-body-variant-1">
+                                {line.value}
+                              </span>
+                            )}
+                            {info.content && info.content.length > 1 && (
+                              <div class={`flex text-body-variant-1 gap-1 `}>
+                                <span>{line.label}:</span>
+                                <span>{line.value}</span>
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+          <div class="flex flex-col md:flex-row gap-3.5">
+            {
+              serviceButtons.map((button) => (
+                <Button variant={button.variant} width="full" class="md:w-auto">
+                  {button.label}
+                </Button>
+              ))
+            }
+          </div>
+        </div>
+
+        <div
+          class="relative rounded-lg shadow-[0px_0px_35px_0px_#0000001A] border border-neutral-300 overflow-hidden max-xl:aspect-4/3"
+        >
+          <Image
+            src={map}
+            alt="Cardiff Showroom Map"
+            class="absolute w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
