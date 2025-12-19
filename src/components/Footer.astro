@@ -1,0 +1,114 @@
+---
+import { Image } from "astro:assets";
+
+import Logo from "@/../public/logo.png";
+import { Icon } from "astro-icon/components";
+
+const logos = ["x-icon", "facebook-icon", "instagram-icon", "github-icon"];
+
+const products = [
+  "Media Walls",
+  "Electric Fires",
+  "Wood Burning Stoves",
+  "Gas Fires",
+  "Fireplaces",
+];
+
+const locations = ["Cardiff", "Newport", "Swansea", "Bristol", "Bath"];
+
+const contacts = [
+  {
+    icon: "location",
+    text: "<span class='lg:font-semibold'>Address:</span> 112 Whitchurch Road, Cardiff, CF14 3LY",
+  },
+  {
+    icon: "call",
+    text: "<span class='lg:font-semibold'>Phone:</span> 029 2030 9664",
+  },
+  {
+    icon: "mailbox",
+    text: "<span class='lg:font-semibold'>Email:</span> info@supplymyfire.com",
+  },
+  {
+    icon: "whatsapp",
+    text: "<span class='lg:font-semibold'>WhatsApp:</span> 07532 669665",
+  },
+  {
+    icon: "watch",
+    text: "<span class='lg:font-semibold'>Opening Hours:</span> <br/><span>Tuesday-Friday:<br class='hidden lg:block'/> 10:00 AM - 4:00 PM, <br/></span> <span>Saturday:<br class='hidden lg:block'/> 10:00 AM - 2:00 PM</span>",
+  },
+];
+---
+
+<footer class="bg-secondary mt-15 py-5 md:py-6.5">
+  <section class="text-muted">
+    <div class="lg:flex space-y-10 lg:space-y-0 justify-between">
+      <div class="lg:max-w-76">
+        <Image src={Logo} alt="logo" class="w-20" />
+
+        <h3 class="text-h3-variant-2 mt-1 mb-2">
+          Cardiff's Fire and Fireplace Experts
+        </h3>
+
+        <p class="text-body-variant-1">
+          Supply My Fire is Cardiff’s trusted specialist for fireplaces, stoves,
+          and bespoke media walls.
+        </p>
+
+        <div class="flex gap-2 mt-4.5">
+          {logos.map((logo) => <Icon name={logo} size={40} />)}
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 lg:contents">
+        <div class="space-y-3">
+          <h3 class="text-h3-variant-2 mb-3.5">Products</h3>
+          {
+            products.map((product) => (
+              <p class="text-body-variant-1">{product}</p>
+            ))
+          }
+        </div>
+
+        <div class="space-y-3">
+          <h3 class="text-h3-variant-2 mb-3.5">Locations</h3>
+          {
+            locations.map((location) => (
+              <p class="text-body-variant-1">{location}</p>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="lg:max-w-64">
+        <h3 class="text-h3-variant-2 mb-3.5">Contact & Hours</h3>
+        <div class="space-y-4 lg:space-y-3">
+          {
+            contacts.map((contact) => (
+              <div class="flex gap-3 items-start">
+                <Icon
+                  name={contact.icon}
+                  size={20}
+                  class="text-primary-700 min-w-5"
+                />
+
+                <p
+                  set:html={contact.text}
+                  class="text-body-variant-1 lg:leading-5"
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="text-body-variant-1 md:flex justify-between border-t pt-4 md:pt-5 mt-7.5 border-white/20 text-center space-y-3.25 md:space-y-0"
+    >
+      <p>© 2025 Supply My Fire. All rights reserved.</p>
+
+      <p>HETAS Approved | Gas Safe Registered</p>
+    </div>
+  </section>
+</footer>
