@@ -1,0 +1,43 @@
+---
+const { title, description, statistics } = (
+  (await import(
+    `@/data/locations/${Astro.params.location}/trusted-fireplace.ts`
+  )) as typeof import("@/data/locations/cardiff/trusted-fireplace.ts")
+).default;
+---
+
+<section>
+  <h2 class="text-center mb-4 lg:mb-10">
+    {title.main}
+    <span class="italic">{title.highlight}</span>
+    {title.suffix}
+  </h2>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-6 lg:gap-20">
+    <div class="space-y-6">
+      <p class="text-body-variant-2">
+        {description.first}
+      </p>
+
+      <p class="text-body-variant-2">
+        {description.second}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+      {
+        statistics.map((stat) => (
+          <div class="border border-neutral-200 rounded-lg px-6 py-8">
+            <div class="flex lg:flex-col xl:flex-row items-end lg:items-start xl:items-end gap-1 mb-3">
+              <h2 class="text-[#E5CF1A] italic">{stat.value}</h2>
+
+              <p class="text-xl">{stat.label}</p>
+            </div>
+
+            <p class="text-neutral-600">{stat.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
