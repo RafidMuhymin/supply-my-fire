@@ -1,0 +1,81 @@
+---
+import Button from "@/components/Button.astro";
+import { Icon } from "astro-icon/components";
+
+const { title, services } = (
+  (await import(
+    `@/data/locations/${Astro.params.location}/services.ts`
+  )) as typeof import("@/data/locations/cardiff/services.ts")
+).default;
+---
+
+<section class="bg-[#F8F9FA] py-10 lg:py-20">
+  <div>
+    <h2 class="text-center mb-12.5">
+      {title.main}
+      <span class="italic">{title.highlight}</span>
+      {title.suffix}
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+      {
+        services.map((service) => (
+          <div class="bg-white rounded-lg p-5 lg:p-8 flex flex-col justify-between ">
+            <div>
+              <div class="flex items-start justify-between mb-8">
+                <div class="bg-primary-200 p-2.75 rounded-sm">
+                  <Icon name={service.icon} size={28} />
+                </div>
+
+                <div>
+                  {service.badge && (
+                    <span class="bg-neutral-100 px-4 py-1.5 rounded-full text-sm leading-6 font-medium border border-neutral-200 ">
+                      {service.badge}
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              <h3 class="text-xl font-bold mb-2.5">{service.title}</h3>
+
+              <p class="text-body-variant-2 mb-11 lg:mb-5">
+                {service.description}
+              </p>
+
+              <div>
+                {service.features.length > 0 && (
+                  <ul class="space-y-3 mb-6 lg:mb-8">
+                    {service.features.map((feature) => (
+                      <li class="flex gap-2 items-start text-body-variant-2">
+                        <div class="min-w-4">
+                          <Icon name="check" size={16} />
+                        </div>
+
+                        <span class="-mt-1">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+
+            <div>
+              <Button
+                href={service.buttonLink}
+                width="full"
+                variant="primary"
+                text={service.buttonText}
+              />
+
+              {service.popularIn && (
+                <p class="text-sm mt-3.5">
+                  <span class="font-bold">Popular In:</span> {service.popularIn}
+                </p>
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
