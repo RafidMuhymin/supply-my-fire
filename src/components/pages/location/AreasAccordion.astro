@@ -1,0 +1,88 @@
+---
+import { Icon } from "astro-icon/components";
+import { twMerge } from "tailwind-merge";
+
+interface ChecklistAccordionItem {
+  icon?: string;
+  name: string;
+  text?: string;
+  items?: string[];
+}
+
+interface Props {
+  class?: string;
+  items: ChecklistAccordionItem[];
+}
+
+const { class: _class, items } = Astro.props;
+
+const uuid = crypto.randomUUID();
+---
+
+<div class="flex flex-col">
+  {
+    items.map((item, i) => (
+      <div class="accordion overflow-hidden border-b border-neutral-200">
+        <label class="accordion-header flex justify-between text-neutral-500 items-center cursor-pointer py-4">
+          <input
+            type="radio"
+            name={`checklist-accordion-${uuid}`}
+            class="hidden"
+            checked={i === 0}
+          />
+
+          <div class="flex items-center gap-3">
+            <h3 class="text-xl sm:text-2xl font-semibold">{item.name}</h3>
+          </div>
+
+          <span class="accordion-icon transition-transform duration-300 ease-in-out">
+            <Icon name="arrow" />
+          </span>
+        </label>
+
+        <div class="accordion-content max-h-0 overflow-hidden transition-[max-height] duration-400 ease-in-out">
+          <div class="py-5 animate-fade-in">
+            <div class:list={twMerge("grid gap-x-6 gap-y-3.5", _class)}>
+              {item.text && (
+                <p
+                  set:text={item.text}
+                  class="max-w-134 text-sm md:text-base leading-5.75 md:leading-7.25"
+                />
+              )}
+
+              {item.items?.map((item) => (
+                <div class="flex items-start gap-1.75">
+                  <Icon name="check" />
+
+                  <p class="text-sm">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  .accordion:has(input:checked) {
+    .accordion-content {
+      max-height: 1000px;
+      border-top: 1px solid var(--color-neutral-200);
+    }
+
+    .accordion-header {
+      .accordion-icon {
+        transform: rotate(180deg);
+      }
+
+      .header-icon {
+        opacity: 100%;
+      }
+
+      color: black;
+      border-top: 0;
+    }
+  }
+</style>

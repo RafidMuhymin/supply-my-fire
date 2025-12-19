@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import Button from "@/components/Button.astro";
+import AreasAccordion from "./AreasAccordion.astro";
+
+const { title, description, accordionClass, items, mapImage } = (
+  (await import(
+    `@/data/locations/${Astro.params.location}/areas.ts`
+  )) as typeof import("@/data/locations/cardiff/areas.ts")
+).default;
+---
+
+<section class="bg-neutral-100 box-variant-1">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-11">
+    <div class="lg:col-span-1 space-y-10">
+      <div>
+        <h2>
+          {title.main}
+          <span class="italic">{title.highlight1}</span>
+          {title.middle}
+          <span class="italic">{title.highlight2}</span>
+        </h2>
+
+        <p class="text-body-variant-2 mt-3.5">
+          {description}
+        </p>
+      </div>
+
+      <AreasAccordion {items} class={accordionClass} />
+    </div>
+
+    <div class="w-full md:aspect-video lg:aspect-auto relative">
+      <Image
+        {...mapImage}
+        class="rounded-lg lg:absolute inset-0 size-full object-cover"
+      />
+    </div>
+  </div>
+</section>
