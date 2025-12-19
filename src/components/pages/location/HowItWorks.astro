@@ -1,0 +1,11 @@
+---
+import Steps from "@/components/Steps.astro";
+
+const { steps } = (
+  (await import(
+    `@/data/locations/${Astro.params.location}/how-it-works.ts`
+  )) as typeof import("@/data/locations/cardiff/how-it-works.ts")
+).default;
+---
+
+<Steps steps={steps} />
