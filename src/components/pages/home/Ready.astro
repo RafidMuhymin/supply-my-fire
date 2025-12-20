@@ -1,79 +1,36 @@
 ---
-import { Image } from "astro:assets";
-
+import ReadyShared from "@/components/ReadyShared.astro";
 import ReadyBg from "@/assets/images/ready-bg.jpg";
-import { Icon } from "astro-icon/components";
-import Button from "@/components/Button.astro";
 
-const contacts = [
+const transformCards = [
   {
     icon: "location-3",
     title: "Book Free Home Survey",
     text: "We'll visit you at home",
     btnText: "Book Survey",
+    btnHref: "#book-survey",
   },
   {
     icon: "home",
     title: "Visit Our Showroom",
     text: "See our range in person",
     btnText: "Book Appointment",
+    btnHref: "#book-appointment",
   },
   {
     icon: "telephone",
     title: "Call or Message",
     text: "Speak to an expert",
     btnText: "Call Now",
+    btnHref: "tel:02920309664",
   },
 ];
 ---
 
-<section>
-  <div
-    class="relative rounded-lg overflow-hidden bg-cover bg-center"
-    style={`background-image: url(${ReadyBg.src})`}
-  >
-    <div class="absolute inset-0 bg-primary-900/97 rounded-lg"></div>
-
-    <div class="relative z-10 px-5 py-10 lg:p-15">
-      <h2 class="text-white text-center">
-        Ready to <span class="italic">Transform <br /> Your Home?</span>
-      </h2>
-
-      <p class="text-body-variant-1 text-center mt-4 text-white">
-        Get started today with a free consultation. Our experts are ready to
-        help you <br class="hidden md:block" />find the perfect fireplace
-        solution.
-      </p>
-
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-12.5">
-        {
-          contacts.map((contact) => (
-            <div class="bg-white px-6 py-7 rounded-lg flex flex-col justify-between">
-              <div class="p-3.25 border border-neutral-200 rounded-lg w-fit mb-10 lg:mb-8 xl:mb-17.5">
-                <Icon name={contact.icon} size={34} />
-              </div>
-
-              <div>
-                <h3 class="text-h3-variant-3 lg:text-xl xl:text-2xl mb-3 lg:mb-2 xl:mb-3">
-                  {contact.title}
-                </h3>
-
-                <p class="text-body-variant-1 mb-8 lg:mb-4 xl:mb-8">
-                  {contact.text}
-                </p>
-
-                <Button
-                  href="#"
-                  width="fit"
-                  variant="primary"
-                  text={contact.btnText}
-                  class=""
-                />
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </div>
-</section>
+<ReadyShared
+  title="Ready to"
+  titleHighlight="Transform Your Home?"
+  description="Get started today with a free consultation. Our experts are ready to help you <br class='hidden md:block' />find the perfect fireplace solution."
+  cards={transformCards}
+  backgroundImage={ReadyBg}
+/>
