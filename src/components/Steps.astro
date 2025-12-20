@@ -10,58 +10,45 @@ interface Step {
 
 interface Props {
   steps: Step[];
-  title?: string;
-  subtitle?: string;
 }
 
-const {
-  steps,
-  title = "Your Journey to the",
-  subtitle = "Perfect Fireplace",
-} = Astro.props;
+const { steps } = Astro.props;
 ---
 
-<section class="bg-primary-50 py-7 sm:py-15">
-  <h2 class="font-serif text-center text-secondary">
-    {title}
-    <br /><span class="italic">{subtitle}</span>
-  </h2>
+<div
+  class="grid grid-cols-1 lg:grid-cols-5 sm:grid-cols-3 sm:space-y-7.5 lg:space-y-0 mt-7.5 lg:mt-13"
+>
+  {
+    steps.map((step, i) => (
+      <div
+        class:list={[
+          i !== steps.length - 1 && "border-l-2 sm:border-l-0",
+          "pl-12 sm:pl-0 border-dashed border-primary-900 relative",
+        ]}
+      >
+        <div class="bg-white p-2.5 w-fit -mt-3 sm:mt-0">
+          <Icon name={step.icon} size={23} />
+        </div>
 
-  <div
-    class="grid grid-cols-1 lg:grid-cols-5 sm:grid-cols-3 sm:space-y-7.5 lg:space-y-0 mt-7.5 lg:mt-13"
-  >
-    {
-      steps.map((step, i) => (
         <div
           class:list={[
-            i !== steps.length - 1 && "border-l-2 sm:border-l-0",
-            "pl-12 sm:pl-0 border-dashed border-primary-900 relative",
+            i !== steps.length - 1 && "sm:border-t-2",
+            "mt-2 sm:mt-9 border-dashed border-primary-900 mb-7",
           ]}
         >
-          <div class="bg-white p-2.5 w-fit -mt-3 sm:mt-0">
-            <Icon name={step.icon} size={23} />
-          </div>
+          <p class="absolute -ml-5 sm:-ml-1 sm:static mb-5 top-3 left-0 -mt-4 bg-primary-900 text-white text-sm rounded-[40px] max-w-fit px-3 py-0.75">
+            {step.number}
+          </p>
 
-          <div
-            class:list={[
-              i !== steps.length - 1 && "sm:border-t-2",
-              "mt-2 sm:mt-9 border-dashed border-primary-900 mb-7",
-            ]}
-          >
-            <p class="absolute -ml-5 sm:-ml-1 sm:static mb-5 top-3 left-0 -mt-4 bg-primary-900 text-white text-sm rounded-[40px] max-w-fit px-3 py-0.75">
-              {step.number}
+          <div class="sm:mr-5 xl:mr-9">
+            <h3 class="text-h3-variant-1 mb-2 lg:mb-3.5">{step.title}</h3>
+
+            <p class="text-neutral-500 text-body-variant-1">
+              {step.description}
             </p>
-
-            <div class="sm:mr-5 xl:mr-9">
-              <h3 class="text-h3-variant-1 mb-2 lg:mb-3.5">{step.title}</h3>
-
-              <p class="text-neutral-500 text-body-variant-1">
-                {step.description}
-              </p>
-            </div>
           </div>
         </div>
-      ))
-    }
-  </div>
-</section>
+      </div>
+    ))
+  }
+</div>
