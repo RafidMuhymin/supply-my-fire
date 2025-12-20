@@ -1,8 +1,7 @@
 ---
-import { Image } from "astro:assets";
+import BackgroundImage from "@/assets/images/ready-bg.jpg";
 import { Icon } from "astro-icon/components";
 import Button from "@/components/Button.astro";
-import type { ImageMetadata } from "astro";
 
 interface Card {
   icon: string;
@@ -17,18 +16,16 @@ interface Props {
   titleHighlight?: string;
   description: string;
   cards: Card[];
-  backgroundImage: ImageMetadata;
   class?: string;
 }
 
-const { title, titleHighlight, description, cards, backgroundImage } =
-  Astro.props;
+const { title, titleHighlight, description, cards } = Astro.props;
 ---
 
 <section>
   <div
     class="relative rounded-lg overflow-hidden bg-cover bg-center"
-    style={`background-image: url(${backgroundImage.src})`}
+    style={`background-image: url(${BackgroundImage.src})`}
   >
     <div class="absolute inset-0 bg-primary-900/97 rounded-lg"></div>
 
