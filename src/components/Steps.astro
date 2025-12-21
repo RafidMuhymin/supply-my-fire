@@ -10,13 +10,14 @@ interface Step {
 
 interface Props {
   steps: Step[];
+  class?: string;
 }
 
-const { steps } = Astro.props;
+const { steps, class: className = "" } = Astro.props;
 ---
 
 <div
-  class="grid grid-cols-1 lg:grid-cols-5 sm:grid-cols-3 sm:space-y-7.5 lg:space-y-0 mt-7.5 lg:mt-13"
+  class:list={["sm:space-y-7.5 lg:space-y-0 mt-7.5 lg:mt-13 grid", className]}
 >
   {
     steps.map((step, i) => (
