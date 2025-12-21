@@ -13,26 +13,39 @@ const certifications = [
 ];
 ---
 
-<HeroContainer bg={BackgroundImage}>
+<HeroContainer bg={BackgroundImage} class="md:text-center">
   <div class="absolute inset-0 bg-black/60 -z-10"></div>
 
-  <div class="max-w-204 mx-auto flex flex-col items-center pt-12 pb-43">
-    <h1 class="mb-5">
+  <div class="max-w-204 mx-auto flex flex-col md:items-center pt-12 pb-43">
+    <h1 class="mb-4 md:mb-5">
       Cardiff's <em>Premier Fireplace</em> & Media Wall Showroom
     </h1>
 
-    <p class="max-w-2xl mb-7.5">
+    <p
+      class="max-w-2xl mb-6 md:mb-7.5 text-body-variant-2 text-white opacity-80"
+    >
       Visit our Cardiff showroom to explore media walls, electric fires, wood
       burning stoves, and gas fireplaces. Expert advice, professional
       installation across Cardiff, South Wales, Bristol & Bath.
     </p>
 
-    <div class="mb-7.5 flex gap-3.5">
-      <Button width="fit" variant="primary" text="Visit Our Cardiff Showroom" />
-      <Button width="fit" variant="white" text="Book Free Home Survey" />
+    <div class="mb-8 md:mb-7.5 flex flex-col md:flex-row gap-3.5">
+      <Button
+        width="full"
+        variant="primary"
+        text="Visit Our Cardiff Showroom"
+        class="md:w-fit"
+      />
+
+      <Button
+        width="full"
+        variant="white"
+        text="Book Free Home Survey"
+        class="md:w-fit"
+      />
     </div>
 
-    <div class="flex gap-2.5">
+    <div class="flex flex-col md:flex-row gap-2.5 text-sm">
       {
         certifications.map((certification) => (
           <p class="flex gap-1.75 items-center">

@@ -6,15 +6,16 @@ import { Icon } from "astro-icon/components";
 
 interface Props {
   bg: ImageMetadata;
+  class: string;
 }
 
-const { bg } = Astro.props;
+const { bg, class: _class } = Astro.props;
 
 const footerText =
   "Cardiff Showroom | Installation Services: Cardiff, Newport, Swansea, Bristol & Bath";
 ---
 
-<section class="px-0 no-section-padding relative text-white text-center">
+<div class:list={[_class, "relative text-white"]}>
   <Image
     role="presentation"
     src={bg}
@@ -24,7 +25,9 @@ const footerText =
 
   <Navbar />
 
-  <slot />
+  <section>
+    <slot />
+  </section>
 
   <div class="py-3 bg-primary-200 text-secondary overflow-hidden">
     <div class="marquee">
@@ -44,7 +47,7 @@ const footerText =
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <style>
   .marquee {
