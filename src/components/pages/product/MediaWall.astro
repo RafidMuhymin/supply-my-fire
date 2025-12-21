@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+const { title, paragraphs, features, image } = (
+  (await import(
+    `@/data/products/${Astro.params.product}/media-wall.ts`
+  )) as typeof import("@/data/products/media-wall/media-wall.ts")
+).default;
+---
+
+<section>
+  <div class="grid grid-cols-1 lg:grid-cols-8 gap-8 lg:gap-11">
+    <div class="lg:col-span-5">
+      <h2>{title.main} <span class="italic">{title.highlight}</span></h2>
+
+      <div class="space-y-6 mt-2.5 text-body-variant-2">
+        {paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 mt-10 gap-y-4 sm:gap-y-6 sm:gap-x-10"
+      >
+        {
+          features.map((feature) => (
+            <div class="flex gap-2 items-center">
+              <Icon name="check" size={16} class="min-w-4" />
+
+              <p class="text-body-variant-1 text-neutral-500 lg:text-black">
+                {feature}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="lg:col-span-3">
+      <Image
+        {...image}
+        class="lg:h-full max-h-100 sm:max-h-125 md:max-h-150 lg:max-h-full rounded-[10px]"
+      />
+    </div>
+  </div>
+</section>
