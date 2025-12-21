@@ -1,0 +1,24 @@
+---
+import { Image } from "astro:assets";
+
+import Navbar from "./Navbar.astro";
+
+interface Props {
+  bg: ImageMetadata;
+}
+
+const { bg } = Astro.props;
+---
+
+<section class="no-section-padding relative text-white text-center">
+  <Image
+    role="presentation"
+    src={bg}
+    alt=""
+    class="absolute inset-0 size-full object-cover -z-20"
+  />
+
+  <Navbar />
+
+  <slot />
+</section>
