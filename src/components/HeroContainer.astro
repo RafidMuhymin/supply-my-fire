@@ -2,15 +2,19 @@
 import { Image } from "astro:assets";
 
 import Navbar from "./Navbar.astro";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   bg: ImageMetadata;
 }
 
 const { bg } = Astro.props;
+
+const footerText =
+  "Cardiff Showroom | Installation Services: Cardiff, Newport, Swansea, Bristol & Bath";
 ---
 
-<section class="no-section-padding relative text-white text-center">
+<section class="px-0 no-section-padding relative text-white text-center">
   <Image
     role="presentation"
     src={bg}
@@ -21,4 +25,50 @@ const { bg } = Astro.props;
   <Navbar />
 
   <slot />
+
+  <div class="py-3 bg-primary-200 text-secondary overflow-hidden">
+    <div class="marquee">
+      <div class="marquee-content">
+        {
+          Array.from({ length: 10 }).map((_, i) => (
+            <div
+              aria-hidden={i > 0}
+              class="flex gap-2.5 mr-2.5 items-center whitespace-nowrap"
+            >
+              {footerText}
+
+              <Icon name="dot" size={10} />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
 </section>
+
+<style>
+  .marquee {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .marquee-content {
+    display: flex;
+    animation: scroll 20s linear infinite;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(calc(-100% / 10 * 5));
+    }
+  }
+
+  .marquee:hover .marquee-content {
+    animation-play-state: paused;
+  }
+</style>
