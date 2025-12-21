@@ -1,0 +1,293 @@
+---
+import Button from "@/components/Button.astro";
+import { Icon } from "astro-icon/components";
+
+const interestedInOptions = [
+  "Media Wall Installations",
+  "Electric Fireplaces",
+  "Gas Fireplaces",
+  "Wood Burning Stoves",
+];
+
+const bestTimeToContactOptions = [
+  "Morning (8am - 12pm)",
+  "Afternoon (12pm - 4pm)",
+  "Evening (4pm - 8pm)",
+];
+
+const howDidYouHearAboutUsOptions = [
+  "Google Search",
+  "Social Media",
+  "Word of Mouth",
+  "Advertisement",
+  "Other",
+];
+---
+
+<section>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+    <div>
+      <div class="grid max-lg:text-center gap-3">
+        <h2>Visit Our Cardiff <i>Showroom</i></h2>
+        <p class="text-body-variant-1 max-w-102 max-lg:mx-auto text-left">
+          Fill out the form below and we'll get back to you within 24 hours
+          during business days. The more details you provide, the better we can
+          help.
+        </p>
+      </div>
+    </div>
+    <form id="enquiry-form" class="grid gap-5">
+      <div class="grid grid-cols-2 gap-3.5">
+        <div class="grid gap-1">
+          <label for="full-name" class="text-body-variant-3 font-semibold">
+            Full name<sub class="text-red-500 text-2xl">*</sub>
+          </label>
+          <input
+            type="text"
+            class="input-variant-1 text-body-variant-3 text-body-variant-3"
+            name="full-name"
+            id="full-name"
+            placeholder="John Smith"
+            required
+          />
+        </div>
+        <div class="grid gap-1">
+          <label for="email-address" class="text-body-variant-3 font-semibold">
+            Email Address<sub class="text-red-500 text-2xl">*</sub>
+          </label>
+          <input
+            type="email"
+            class="input-variant-1 text-body-variant-3 text-body-variant-3"
+            name="email-address"
+            id="email-address"
+            placeholder="your.email@example.com"
+            required
+          />
+        </div>
+      </div>
+      <div class="grid gap-1">
+        <label for="phone-number" class="text-body-variant-3 font-semibold">
+          Phone Number<sub class="text-red-500 text-2xl">*</sub>
+        </label>
+        <input
+          type="tel"
+          class="input-variant-1 text-body-variant-3 text-body-variant-3"
+          name="phone-number"
+          id="phone-number"
+          placeholder="Your Phone Number"
+          required
+        />
+      </div>
+      <div class="grid gap-1">
+        <label for="postcode" class="text-body-variant-3 font-semibold">
+          Postcode<sub class="text-red-500 text-2xl">*</sub>
+        </label>
+        <input
+          type="text"
+          class="input-variant-1 text-body-variant-3 text-body-variant-3"
+          name="postcode"
+          id="postcode"
+          placeholder="CF14 3LY"
+          required
+        />
+      </div>
+      <div class="grid gap-1">
+        <label for="interested-in" class="text-body-variant-3 font-semibold">
+          I'm Interested In<sub class="text-red-500 text-2xl">*</sub>
+        </label>
+        <select
+          id="interested-in"
+          name="interested-in"
+          class="input-variant-1 text-body-variant-3"
+        >
+          {
+            interestedInOptions.map((option) => (
+              <option value={option}>{option}</option>
+            ))
+          }
+        </select>
+      </div>
+      <div class="grid gap-1">
+        <label
+          for="preferred-contact-method"
+          class="text-body-variant-3 font-semibold"
+        >
+          Preferred Contact Method<sub class="text-red-500 text-2xl">*</sub>
+        </label>
+        <div class="flex gap-5">
+          <label class="flex gap-2 items-center">
+            <input
+              type="radio"
+              class="accent-neutral-500"
+              name="preferred-contact-method"
+              value="phone"
+              checked
+            />
+            <span class="text-body-variant-3">Phone</span>
+          </label>
+          <label class="flex gap-2 items-center">
+            <input
+              type="radio"
+              class="accent-neutral-500"
+              name="preferred-contact-method"
+              value="email"
+            />
+            <span class="text-body-variant-3">Email</span>
+          </label>
+          <label class="flex gap-2 items-center">
+            <input
+              type="radio"
+              class="accent-neutral-500"
+              name="preferred-contact-method"
+              value="whatsapp"
+            />
+            <span class="text-body-variant-3">WhatsApp</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="grid gap-1">
+        <label
+          for="best-time-to-contact"
+          class="text-body-variant-3 font-semibold"
+        >
+          Best Time to Contact<sub class="text-red-500 text-2xl">*</sub>
+        </label>
+        <select
+          id="best-time-to-contact"
+          name="best-time-to-contact"
+          class="input-variant-1 text-body-variant-3"
+        >
+          {
+            bestTimeToContactOptions.map((time) => (
+              <option value={time}>{time}</option>
+            ))
+          }
+        </select>
+      </div>
+      <div class="grid gap-1">
+        <label for="message" class="text-body-variant-3 font-semibold">
+          Message<sub class="text-red-500 text-2xl">*</sub>
+        </label>
+        <textarea
+          form="enquiry-form"
+          rows="4"
+          class="input-variant-1 h-24.5 resize-none text-body-variant-3 text-body-variant-3"
+          name="message"
+          id="message"
+          placeholder="Tell us about your project, questions, or requirements. Include room dimensions if known, property type, and any specific ideas you have."
+          required></textarea>
+      </div>
+      <div class="grid gap-1">
+        <label
+          for="best-time-to-contact"
+          class="text-body-variant-3 font-semibold"
+        >
+          How did you hear about us<sub class="text-red-500 text-2xl">*</sub>
+        </label>
+        <select
+          id="how-did-you-hear-about-us"
+          name="how-did-you-hear-about-us"
+          class="input-variant-1 text-body-variant-3"
+        >
+          {
+            howDidYouHearAboutUsOptions.map((option) => (
+              <option value={option}>{option}</option>
+            ))
+          }
+        </select>
+      </div>
+      <div class="flex items-baseline gap-2.5">
+        <input
+          type="checkbox"
+          class="accent-primary-500"
+          name="consent"
+          id="consent"
+          required
+        />
+        <label for="consent" class="text-body-variant-3">
+          I agree to Supply My Fire storing and processing my information to
+          respond to my enquiry, in accordance with the Privacy Policy.
+        </label>
+      </div>
+      <div class="mt-3">
+        <Button text="Send Enquiry" width="full" variant="primary" />
+        <p id="inquiry-form-result" class="mt-3 text-sm font-medium"></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<div
+  id="inquiry-form-modal"
+  class="hidden bg-black/50 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen flex items-center justify-center z-1 p-5"
+>
+  <div
+    class="bg-white rounded-[10px] md:rounded-3xl relative px-11 md:px-22.5 py-6 md:py-15"
+  >
+    <button
+      type="button"
+      id="inquiry-form-close"
+      aria-label="Close"
+      class="size-3 md:size-4.5 absolute top-3 md:top-5.5 right-3 md:right-5.5"
+    >
+      <Icon id="inquiry-form-close" name="cross" class="w-full h-full" />
+    </button>
+    <div class="grid gap-7.5 max-w-147.5">
+      <Icon name="thank-you" class="size-34 lg:size-72 mx-auto" />
+      <div class="grid gap-2 text-center">
+        <h2 id="inquiry-modal-title">Thank You!</h2>
+        <p class="text-body-variant-1 text-neutral-500 leading-6">
+          Thank You for your enquiry! We’ve received your message and will
+          respond within 24 hours. If your enquiry is urgent, please call us on <strong
+          >
+            029 2030 9664</strong
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById("enquiry-form");
+  const modal = document.getElementById("inquiry-form-modal");
+  const result = document.getElementById("inquiry-form-result");
+  const closeBtn = document.getElementById("inquiry-form-close");
+
+  const openModal = () => {
+    if (!modal) return;
+    modal.classList.remove("hidden");
+    document.body.classList.add("overflow-hidden");
+    closeBtn && closeBtn.focus();
+  };
+
+  const closeModal = () => {
+    if (!modal) return;
+    modal.classList.add("hidden");
+    document.body.classList.remove("overflow-hidden");
+  };
+
+  form &&
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      openModal();
+
+      if (result) result.textContent = "";
+    });
+
+  closeBtn && closeBtn.addEventListener("click", () => closeModal());
+
+  modal &&
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal && !modal.classList.contains("hidden")) {
+      closeModal();
+    }
+  });
+</script>
