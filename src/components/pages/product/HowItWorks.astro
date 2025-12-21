@@ -1,0 +1,20 @@
+---
+import Steps from "@/components/Steps.astro";
+
+const { steps } = (
+  (await import(
+    `@/data/products/${Astro.params.product}/how-it-works.ts`
+  )) as typeof import("@/data/products/media-wall/how-it-works.ts")
+).default;
+---
+
+<section class="bg-primary-50 py-7 sm:py-15">
+  <h2 class="font-serif text-center text-secondary">
+    How
+    <span class="italic">Fireplace Installation</span>
+    <br />
+    How Fireplace Installation
+  </h2>
+
+  <Steps steps={steps} class="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" />
+</section>
