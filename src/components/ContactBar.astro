@@ -6,9 +6,9 @@ import HetasAndGasSafeLogo from "@/assets/images/hetas-gas-safe-registered.png";
 ---
 
 <section
-  class="bg-secondary text-white text-xs sm:text-sm flex justify-between items-center py-2 px-3 sm:px-4 md:px-8 lg:px-12.5"
+  class="relative bg-secondary text-white text-xs sm:text-sm flex justify-between items-center py-2 px-3 sm:px-4 md:px-8 lg:px-12.5"
 >
-  <div class="flex items-center gap-2">
+  <div class="md:h-9.5 flex items-center gap-2">
     <div class="flex items-center gap-1.25 md:gap-2">
       <Icon name="call" class="size-3.5 md:size-5" />
 
@@ -23,7 +23,7 @@ import HetasAndGasSafeLogo from "@/assets/images/hetas-gas-safe-registered.png";
   </div>
 
   <Image
-    class="w-32 h-9.5 hidden md:block"
+    class="w-32 h-9.5 hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
     src={HetasAndGasSafeLogo}
     alt="Hetas and Gas Safe Registered"
   />
