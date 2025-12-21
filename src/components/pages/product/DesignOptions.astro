@@ -1,0 +1,55 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+
+const { title, products } = (
+  (await import(
+    `@/data/products/${Astro.params.product}/design-options.ts`
+  )) as typeof import("@/data/products/media-wall/design-options.ts")
+).default;
+---
+
+<section class="bg-[#F8F9FA] py-10 md:py-20">
+  <div class="max-w-300 mx-auto">
+    <h2 class="text-secondary text-center mb-8 lg:mb-12.5">
+      {title.main}
+      <span class="italic">{title.highlight}</span>
+      {title.suffix}
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 xl:mx-17">
+      {
+        products.map((product) => (
+          <div class="bg-white rounded-xl p-2 overflow-hidden lg:max-w-93">
+            <div class="relative">
+              <Image
+                src={product.image}
+                alt={product.name}
+                class="w-full h-56 rounded-t-sm rounded-b-xs object-cover"
+              />
+            </div>
+
+            <div class="px-1 py-4">
+              <h3 class="text-h3-variant-2 text-secondary mb-2.5">
+                {product.name}
+              </h3>
+
+              <p class="text-body-variant-1 text-neutral-600 mb-6">
+                {product.description}
+              </p>
+
+              <ul class="space-y-2">
+                {product.features.map((feature) => (
+                  <li class="flex gap-2 items-start text-body-variant-1 text-neutral-500">
+                    <Icon name="check" class="mt-1" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
