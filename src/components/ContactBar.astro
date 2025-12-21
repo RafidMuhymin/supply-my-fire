@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import HetasAndGasSafeLogo from "@/assets/images/hetas-gas-safe-registered.png";
+---
+
+<section
+  class="bg-secondary text-white text-xs sm:text-sm flex justify-between items-center py-2 px-3 sm:px-4 md:px-8 lg:px-12.5"
+>
+  <div class="flex items-center gap-2">
+    <div class="flex items-center gap-1.25 md:gap-2">
+      <Icon name="call" class="size-3.5 md:size-5" />
+
+      <a href="tel:07383435879">07383 435 879</a>
+    </div>
+
+    <div class="flex items-center gap-1.25 md:gap-2">
+      <Icon name="whatsapp" class="size-3.5 md:size-5" />
+
+      <a href="https://wa.me/447532669665" target="_blank"> 07532 669665 </a>
+    </div>
+  </div>
+
+  <Image
+    class="w-32 h-9.5 hidden md:block"
+    src={HetasAndGasSafeLogo}
+    alt="Hetas and Gas Safe Registered"
+  />
+
+  <a href="#" class="book-free-home-survey underline">Book Free Home Survey</a>
+</section>
+
+<style>
+  .book-free-home-survey {
+    text-decoration-skip-ink: none;
+    text-underline-position: under;
+  }
+</style>

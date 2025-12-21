@@ -3,7 +3,9 @@ import "@/styles/global.css";
 
 import { Font } from "astro:assets";
 
+import ContactBar from "@/components/ContactBar.astro";
 import Footer from "@/components/Footer.astro";
+
 interface Props {
   title: string;
   description?: string;
@@ -29,6 +31,8 @@ const { title, description } = Astro.props;
   </head>
 
   <body>
+    <ContactBar />
+
     <main class="flex flex-col gap-y-15 md:gap-y-20 lg:gap-y-25">
       <slot />
     </main>
