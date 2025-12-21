@@ -1,7 +1,5 @@
 ---
-import Button from "@/components/Button.astro";
-import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
+import Installation from "@/components/Installation.astro";
 
 const { title, installations, button } = (
   (await import(
@@ -10,60 +8,4 @@ const { title, installations, button } = (
 ).default;
 ---
 
-<section>
-  <h2 class="text-center mb-6 sm:mb-10">
-    {title.main}
-    <span class="italic">{title.highlight}</span>
-    {title.suffix}
-  </h2>
-
-  <div
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-6 lg:mb-10"
-  >
-    {
-      installations.map((installation) => (
-        <div class="bg-white rounded-lg overflow-hidden shadow-md p-3.5 lg:p-2.5">
-          <div>
-            <Image
-              src={installation.image}
-              alt={installation.title}
-              class="w-full h-54 rounded-lg object-cover"
-            />
-          </div>
-
-          <div class="p-2.5">
-            <div class=" mb-2.5">
-              <span class="bg-primary-100 px-3 py-1.25 rounded-full text-xs text-secondary">
-                {installation.badge}
-              </span>
-            </div>
-
-            <h3 class="text-h3-variant-1 mb-2">{installation.title}</h3>
-
-            <p class="text-body-variant-1 text-neutral-600 mb-4 lg:mb-5">
-              {installation.description}
-            </p>
-
-            <div class="flex gap-1.5 items-center text-sm text-neutral-600">
-              <div class="w-4.25">
-                <Icon name="location" size={16} />
-              </div>
-
-              <span>{installation.location}</span>
-            </div>
-          </div>
-        </div>
-      ))
-    }
-  </div>
-
-  <div class="flex justify-center">
-    <Button
-      href={button.href}
-      width="full"
-      variant="primary"
-      text={button.text}
-      class="sm:w-fit"
-    />
-  </div>
-</section>
+<Installation title={title} installations={installations} button={button} />
