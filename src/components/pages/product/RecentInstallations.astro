@@ -1,0 +1,11 @@
+---
+import Installation from "@/components/Installation.astro";
+
+const { title, installations, button } = (
+  (await import(
+    `@/data/products/${Astro.params.product}/recent-installations.ts`
+  )) as typeof import("@/data/products/media-wall/recent-installations.ts")
+).default;
+---
+
+<Installation title={title} installations={installations} button={button} />

@@ -13,7 +13,7 @@ interface Title {
 interface Installation {
   image: ImageMetadata;
   title: string;
-  badge: string;
+  badge?: string;
   description: string;
   location: string;
 }
@@ -54,11 +54,13 @@ const { title, installations, button } = Astro.props;
           </div>
 
           <div class="p-2.5">
-            <div class=" mb-2.5">
-              <span class="bg-primary-100 px-3 py-1.25 rounded-full text-xs text-secondary">
-                {installation.badge}
-              </span>
-            </div>
+            {installation.badge && (
+              <div class=" mb-2.5">
+                <span class="bg-primary-100 px-3 py-1.25 rounded-full text-xs text-secondary">
+                  {installation.badge}
+                </span>
+              </div>
+            )}
 
             <h3 class="text-h3-variant-1 mb-2">{installation.title}</h3>
 
