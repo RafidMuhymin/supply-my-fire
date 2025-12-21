@@ -2,6 +2,8 @@
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 
+import Button from "./Button.astro";
+
 interface Title {
   main: string;
   highlight: string;
@@ -15,13 +17,18 @@ interface Service {
   size: string;
 }
 
+interface ButtonConfig {
+  href: string;
+  text: string;
+}
+
 interface Props {
   title: Title;
   services: Service[];
-  class?: string;
+  button?: ButtonConfig;
 }
 
-const { title, services } = Astro.props;
+const { title, services, button } = Astro.props;
 ---
 
 <section>
@@ -53,6 +60,17 @@ const { title, services } = Astro.props;
             <p class="text-body-variant-1 text-neutral-300 max-w-147 pr-4">
               {service.description}
             </p>
+
+            {button && (
+              <div class="mt-5 lg:mt-8">
+                <Button
+                  href={button.href}
+                  width="fit"
+                  variant="primary"
+                  text={button.text}
+                />
+              </div>
+            )}
           </div>
         </div>
       ))
