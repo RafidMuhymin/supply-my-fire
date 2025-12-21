@@ -1,0 +1,198 @@
+---
+import fs from "node:fs";
+
+// @ts-ignore
+import unslugify from "unslugify";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import Logo from "@/../public/logo-white.png";
+
+import Button from "@/components/Button.astro";
+
+const menuItems = [
+  { href: "/", label: "Home" },
+  { label: "Locations" },
+  { label: "Products" },
+  { href: "/about-us", label: "About Us" },
+];
+
+const locations = await fs.promises.readdir("src/data/locations"),
+  products = await fs.promises.readdir("src/data/products");
+---
+
+<header class="section pt-4 text-white text-left">
+  <input type="checkbox" id="menu-toggle" class="peer hidden" />
+
+  <div class="flex justify-between items-center">
+    <a href="/">
+      <Image src={Logo} alt="Supply My Fire Logo" class="size-17 md:size-22" />
+    </a>
+
+    <div class="gap-5.5 hidden md:flex">
+      {
+        menuItems.map((item) => (
+          <div class="relative group">
+            <a
+              class:list={[
+                "transition-all flex gap-1.25 items-center cursor-pointer",
+                Astro.url.pathname === item.href ||
+                (item.label === "Locations" && Astro.params.location) ||
+                (item.label === "Products" && Astro.params.product)
+                  ? "font-semibold"
+                  : "opacity-80 group-hover:opacity-100 group-hover:font-semibold",
+              ]}
+              href={item.href}
+            >
+              {item.label}
+
+              {["Locations", "Products"].includes(item.label) && (
+                <Icon
+                  name="mdi:chevron-down"
+                  size={18}
+                  class="group-hover:rotate-180 transition-transform"
+                />
+              )}
+            </a>
+
+            {item.label === "Locations" && (
+              <div class="bg-zinc absolute top-full left-0 mt-2 shadow-lg rounded-lg overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-48 z-50">
+                {locations.map((location) => (
+                  <a
+                    href={`/${location}`}
+                    class:list={[
+                      "block px-4 py-2 last:pb-3 transition-all",
+                      Astro.params.location === location
+                        ? `bg-secondary font-semibold`
+                        : `hover:bg-secondary hover:font-semibold`,
+                    ]}
+                  >
+                    {unslugify(location)}
+                  </a>
+                ))}
+              </div>
+            )}
+
+            {item.label === "Products" && (
+              <div class="bg-zinc absolute top-full left-0 mt-2 shadow-lg rounded-lg overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-48 z-50">
+                {products.map((product) => (
+                  <a
+                    href={`/${product}`}
+                    class:list={[
+                      "block px-4 py-2 last:pb-3 transition-all",
+                      Astro.params.product === product
+                        ? `bg-secondary font-semibold`
+                        : `hover:bg-secondary hover:font-semibold`,
+                    ]}
+                  >
+                    {unslugify(product)}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="flex items-center gap-3.5">
+      <Button
+        href="/contact-us#enquire-form"
+        width="fit"
+        variant="primary"
+        text="Book Appointment"
+      />
+
+      <label for="menu-toggle" class="md:hidden cursor-pointer">
+        <Icon name="hamburger" size={24} />
+      </label>
+    </div>
+  </div>
+
+  <label
+    for="menu-toggle"
+    class="fixed inset-0 bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity duration-300 z-40 md:hidden"
+  ></label>
+
+  <div
+    class="bg-zinc fixed top-0 right-0 h-full w-64 shadow-2xl transform translate-x-full peer-checked:translate-x-0 transition-transform duration-300 ease-in-out z-50 md:hidden"
+  >
+    <div class="flex flex-col h-full p-6">
+      <label
+        for="menu-toggle"
+        class="self-end cursor-pointer text-4xl font-md mb-8 opacity-60 hover:opacity-100 transition-opacity"
+      >
+        ×
+      </label>
+
+      <nav class="flex flex-col gap-4.5">
+        {
+          menuItems.map((item) => (
+            <div class="group">
+              <a
+                class:list={[
+                  "transition-all flex items-center gap-1",
+                  Astro.url.pathname === item.href ||
+                  (item.label === "Locations" && Astro.params.location) ||
+                  (item.label === "Products" && Astro.params.product)
+                    ? "font-semibold"
+                    : "opacity-80 group-hover:opacity-100 group-hover:font-semibold",
+                ]}
+                href={item.href}
+              >
+                {item.label}
+                {["Locations", "Products"].includes(item.label) && (
+                  <Icon name="mdi:chevron-down" size={20} />
+                )}
+              </a>
+
+              {item.label === "Locations" && (
+                <div class="ml-4 mt-2 flex flex-col gap-2">
+                  {locations.map((location) => (
+                    <a
+                      href={`/${location}`}
+                      class:list={[
+                        "text-base transition-opacity",
+                        Astro.params.location === location
+                          ? "font-semibold opacity-100"
+                          : "opacity-60 hover:opacity-100 hover:font-semibold",
+                      ]}
+                    >
+                      {unslugify(location)}
+                    </a>
+                  ))}
+                </div>
+              )}
+
+              {item.label === "Products" && (
+                <div class="ml-4 mt-2 flex flex-col gap-2">
+                  {products.map((product) => (
+                    <a
+                      href={`/${product}`}
+                      class:list={[
+                        "text-base transition-opacity",
+                        Astro.params.product === product
+                          ? "font-semibold opacity-100"
+                          : "opacity-60 hover:opacity-100 hover:font-semibold",
+                      ]}
+                    >
+                      {unslugify(product)}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))
+        }
+      </nav>
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  @reference "@/styles/global.css";
+
+  body:has(#menu-toggle:checked) {
+    @apply overflow-hidden md:overflow-auto;
+  }
+</style>
