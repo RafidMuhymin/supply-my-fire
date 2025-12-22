@@ -1,0 +1,55 @@
+---
+import { Icon } from "astro-icon/components";
+
+import HeroContainer from "@/components/HeroContainer.astro";
+
+import BackgroundImage from "@/assets/images/hero-bg-products.png";
+
+const contacts = [
+  {
+    icon: "call",
+    text: "029 2030 9664",
+  },
+  {
+    icon: "whatsapp",
+    text: "07532 669665",
+  },
+  {
+    icon: "mailbox",
+    text: "info@supplymyfire.com",
+  },
+  {
+    icon: "location",
+    text: "112 Whitchurch Road, Cardiff, CF14 3LY",
+  },
+];
+---
+
+<HeroContainer bg={BackgroundImage}>
+  <div class="absolute inset-0 bg-linear-to-r from-black/90 to-black/0 -z-10">
+  </div>
+
+  <div class="max-w-xl flex flex-col pt-7.5 lg:pt-17 pb-16 lg:pb-23">
+    <h1 class="mb-4 md:mb-7.5">
+      Get in <em>Touch</em> with <em>Supply My Fire</em>
+    </h1>
+
+    <p class="max-w-152 mb-8 text-body-variant-2 text-neutral-300">
+      Whether you're ready to book a free home survey, want to visit our Cardiff
+      showroom, or have questions about our fireplace installation services,
+      we're here to help. Choose the contact method that suits you best
+    </p>
+
+    <div class="flex flex-col gap-5 text-sm">
+      {
+        contacts.map((contact) => (
+          <p class="flex gap-2 items-center">
+            <Icon name={contact.icon} size={20} />
+
+            {contact.text}
+          </p>
+        ))
+      }
+    </div>
+  </div>
+</HeroContainer>
