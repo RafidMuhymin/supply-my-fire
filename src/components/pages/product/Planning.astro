@@ -1,0 +1,32 @@
+---
+const { title, statistics } = (
+  (await import(
+    `@/data/products/${Astro.params.product}/planning.ts`
+  )) as typeof import("@/data/products/media-wall/planning.ts")
+).default;
+---
+
+<section
+  class="bg-yellow-50 py-10 md:py-16 lg:py-25 grid gap-6 md:gap-10 lg:gap-12.5"
+>
+  <h2 class="font-sans font-medium">
+    {title.main}
+    <span class="opacity-30">{title.muted}</span>
+  </h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5.5">
+    {
+      statistics.map((stat) => (
+        <div class="bg-white rounded-[10px] px-5 sm:px-6 py-9 lg:py-8">
+          <div class="flex lg:flex-col xl:flex-row items-end lg:items-start xl:items-end gap-2 mb-3">
+            <h2 class="text-[#E5CF1A] italic">{stat.value}</h2>
+
+            <p class="text-xl">{stat.label}</p>
+          </div>
+
+          <p class="text-neutral-600">{stat.description}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
