@@ -1,0 +1,35 @@
+{
+  "title": "Why <em>Cardiff Homeowners</em> Choose Our Media Wall Service",
+  "reasons": [
+    {
+      "icon": "plug",
+      "title": "100% Concealed Wiring",
+      "description": "Unlike competitors, we completely conceal ALL wiring, cables, and connections. No visible cables, no compromise on aesthetics - just a clean, professional finish."
+    },
+    {
+      "icon": "monitor",
+      "title": "See Before You Build",
+      "description": "Advanced 3D computer modeling lets you visualize your exact media wall before installation begins. Make changes, adjust designs, and ensure perfection."
+    },
+    {
+      "icon": "certification-1",
+      "title": "Exclusive Brand Access",
+      "description": "Cardiff's primary dealer for Solution Fires, Vision Fires, Gazco & Stovax. Access to products and designs unavailable anywhere else in the city."
+    },
+    {
+      "icon": "showroom",
+      "title": "See Products in Person",
+      "description": "Visit our Whitchurch Road showroom to see electric fires operating, feel the heat, and experience flame effects firsthand. Expert advice on-site."
+    },
+    {
+      "icon": "people",
+      "title": "40+ Years Combined Experience",
+      "description": "Extensive experience with Cardiff's diverse property types - from Victorian terraces to modern apartments. We understand Cardiff homes."
+    },
+    {
+      "icon": "time-2",
+      "title": "3-Day Average Installation",
+      "description": "Professional installation completed in just 3 days on average. Minimal disruption, maximum impact. Your Cardiff home transformed quickly."
+    }
+  ]
+}
