@@ -1,0 +1,43 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { title, reasons } = (
+  await import(`@/data/locations/${Astro.params.location}/why-choose-us.json`)
+).default as typeof import("@/data/locations/cardiff/why-choose-us.json");
+---
+
+<section class="flex flex-col items-center py-15 lg:py-25 bg-[#F8F9FA]">
+  <h2 class="text-center" set:html={title} />
+
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-5 lg:gap-6 mt-8 lg:mt-12.5"
+  >
+    {
+      reasons.map((reason, i) => (
+        <div
+          class:list={[
+            "rounded-lg p-5 lg:p-8",
+            i === 0 ? "bg-primary-50" : "bg-white",
+          ]}
+        >
+          <div class="flex flex-col gap-8 lg:gap-16">
+            <div
+              class:list={[
+                "p-2.75 rounded-sm w-fit",
+                i === 0 ? "bg-primary-200" : "bg-primary-100",
+              ]}
+            >
+              <Icon name={reason.icon} class="size-6 md:size-7" />
+            </div>
+
+            <div class="flex flex-col gap-4 lg:gap-2.5">
+              <h3 class="text-h3-variant-1">{reason.title}</h3>
+
+              <p class="text-body-variant-1">{reason.description} </p>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

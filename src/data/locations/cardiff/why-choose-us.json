@@ -1,0 +1,40 @@
+{
+  "title": "Why <em>Cardiff Homeowners</em> Choose Us",
+  "reasons": [
+    {
+      "icon": "certification-2",
+      "title": "Cardiff's Only Primary Dealer",
+      "description": "Exclusive Cardiff dealer for Solution Fires, Vision Fires, Gazco & Stovax - products you won't find anywhere else in the city"
+    },
+    {
+      "icon": "carbon",
+      "title": "HETAS Approved Retailer",
+      "description": "Professional certification for wood burning stove expertise. Fully compliant with Cardiff's building regulations and smoke control requirements"
+    },
+    {
+      "icon": "safe-guard",
+      "title": "Gas Safe Certified",
+      "description": "All gas installations performed by Gas Safe registered engineers. Complete peace of mind for Cardiff homeowners"
+    },
+    {
+      "icon": "showroom",
+      "title": "Cardiff Showroom",
+      "description": "See products in person at our Whitchurch Road showroom. Open Tuesday-Saturday with free parking available"
+    },
+    {
+      "icon": "tv",
+      "title": "Media Wall Specialists",
+      "description": "Cardiff's leading media wall specialists. Complete concealed wiring, custom design, and professional installation"
+    },
+    {
+      "icon": "survey",
+      "title": "Free Home Surveys",
+      "description": "No-obligation consultations at your Cardiff property. We come to you at a time that suits your schedule"
+    },
+    {
+      "icon": "time-2",
+      "title": "40+ Years Combined Experience",
+      "description": "Extensive experience with Cardiff's diverse property types - from Victorian terraces to modern apartments"
+    }
+  ]
+}
