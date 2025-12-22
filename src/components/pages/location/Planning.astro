@@ -1,0 +1,11 @@
+---
+import PlanningShared from "@/components/PlanningShared.astro";
+
+const { title, images, button } = (
+  (await import(
+    `@/data/locations/${Astro.params.location}/planning.ts`
+  )) as typeof import("@/data/locations/cardiff/planning.ts")
+).default;
+---
+
+<PlanningShared title={title} images={images} button={button} />
