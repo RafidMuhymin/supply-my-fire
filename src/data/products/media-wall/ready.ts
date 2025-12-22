@@ -1,0 +1,33 @@
+const data = {
+  title: {
+    main: "Ready for Your ",
+    highlight: "Cardiff Media Wall?",
+  },
+  description:
+    "Start with a free consultation at our Cardiff showroom or request a home survey. Our expert team is ready to help bring your fireplace vision to life.",
+  cards: [
+    {
+      icon: "telephone",
+      title: "Book Free Consultation",
+      text: "Free Cardiff home survey & 3D design model",
+      btnText: "Book Consultation",
+      btnHref: "#book-consultation",
+    },
+    {
+      icon: "home",
+      title: "Visit Cardiff Showroom",
+      text: "See electric fires operating in person",
+      btnText: "Book Showroom Visit",
+      btnHref: "#book-visit",
+    },
+    {
+      icon: "team",
+      title: "Call Media Wall Team",
+      text: "Speak to a specialist today",
+      btnText: "Call 029 2030 9664",
+      btnHref: "tel:02920309664",
+    },
+  ],
+};
+
+export default data;
