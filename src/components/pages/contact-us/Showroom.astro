@@ -43,6 +43,12 @@ const informations: Array<{
     content: null,
   },
   {
+    id: "section_location",
+    icon: "building",
+    header: "Close to Cardiff city centre",
+    content: null,
+  },
+  {
     id: "section_accessibility",
     icon: "wheelChair",
     header: "Wheelchair accessible",
@@ -114,16 +120,12 @@ const serviceButtons: Array<{
   <div class="box-variant-1 rounded-[10px] bg-neutral-100 noise">
     <div class="grid gap-7.5 md:gap-10">
       <h2 class="text-center">Visit Our Cardiff <i>Showroom</i></h2>
-      <div class="grid grid-cols-1 xl:grid-cols-2 gap-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
         <div class="max-w-153.5 grid gap-11">
           <div class="grid gap-8">
             <div class="grid gap-6">
-              <h3 class="text-4xl font-serif max-md:hidden">
-                Showroom Details
-              </h3>
-              <h3 class="text-[26px] font-serif md:hidden">
-                See Our Full Range at Our Whitchurch Road Showroom
-              </h3>
+              <h3 class="text-4xl font-serif">Showroom Details</h3>
+
               <p class="text-body-variant-1 leading-6">
                 Our Whitchurch Road showroom is the best place to experience our
                 fireplace and media wall products. See electric fires operating,
@@ -173,10 +175,10 @@ const serviceButtons: Array<{
               }
             </div>
           </div>
-          <div class="flex flex-col md:flex-row gap-3.5">
+          <div class="flex flex-col md:flex-row flex-wrap gap-3.5">
             {
               serviceButtons.map((button) => (
-                <Button variant={button.variant} width="full" class="md:w-auto">
+                <Button variant={button.variant} width="fit" class="w-auto ">
                   {button.label}
                 </Button>
               ))
@@ -185,7 +187,7 @@ const serviceButtons: Array<{
         </div>
 
         <div
-          class="relative rounded-lg shadow-[0px_0px_35px_0px_#0000001A] border border-neutral-300 overflow-hidden max-xl:aspect-4/3"
+          class="relative rounded-lg shadow-[0px_0px_35px_0px_#0000001A] border border-neutral-300 overflow-hidden max-lg:aspect-4/3"
         >
           <Image
             src={map}
