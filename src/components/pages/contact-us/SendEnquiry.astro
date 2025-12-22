@@ -36,7 +36,26 @@ const howDidYouHearAboutUsOptions = [
         </p>
       </div>
     </div>
-    <form id="enquiry-form" class="grid gap-5">
+    <form
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      novalidate
+      id="enquiry-form"
+      class="grid gap-5"
+    >
+      <!-- Web3Forms Access Key -->
+      <input
+        type="hidden"
+        name="access_key"
+        value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY}
+      />
+
+      <!-- Custom Subject Line to identify this form -->
+      <input type="hidden" name="subject" value="Enquiry Request" />
+
+      <!-- Honeypot Spam Protection -->
+      <input type="checkbox" name="botcheck" class="hidden" />
+
       <div class="grid grid-cols-2 gap-3.5">
         <div class="grid gap-1">
           <label for="full-name" class="text-body-variant-3 font-semibold">
@@ -50,6 +69,9 @@ const howDidYouHearAboutUsOptions = [
             placeholder="John Smith"
             required
           />
+          <p class="invalid-feedback text-red-500 text-sm mt-1 hidden">
+            Please provide your full name.
+          </p>
         </div>
         <div class="grid gap-1">
           <label for="email-address" class="text-body-variant-3 font-semibold">
@@ -63,6 +85,9 @@ const howDidYouHearAboutUsOptions = [
             placeholder="your.email@example.com"
             required
           />
+          <p class="invalid-feedback text-red-500 text-sm mt-1 hidden">
+            Please provide your email address correctly.
+          </p>
         </div>
       </div>
       <div class="grid gap-1">
@@ -77,6 +102,9 @@ const howDidYouHearAboutUsOptions = [
           placeholder="Your Phone Number"
           required
         />
+        <p class="invalid-feedback text-red-500 text-sm mt-1 hidden">
+          Please provide your phone number correctly.
+        </p>
       </div>
       <div class="grid gap-1">
         <label for="postcode" class="text-body-variant-3 font-semibold">
@@ -90,6 +118,9 @@ const howDidYouHearAboutUsOptions = [
           placeholder="CF14 3LY"
           required
         />
+        <p class="invalid-feedback text-red-500 text-sm mt-1 hidden">
+          Please provide your postcode correctly.
+        </p>
       </div>
       <div class="grid gap-1">
         <label for="interested-in" class="text-body-variant-3 font-semibold">
@@ -177,6 +208,9 @@ const howDidYouHearAboutUsOptions = [
           id="message"
           placeholder="Tell us about your project, questions, or requirements. Include room dimensions if known, property type, and any specific ideas you have."
           required></textarea>
+        <p class="invalid-feedback text-red-500 text-sm mt-1 hidden">
+          Please provide your message.
+        </p>
       </div>
       <div class="grid gap-1">
         <label
@@ -220,7 +254,7 @@ const howDidYouHearAboutUsOptions = [
 
 <div
   id="inquiry-form-modal"
-  class="hidden bg-black/50 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen flex items-center justify-center z-1 p-5"
+  class="hidden bg-black/50 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen items-center justify-center z-1 p-5"
 >
   <div
     class="bg-white rounded-[10px] md:rounded-3xl relative px-11 md:px-22.5 py-6 md:py-15"
@@ -249,8 +283,26 @@ const howDidYouHearAboutUsOptions = [
   </div>
 </div>
 
+<style lang="scss">
+  @reference "@/styles/global.css";
+
+  .was-validated {
+    input,
+    textarea,
+    select {
+      &:invalid {
+        @apply outline-red-500 bg-white;
+
+        & + .invalid-feedback {
+          @apply block;
+        }
+      }
+    }
+  }
+</style>
+
 <script>
-  const form = document.getElementById("enquiry-form");
+  const form = document.getElementById("enquiry-form") as HTMLFormElement;
   const modal = document.getElementById("inquiry-form-modal");
   const result = document.getElementById("inquiry-form-result");
   const closeBtn = document.getElementById("inquiry-form-close");
@@ -269,11 +321,69 @@ const howDidYouHearAboutUsOptions = [
   };
 
   form &&
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", function (e) {
       e.preventDefault();
-      openModal();
 
-      if (result) result.textContent = "";
+      form.classList.add("was-validated");
+
+      if (!form.checkValidity()) {
+        const [invalidEl] = form.querySelectorAll<HTMLInputElement>(":invalid");
+
+        invalidEl.focus();
+
+        return;
+      }
+
+      const formData = new FormData(form),
+        object = Object.fromEntries(formData),
+        json = JSON.stringify(object);
+
+      if (result) {
+        result.style.display = "block";
+        result.innerHTML = "Sending...";
+        result.classList.remove("text-green-500", "text-red-500");
+      }
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      })
+        .then(async (response) => {
+          let data = await response.json();
+
+          if (response.status == 200) {
+            if (result) result.style.display = "none";
+
+            openModal();
+          } else {
+            console.log(response);
+
+            if (result) {
+              result.classList.add("text-red-500");
+              result.innerHTML = data.message;
+            }
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+
+          if (result) {
+            result.classList.add("text-red-500");
+            result.innerHTML = "Something went wrong!";
+          }
+        })
+        .then(function () {
+          form.reset();
+          form.classList.remove("was-validated");
+
+          setTimeout(() => {
+            if (result) result.style.display = "none";
+          }, 5000);
+        });
     });
 
   closeBtn && closeBtn.addEventListener("click", () => closeModal());
