@@ -1,0 +1,64 @@
+---
+import { Icon } from "astro-icon/components";
+import HeroContainer from "@/components/HeroContainer.astro";
+import Button from "@/components/Button.astro";
+
+const {
+  backgroundImage,
+  title,
+  description,
+  buttons,
+  certifications,
+  servingText,
+} = (
+  (await import(
+    `@/data/locations/${Astro.params.location}/hero.ts`
+  )) as typeof import("@/data/locations/cardiff/hero.ts")
+).default;
+---
+
+<HeroContainer bg={backgroundImage}>
+  <div class="absolute inset-0 bg-black/60 -z-10"></div>
+
+  <div class="max-w-171 flex flex-col pt-7.5 lg:pt-14 pb-13.5 lg:pb-11">
+    <h1 class="mb-4 md:mb-7.5">
+      {title.main}
+      <em>{title.highlight1}</em>
+      {title.middle}
+      <em>{title.highlight2}</em>
+    </h1>
+
+    <p class="mb-8 md:mb-8 text-body-variant-2 text-neutral-300">
+      {description}
+    </p>
+
+    <div class="mb-8 flex flex-col md:flex-row gap-3.5">
+      {
+        buttons.map((button) => (
+          <Button
+            width="full"
+            variant={button.variant as any}
+            text={button.text}
+            class="md:w-fit"
+          />
+        ))
+      }
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-2.5 lg:gap-5 text-sm">
+      {
+        certifications.map((certification) => (
+          <p class="flex gap-1.75 items-center">
+            <Icon name="check" size={16} />
+
+            {certification}
+          </p>
+        ))
+      }
+    </div>
+
+    <p class="text-sm mt-4 md:mt-5">
+      {servingText}
+    </p>
+  </div>
+</HeroContainer>
