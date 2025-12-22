@@ -1,0 +1,27 @@
+---
+import Button from "./Button.astro";
+
+const { title } = Astro.props;
+
+const wallyWidgetID = "69284199366cc00014622b89",
+  placeID = "ChIJ__9KBJscbkgRga3N3MMtbGA";
+---
+
+<section class="flex flex-col items-center">
+  <h2 set:html={title} />
+
+  <div
+    class="size-full my-7.5 lg:my-10"
+    data-wally-widget="69284199366cc00014622b89"
+  >
+  </div>
+
+  <Button
+    href={`https://search.google.com/local/reviews?placeid=${placeID}`}
+    variant="primary"
+    width="fit"
+    text="Read More Reviews on Google"
+  />
+
+  <script src="https://embed.getwally.net/embed.js" defer></script>
+</section>

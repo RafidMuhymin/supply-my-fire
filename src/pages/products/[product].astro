@@ -12,7 +12,7 @@ import HowItWorks from "@pages/product/HowItWorks.astro";
 import WhyChooseUs from "@pages/product/WhyChooseUs.astro";
 import DesignOptions from "@pages/product/DesignOptions.astro";
 import RecentInstallations from "@pages/product/RecentInstallations.astro";
-import Testimonials from "@pages/product/Testimonials.astro";
+import Testimonials from "@/components/Testimonials.astro";
 import FAQs from "@pages/product/FAQs.astro";
 import Services from "@pages/product/Services.astro";
 import Ready from "@pages/product/Ready.astro";
@@ -24,6 +24,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
     params: { product },
   }));
 };
+
+const meta = (await import(`@/data/products/${Astro.params.product}/meta.json`))
+  .default as typeof import("@/data/products/media-wall/meta.json");
 ---
 
 <Layout
@@ -40,7 +43,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   <WhyChooseUs />
   <DesignOptions />
   <RecentInstallations />
-  <Testimonials />
+  <Testimonials title={meta.testimonialsTitle} />
   <FAQs />
   <Services />
   <Ready />
