@@ -1,0 +1,63 @@
+---
+import SliderImg1 from "@/assets/images/slider-img-1.jpg";
+import SliderImg2 from "@/assets/images/slider-img-2.jpg";
+import SliderImg3 from "@/assets/images/slider-img-3.jpg";
+import SliderImg4 from "@/assets/images/slider-img-4.jpg";
+import SliderImg5 from "@/assets/images/slider-img-5.jpg";
+
+import PlanningShared from "@/components/PlanningShared.astro";
+
+const title = {
+  main: "Planning to visit our Cardiff showroom? We strongly recommend booking ahead to",
+  muted:
+    "avoid waiting. Book same-day appointments as little as 30 minutes in advance — you'll get priority service.",
+};
+const images = [
+  {
+    src: SliderImg1,
+    alt: "slider Image 1",
+    width: "w-32",
+    height: "h-46",
+    lgWidth: "lg:w-[16%]",
+    aspectRatio: "aspect-230/293",
+  },
+  {
+    src: SliderImg2,
+    alt: "slider Image 2",
+    width: "w-37",
+    height: "h-54",
+    lgWidth: "lg:w-[18.6%]",
+    aspectRatio: "aspect-246/356",
+  },
+  {
+    src: SliderImg3,
+    alt: "slider Image 3",
+    width: "w-45",
+    height: "h-63",
+    lgWidth: "lg:w-[22.7%]",
+    aspectRatio: "aspect-[3/4.2]",
+  },
+  {
+    src: SliderImg4,
+    alt: "slider Image 4",
+    width: "w-37",
+    height: "h-54",
+    lgWidth: "lg:w-[18.6%]",
+    aspectRatio: "aspect-246/356",
+  },
+  {
+    src: SliderImg5,
+    alt: "slider Image 5",
+    width: "w-32",
+    height: "h-46",
+    lgWidth: "lg:w-[16%]",
+    aspectRatio: "aspect-230/293",
+  },
+];
+const button = {
+  href: "/contact-us#enquiry-form",
+  text: "Book Your Showroom Appointment",
+};
+---
+
+<PlanningShared title={title} images={images} button={button} />

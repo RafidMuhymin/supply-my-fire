@@ -1,0 +1,70 @@
+---
+import Button from "@/components/Button.astro";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Title {
+  main: string;
+  muted: string;
+}
+
+interface SliderImage {
+  src: ImageMetadata;
+  alt: string;
+  width: string;
+  height: string;
+  lgWidth: string;
+  aspectRatio: string;
+}
+
+interface ButtonConfig {
+  href: string;
+  text: string;
+}
+
+interface Props {
+  title: Title;
+  images: SliderImage[];
+  button: ButtonConfig;
+}
+
+const { title, images, button } = Astro.props;
+---
+
+<section
+  class="bg-yellow-50 py-10 md:py-16 lg:py-25 grid gap-8 md:gap-10 lg:gap-12.5"
+>
+  <h2 class="font-sans font-medium">
+    {title.main}
+    <span class="opacity-30">{title.muted}</span>
+  </h2>
+
+  <div
+    id="planing-slider-scroll"
+    class="flex gap-4 items-center overflow-x-scroll hide-scrollbar snap-x snap-mandatory justify-center-safe"
+  >
+    {
+      images.map((image) => (
+        <Image
+          src={image.src}
+          alt={image.alt}
+          class={`${image.width} ${image.height} ${image.lgWidth} ${image.aspectRatio} lg:h-auto rounded-[20px] snap-center`}
+        />
+      ))
+    }
+  </div>
+
+  <Button
+    href={button.href}
+    width="full"
+    variant="primary"
+    text={button.text}
+    class="md:w-fit mx-auto"
+  />
+</section>
+
+<script>
+  import centerScrollContent from "@/utils/centerScrollContent";
+
+  centerScrollContent("planing-slider-scroll");
+</script>
