@@ -1,16 +1,13 @@
 ---
+import ServicesShared from "@/components/ServicesShared.astro";
+
 import ServiceImg1 from "@/assets/images/service-img-1.png";
 import ServiceImg2 from "@/assets/images/service-img-2.jpg";
 import ServiceImg3 from "@/assets/images/service-img-3.jpg";
 import serviceImg4 from "@/assets/images/service-img-4.jpg";
 import serviceImg5 from "@/assets/images/service-img-5.jpg";
-import ServicesShared from "@/components/ServicesShared.astro";
 
-const title = {
-  main: "Our",
-  highlight: "Specialist",
-  suffix: "Services",
-};
+const title = `Our <em>Specialist</em> Services`;
 
 const services = [
   {
@@ -18,37 +15,37 @@ const services = [
     description:
       "Transform your living space with custom media walls combining stunning electric or gas fireplaces with integrated entertainment systems. Concealed wiring, custom lighting, and professional design-build service.",
     image: ServiceImg1,
-    size: "col-span-12",
+    col: "col-span-12",
   },
   {
     title: "Electric Fires & Stoves",
     description:
       "No chimney? No problem. Realistic flame effects with instant heat, positioned almost anywhere in your home. Latest technology from Solution Fires, Vision Fires, and Gazco.",
     image: ServiceImg2,
-    size: "col-span-7",
+    col: "col-span-7",
   },
   {
     title: "Fireplaces & Mantels",
     description:
       "Premium limestone, marble, and wooden fireplaces for period and contemporary homes. Custom sizing available.",
     image: ServiceImg3,
-    size: "col-span-5",
+    col: "col-span-5",
   },
   {
     title: "Wood Burning Stoves",
     description:
       "ECO 2022 DEFRA approved stoves from leading manufacturers. Expert HETAS installation throughout Cardiff and South Wales.",
     image: serviceImg4,
-    size: "col-span-6",
+    col: "col-span-6",
   },
   {
     title: "Gas Fires & Stoves",
     description:
       "High-efficiency gas fires with exceptional flame quality. Balanced flue options for homes without chimneys.",
     image: serviceImg5,
-    size: "col-span-6",
+    col: "col-span-6",
   },
 ];
 ---
 
-<ServicesShared title={title} services={services} />
+<ServicesShared {title} {services} />
