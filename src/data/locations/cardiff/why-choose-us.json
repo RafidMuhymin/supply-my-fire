@@ -13,22 +13,22 @@
     },
     {
       "icon": "safe-guard",
-      "title": "Gas Safe Certified",
+      "title": "Gas Safe <br class='hidden md:block' /> Certified",
       "description": "All gas installations performed by Gas Safe registered engineers. Complete peace of mind for Cardiff homeowners"
     },
     {
       "icon": "showroom",
-      "title": "Cardiff Showroom",
+      "title": "Cardiff <br class='hidden md:block' /> Showroom",
       "description": "See products in person at our Whitchurch Road showroom. Open Tuesday-Saturday with free parking available"
     },
     {
       "icon": "tv",
-      "title": "Media Wall Specialists",
+      "title": "Media Wall <br class='hidden md:block' /> Specialists",
       "description": "Cardiff's leading media wall specialists. Complete concealed wiring, custom design, and professional installation"
     },
     {
       "icon": "survey",
-      "title": "Free Home Surveys",
+      "title": "Free Home <br class='hidden md:block' /> Surveys",
       "description": "No-obligation consultations at your Cardiff property. We come to you at a time that suits your schedule"
     },
     {

@@ -66,8 +66,12 @@ const commitments = [
             </div>
 
             <div class="flex flex-col gap-4 lg:gap-3.5">
-              <h3 class="text-h3-variant-1">{commitment.title}</h3>
-              <p class="text-body-variant-1">{commitment.description} </p>
+              <h3 class="text-h3-variant-1" set:html={commitment.title} />
+
+              <p
+                class="text-body-variant-1"
+                set:html={commitment.description}
+              />
             </div>
           </div>
         </div>
