@@ -16,7 +16,7 @@ const data = {
       text: "Visit Our Cardiff Showroom",
     },
     {
-      variant: "white",
+      variant: "transparent",
       text: "Book Free Cardiff Home Survey",
     },
   ],
