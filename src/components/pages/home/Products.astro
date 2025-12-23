@@ -1,13 +1,13 @@
 ---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
 import ProductImg1 from "@/assets/images/product-img-1.png";
 import ProductImg2 from "@/assets/images/product-img-2.jpg";
 import ProductImg3 from "@/assets/images/product-img-3.jpg";
 import ProductImg4 from "@/assets/images/product-img-4.png";
 import ProductImg5 from "@/assets/images/product-img-5.jpg";
 import ProductImg6 from "@/assets/images/product-img-6.jpg";
-import { Icon } from "astro-icon/components";
-
-import { Image } from "astro:assets";
 
 const products = [
   {
@@ -88,7 +88,7 @@ const products = [
 <section class="bg-primary-50 py-16 noise">
   <div class="max-w-7xl mx-auto">
     <h2 class="text-secondary text-center mb-8 lg:mb-12.5">
-      <span class="italic">Featured</span> Products
+      <em>Featured</em> Products
     </h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 xl:mx-17">
@@ -101,6 +101,7 @@ const products = [
                 alt={product.name}
                 class="w-full h-56 rounded-t-sm rounded-b-xs object-cover"
               />
+
               <span class="absolute top-2.5 right-2.5 bg-primary-100 px-3 py-1 rounded-full text-sm text-secondary">
                 {product.brand}
               </span>
@@ -110,6 +111,7 @@ const products = [
               <p class="text-small mb-2 lg:mb-1 text-neutral-500">
                 {product.category}
               </p>
+
               <h3 class="text-h3-variant-2 text-secondary mb-4">
                 {product.name}
               </h3>
