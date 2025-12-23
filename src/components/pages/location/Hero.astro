@@ -5,6 +5,7 @@ import Button from "@/components/Button.astro";
 
 const {
   backgroundImage,
+  backgroundImageSm,
   title,
   description,
   buttons,
@@ -17,8 +18,11 @@ const {
 ).default;
 ---
 
-<HeroContainer bg={backgroundImage}>
-  <div class="absolute inset-0 bg-black/60 -z-10"></div>
+<HeroContainer bg={backgroundImage} mobileBg={backgroundImageSm}>
+  <div
+    class="absolute inset-0 bg-[linear-gradient(282deg,rgba(0,0,0,0)_30.63%,rgba(0,0,0,0.70)_85.92%)] lg:bg-[linear-gradient(279deg,rgba(0,0,0,0)_-77.45%,rgba(0,0,0,0.70)_78.17%)] -z-10"
+  >
+  </div>
 
   <div class="max-w-171 flex flex-col pt-7.5 lg:pt-14 pb-13.5 lg:pb-11">
     <h1 class="mb-4 md:mb-7.5">

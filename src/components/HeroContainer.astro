@@ -6,11 +6,11 @@ import { Icon } from "astro-icon/components";
 
 interface Props {
   bg: ImageMetadata;
+  mobileBg?: ImageMetadata;
   class?: string;
 }
 
-const { bg, class: _class } = Astro.props;
-
+const { bg, mobileBg, class: _class } = Astro.props;
 const footerText =
   "Cardiff Showroom | Installation Services: Cardiff, Newport, Swansea, Bristol & Bath";
 ---
@@ -21,8 +21,23 @@ const footerText =
     role="presentation"
     src={bg}
     alt=""
-    class="absolute inset-0 size-full object-cover -z-20"
+    class:list={[
+      "absolute inset-0 size-full object-cover -z-20",
+      mobileBg ? "hidden lg:block" : "",
+    ]}
   />
+
+  {
+    mobileBg && (
+      <Image
+        priority
+        role="presentation"
+        src={mobileBg}
+        alt=""
+        class="absolute inset-0 size-full object-cover -z-20 lg:hidden"
+      />
+    )
+  }
 
   <Navbar />
 

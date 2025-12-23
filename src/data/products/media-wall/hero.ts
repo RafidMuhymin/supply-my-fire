@@ -1,7 +1,9 @@
-import BackgroundImage from "@/assets/images/hero-bg-products.png";
+import BackgroundImage from "@/assets/images/hero-bg-shared.png";
+import BackgroundImageSm from "@/assets/images/hero-bg-shared-sm.png";
 
 const data = {
   backgroundImage: BackgroundImage,
+  backgroundImageSm: BackgroundImageSm,
   title: {
     main: "Bespoke Media Wall",
     highlight: "Installation in Cardiff",

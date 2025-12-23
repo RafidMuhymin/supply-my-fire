@@ -4,6 +4,7 @@ import { Icon } from "astro-icon/components";
 import HeroContainer from "@/components/HeroContainer.astro";
 
 import BackgroundImage from "@/assets/images/hero-bg-about-us.png";
+import BackgroundImageSm from "@/assets/images/hero-bg-about-us-sm.png";
 
 const certifications = [
   "40+ Years Combined Experience",
@@ -13,8 +14,11 @@ const certifications = [
 ];
 ---
 
-<HeroContainer bg={BackgroundImage}>
-  <div class="absolute inset-0 bg-black/60 -z-10"></div>
+<HeroContainer bg={BackgroundImage} mobileBg={BackgroundImageSm}>
+  <div
+    class="absolute inset-0 bg-[linear-gradient(282deg,rgba(0,0,0,0)_30.63%,rgba(0,0,0,0.50)_85.92%)] lg:bg-black/20 -z-10"
+  >
+  </div>
 
   <div class="max-w-180 flex flex-col pt-7.5 lg:pt-14 pb-13.5 lg:pb-11">
     <h1 class="mb-4 md:mb-6">

@@ -3,7 +3,8 @@ import { Icon } from "astro-icon/components";
 
 import HeroContainer from "@/components/HeroContainer.astro";
 
-import BackgroundImage from "@/assets/images/hero-bg-products.png";
+import BackgroundImage from "@/assets/images/hero-bg-shared.png";
+import BackgroundImageSm from "@/assets/images/hero-bg-shared-sm.png";
 
 const contacts = [
   {
@@ -25,8 +26,10 @@ const contacts = [
 ];
 ---
 
-<HeroContainer bg={BackgroundImage}>
-  <div class="absolute inset-0 bg-linear-to-r from-black/90 to-black/0 -z-10">
+<HeroContainer bg={BackgroundImage} mobileBg={BackgroundImageSm}>
+  <div
+    class="absolute inset-0 bg-[linear-gradient(282deg,rgba(0,0,0,0)_30.63%,rgba(0,0,0,0.70)_85.92%)] lg:bg-[linear-gradient(279deg,rgba(0,0,0,0)_-77.45%,rgba(0,0,0,0.70)_78.17%)] -z-10"
+  >
   </div>
 
   <div class="max-w-xl flex flex-col pt-7.5 lg:pt-17 pb-16 lg:pb-23">
