@@ -5,6 +5,7 @@ import type { ImageMetadata } from "astro";
 import Button from "./Button.astro";
 
 interface Service {
+  href?: string;
   title: string;
   description: string;
   image: ImageMetadata;
@@ -12,18 +13,12 @@ interface Service {
   gradientBg?: string;
 }
 
-interface ButtonConfig {
-  href: string;
-  text: string;
-}
-
 interface Props {
   title: string;
   services: Service[];
-  button?: ButtonConfig;
 }
 
-const { title, services, button } = Astro.props;
+const { title, services } = Astro.props;
 ---
 
 <section>
@@ -60,13 +55,13 @@ const { title, services, button } = Astro.props;
               {service.description}
             </p>
 
-            {button && (
+            {service.href && (
               <div class="mt-5 lg:mt-8">
                 <Button
-                  href={button.href}
+                  href={service.href}
                   width="fit"
                   variant="primary"
-                  text={button.text}
+                  text="Learn More"
                 />
               </div>
             )}

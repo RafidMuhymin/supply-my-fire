@@ -1,11 +1,11 @@
 ---
 import ServicesShared from "@/components/ServicesShared.astro";
 
-const { title, services, button } = (
+const { title, services } = (
   (await import(
     `@/data/products/${Astro.params.product}/services.ts`
   )) as typeof import("@/data/products/media-wall/services.ts")
 ).default;
 ---
 
-<ServicesShared {title} {services} {button} />
+<ServicesShared {title} {services} />
