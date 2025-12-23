@@ -1,7 +1,8 @@
 ---
 import { Icon } from "astro-icon/components";
-import HeroContainer from "@/components/HeroContainer.astro";
+
 import Button from "@/components/Button.astro";
+import HeroContainer from "@/components/HeroContainer.astro";
 
 const {
   backgroundImage,
@@ -25,10 +26,7 @@ const {
   </div>
 
   <div class="max-w-142 flex flex-col pt-7.5 lg:pt-6 pb-11 lg:pb-12">
-    <h1 class="mb-4 md:mb-7.5">
-      <em>{title.main}</em>
-      {title.highlight}
-    </h1>
+    <h1 class="mb-4 md:mb-7.5" set:html={title} />
 
     <p class="mb-8 md:mb-6 text-body-variant-2 text-neutral-300">
       {description}

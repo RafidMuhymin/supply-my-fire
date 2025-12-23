@@ -4,12 +4,7 @@ import BackgroundImageSm from "@/assets/images/hero-bg-shared-sm.png";
 const data = {
   backgroundImage: BackgroundImage,
   backgroundImageSm: BackgroundImageSm,
-  title: {
-    main: "Professional",
-    highlight1: "Fireplace Installation",
-    middle: "in",
-    highlight2: "Cardiff",
-  },
+  title: `Professional <em>Fireplace Installation</em> in Cardiff`,
   description:
     "From bespoke media walls to traditional wood burners, we supply and install exceptional fireplaces throughout Cardiff. Visit our Whitchurch Road showroom or book a free home survey. HETAS approved, Gas Safe certified, 40+ years combined experience.",
   buttons: [

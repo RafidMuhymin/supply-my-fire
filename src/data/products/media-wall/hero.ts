@@ -4,10 +4,7 @@ import BackgroundImageSm from "@/assets/images/hero-bg-shared-sm.png";
 const data = {
   backgroundImage: BackgroundImage,
   backgroundImageSm: BackgroundImageSm,
-  title: {
-    main: "Bespoke Media Wall",
-    highlight: "Installation in Cardiff",
-  },
+  title: `<em>Bespoke Media Wall</em> Installation in Cardiff`,
   description:
     "Transform your Cardiff home with a custom-designed media wall combining stunning electric fires with integrated entertainment systems. Complete concealed wiring, professional installation, and expert design service from Cardiff's media wall specialists.",
   buttons: [
