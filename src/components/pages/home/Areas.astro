@@ -5,6 +5,8 @@ import { Icon } from "astro-icon/components";
 import Button from "@/components/Button.astro";
 
 import AreasBg from "@/assets/images/areas-bg.jpg";
+import AreasBgSm from "@/assets/images/areas-bg-sm.jpg";
+
 import Cardif from "@/assets/images/cardiff.jpg";
 import Newport from "@/assets/images/newport.jpg";
 import Swansea from "@/assets/images/swansea.jpg";
@@ -52,7 +54,19 @@ const areas = [
 
   <div class="relative rounded-2xl overflow-hidden">
     <div class="h-100 lg:h-148">
-      <Image src={AreasBg} alt="areas-bg" class="h-full w-full object-cover" />
+      <Image
+        src={AreasBg}
+        alt=""
+        role="presentation"
+        class="size-full object-cover hidden lg:block"
+      />
+
+      <Image
+        src={AreasBgSm}
+        alt=""
+        role="presentation"
+        class="size-full object-cover lg:hidden"
+      />
 
       <div class="absolute inset-0 bg-linear-to-b from-black/0 to-black"></div>
     </div>
