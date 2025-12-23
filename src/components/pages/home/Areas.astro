@@ -13,6 +13,8 @@ import Bath from "@/assets/images/bath.jpg";
 
 const areas = [
   {
+    href: "/cardiff",
+    tag: "Our showroom location",
     name: "Cardiff",
     image: Cardif,
   },
@@ -56,26 +58,45 @@ const areas = [
     </div>
 
     <div
-      class="absolute bottom-3.5 lg:bottom-10 flex justify-center-safe w-full px-4 gap-2.5 lg:gap-4 overflow-x-auto hide-scrollbar"
+      class:list={[
+        "absolute bottom-3.5 lg:bottom-10 flex justify-center-safe w-full px-4 gap-2.5 lg:gap-4 overflow-x-auto hide-scrollbar",
+        "py-10 -my-10" /* to allow scale on hover */,
+      ]}
     >
       {
-        areas.map((area) => (
-          <div class="bg-white/10 backdrop-blur-[8.5px] rounded-[10px] p-1.5">
-            <div class="w-37 h-28 lg:w-42 lg:h-30 xl:w-56 xl:h-42 overflow-hidden rounded-lg">
-              <Image
-                src={area.image}
-                alt={area.name}
-                class="w-full h-full object-cover"
-              />
-            </div>
+        areas.map((area) => {
+          const Tag = area.href ? "a" : "div";
 
-            <div class="flex justify-between mt-3 px-2.5 items-center text-white">
-              <span class="text-sm font-medium">{area.name}</span>
+          return (
+            <Tag
+              href={area.href}
+              class:list={[
+                "block bg-white/10 backdrop-blur-[8.5px] rounded-[10px] p-1.5",
+                area.href && "hover:scale-110 transition-transform",
+              ]}
+            >
+              <div class="relative w-37 h-28 lg:w-42 lg:h-30 xl:w-56 xl:h-42 overflow-hidden rounded-lg">
+                <Image
+                  src={area.image}
+                  alt={area.name}
+                  class="w-full h-full object-cover"
+                />
 
-              <Icon name="location-5" size={22} class="hidden lg:block" />
-            </div>
-          </div>
-        ))
+                {area.tag && (
+                  <span class="absolute top-1 left-1 lg:top-2.5 lg:left-2.5 bg-primary-100 px-1.5 py-1 lg:px-2.5 lg:py-1.5 rounded-full text-xs text-secondary z-10">
+                    {area.tag}
+                  </span>
+                )}
+              </div>
+
+              <div class="flex justify-between mt-3 px-2.5 items-center text-white">
+                <span class="text-sm font-medium">{area.name}</span>
+
+                <Icon name="location-5" size={22} class="hidden lg:block" />
+              </div>
+            </Tag>
+          );
+        })
       }
     </div>
   </div>
