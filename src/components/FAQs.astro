@@ -1,0 +1,69 @@
+---
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title: string;
+  faqs: FAQ[];
+}
+
+const { title, faqs } = Astro.props;
+---
+
+<section
+  class="no-section-padding bg-yellow-50 flex flex-col items-center gap-6 md:gap-8 lg:gap-12.5 py-10 lg:py-15"
+>
+  <h2 set:html={title} />
+
+  <div class="max-w-237.5 w-full flex flex-col gap-4">
+    {
+      faqs.map((faq, i) => (
+        <details
+          open={i === 0}
+          name="faq"
+          class="group flex flex-col bg-white hover:bg-neutral-100 transition-colors rounded-2xl px-5 md:px-8 py-4.5 md:py-7"
+        >
+          <summary class="flex justify-between items-center cursor-pointer">
+            <h3 class="text-h3-variant-2 pr-8">Q. {faq.question}</h3>
+
+            <span class="text-3xl shrink-0" />
+          </summary>
+
+          <p
+            class="pt-3.5 text-body-variant-1 opacity-70"
+            set:html={faq.answer}
+          />
+        </details>
+      ))
+    }
+  </div>
+</section>
+
+<style lang="scss">
+  @reference "@/styles/global.css";
+
+  details::details-content {
+    opacity: 0;
+    block-size: 0;
+    overflow: hidden;
+
+    @apply transition-all transition-discrete;
+  }
+
+  h3 + span::before {
+    content: "+";
+  }
+
+  details[open] {
+    &::details-content {
+      opacity: 1;
+      block-size: auto;
+    }
+
+    h3 + span::before {
+      content: "−";
+    }
+  }
+</style>

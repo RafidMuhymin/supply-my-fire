@@ -41,6 +41,8 @@
 
   html {
     @apply font-sans scroll-smooth;
+
+    interpolate-size: allow-keywords;
   }
 
   body {
@@ -56,12 +58,12 @@
     }
   }
 
-  section {
-    @apply px-2.5;
-  }
+  :is(section, .section) {
+    @apply px-5 sm:px-8 md:px-12 lg:px-12.5 lg:mx-2.5;
 
-  :is(section, .section):not(.no-section-padding) {
-    @apply px-5 sm:px-8 md:px-12 lg:px-15;
+    &:not(.no-section-padding) {
+      @apply lg:px-15 lg:mx-0;
+    }
   }
 
   body {
