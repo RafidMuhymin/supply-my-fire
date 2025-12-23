@@ -35,7 +35,7 @@ const areas = [
 ];
 ---
 
-<section class="pb-25">
+<section>
   <div class="lg:flex space-y-4 lg:space-y-0 items-end justify-between mb-8">
     <h2 class="lg:w-2/5">
       <em>Serving</em> Cardiff, South Wales, Bristol & Bath
@@ -48,42 +48,35 @@ const areas = [
     </p>
   </div>
 
-  <div>
-    <div class="relative">
-      <div class="h-100 lg:h-148">
-        <Image
-          src={AreasBg}
-          alt="areas-bg"
-          class="h-full w-full object-cover rounded-2xl"
-        />
+  <div class="relative rounded-2xl overflow-hidden">
+    <div class="h-100 lg:h-148">
+      <Image src={AreasBg} alt="areas-bg" class="h-full w-full object-cover" />
 
-        <div class="absolute inset-0 bg-linear-to-b from-black/0 to-black">
-        </div>
-      </div>
+      <div class="absolute inset-0 bg-linear-to-b from-black/0 to-black"></div>
+    </div>
 
-      <div
-        class="absolute bottom-3.5 lg:bottom-10 flex justify-center w-full lg:px-4 gap-2.5 lg:gap-4 overflow-hidden"
-      >
-        {
-          areas.map((area) => (
-            <div class="bg-white/10 rounded-[10px] p-1.5">
-              <div class="w-37 h-28 lg:w-42 lg:h-30 xl:w-56 xl:h-42 overflow-hidden rounded-lg">
-                <Image
-                  src={area.image}
-                  alt={area.name}
-                  class="w-full h-full "
-                />
-              </div>
-
-              <div class="flex justify-between mt-3 px-2.5 items-center">
-                <span class="text-white text-sm font-medium ">{area.name}</span>
-
-                <Icon name="location" />
-              </div>
+    <div
+      class="absolute bottom-3.5 lg:bottom-10 flex justify-center-safe w-full px-4 gap-2.5 lg:gap-4 overflow-x-auto hide-scrollbar"
+    >
+      {
+        areas.map((area) => (
+          <div class="bg-white/10 backdrop-blur-[8.5px] rounded-[10px] p-1.5">
+            <div class="w-37 h-28 lg:w-42 lg:h-30 xl:w-56 xl:h-42 overflow-hidden rounded-lg">
+              <Image
+                src={area.image}
+                alt={area.name}
+                class="w-full h-full object-cover"
+              />
             </div>
-          ))
-        }
-      </div>
+
+            <div class="flex justify-between mt-3 px-2.5 items-center text-white">
+              <span class="text-sm font-medium">{area.name}</span>
+
+              <Icon name="location-5" size={22} class="hidden lg:block" />
+            </div>
+          </div>
+        ))
+      }
     </div>
   </div>
 
