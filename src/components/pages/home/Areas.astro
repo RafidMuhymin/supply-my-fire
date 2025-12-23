@@ -1,5 +1,8 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import Button from "@/components/Button.astro";
 
 import AreasBg from "@/assets/images/areas-bg.jpg";
 import Cardif from "@/assets/images/cardiff.jpg";
@@ -7,9 +10,6 @@ import Newport from "@/assets/images/newport.jpg";
 import Swansea from "@/assets/images/swansea.jpg";
 import Bristol from "@/assets/images/bristol.jpg";
 import Bath from "@/assets/images/bath.jpg";
-
-import { Icon } from "astro-icon/components";
-import Button from "@/components/Button.astro";
 
 const areas = [
   {
@@ -38,8 +38,9 @@ const areas = [
 <section class="pb-25">
   <div class="lg:flex space-y-4 lg:space-y-0 items-end justify-between mb-8">
     <h2 class="lg:w-2/5">
-      <span class="italic">Serving</span> Cardiff, South Wales, Bristol & Bath
+      <em>Serving</em> Cardiff, South Wales, Bristol & Bath
     </h2>
+
     <p class="lg:w-1/2">
       Our Cardiff showroom welcomes customers from across the region, and our
       professional installation services reach throughout South Wales and
@@ -59,6 +60,7 @@ const areas = [
         <div class="absolute inset-0 bg-linear-to-b from-black/0 to-black">
         </div>
       </div>
+
       <div
         class="absolute bottom-3.5 lg:bottom-10 flex justify-center w-full lg:px-4 gap-2.5 lg:gap-4 overflow-hidden"
       >
@@ -72,8 +74,10 @@ const areas = [
                   class="w-full h-full "
                 />
               </div>
+
               <div class="flex justify-between mt-3 px-2.5 items-center">
                 <span class="text-white text-sm font-medium ">{area.name}</span>
+
                 <Icon name="location" />
               </div>
             </div>
@@ -92,7 +96,7 @@ const areas = [
     </h3>
 
     <Button
-      href="#areas"
+      href="#"
       width="fit"
       variant="primary"
       text="Find Your Local Installation Service"
