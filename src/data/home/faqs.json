@@ -1,0 +1,37 @@
+{
+  "title": "Frequently Asked <em>Questions</em>",
+  "faqs": [
+    {
+      "question": "Do I need a chimney for an electric fire?",
+      "answer": "No, electric fires don't require a chimney or flue. They can be installed nearly anywhere with access to a power outlet, making them ideal for modern homes or properties without existing chimneys."
+    },
+    {
+      "question": "What's the difference between a media wall and a standard fireplace?",
+      "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam delectus libero illo quod ratione. Ea!"
+    },
+    {
+      "question": "Do you offer free consultations?",
+      "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam delectus libero illo quod ratione. Ea!"
+    },
+    {
+      "question": "How long does installation take?",
+      "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam delectus libero illo quod ratione. Ea!"
+    },
+    {
+      "question": "Are your installers certified?",
+      "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam delectus libero illo quod ratione. Ea!"
+    },
+    {
+      "question": "Do you serve areas outside Cardiff?",
+      "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam delectus libero illo quod ratione. Ea!"
+    },
+    {
+      "question": "Can you install a wood burner in a smoke control area?",
+      "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam delectus libero illo quod ratione. Ea!"
+    },
+    {
+      "question": "What brands do you stock?",
+      "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam delectus libero illo quod ratione. Ea!"
+    }
+  ]
+}
