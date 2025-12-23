@@ -14,7 +14,7 @@ import WhyChooseUs from "@pages/location/WhyChooseUs.astro";
 import Areas from "@pages/location/Areas.astro";
 import RecentInstallations from "@pages/location/RecentInstallations.astro";
 import Testimonials from "@/components/Testimonials.astro";
-import FAQs from "@pages/location/FAQs.astro";
+import FAQs from "@/components/FAQs.astro";
 
 import Ready from "@pages/location/Ready.astro";
 import Showroom from "@/components/Showroom.astro";
@@ -30,6 +30,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 const meta = (
   await import(`@/data/locations/${Astro.params.location}/meta.json`)
 ).default as typeof import("@/data/locations/cardiff/meta.json");
+
+const faqsData = (
+  await import(`@/data/locations/${Astro.params.location}/faqs.json`)
+).default as typeof import("@/data/locations/cardiff/faqs.json");
 ---
 
 <Layout
@@ -48,7 +52,7 @@ const meta = (
   <Areas />
   <RecentInstallations />
   <Testimonials title={meta.testimonialsTitle} />
-  <FAQs />
+  <FAQs {...faqsData} />
   <Showroom />
   <Ready />
 </Layout>
