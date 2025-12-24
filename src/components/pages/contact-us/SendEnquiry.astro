@@ -44,7 +44,7 @@ const howDidYouHearAboutUsOptions = [
       method="POST"
       novalidate
       id="enquiry-form"
-      class="grid gap-5"
+      class="grid gap-5 text-sm"
     >
       <!-- Web3Forms Access Key -->
       <input
@@ -61,92 +61,88 @@ const howDidYouHearAboutUsOptions = [
 
       <div class="grid grid-cols-2 gap-3.5">
         <div class="grid gap-1">
-          <label for="full-name" class="text-body-variant-3 font-semibold">
+          <label for="full-name" class="font-semibold">
             Full name<sub class="text-red-500 text-2xl">*</sub>
           </label>
 
           <input
             type="text"
-            class="input-variant-1 text-body-variant-3 text-body-variant-3"
+            class="input-variant-1"
             name="full-name"
             id="full-name"
             placeholder="John Smith"
             required
           />
 
-          <p class="invalid-feedback text-red-500 text-sm mt-1 hidden">
+          <p class="invalid-feedback text-red-500 mt-1 hidden">
             Please provide your full name
           </p>
         </div>
 
         <div class="grid gap-1">
-          <label for="email-address" class="text-body-variant-3 font-semibold">
+          <label for="email-address" class="font-semibold">
             Email Address<sub class="text-red-500 text-2xl">*</sub>
           </label>
 
           <input
             type="email"
-            class="input-variant-1 text-body-variant-3 text-body-variant-3"
+            class="input-variant-1"
             name="email-address"
             id="email-address"
             placeholder="your.email@example.com"
             required
           />
 
-          <p class="invalid-feedback text-red-500 text-sm mt-1 hidden">
+          <p class="invalid-feedback text-red-500 mt-1 hidden">
             Please provide your email address correctly
           </p>
         </div>
       </div>
 
       <div class="grid gap-1">
-        <label for="phone-number" class="text-body-variant-3 font-semibold">
+        <label for="phone-number" class="font-semibold">
           Phone Number<sub class="text-red-500 text-2xl">*</sub>
         </label>
 
         <input
           type="tel"
-          class="input-variant-1 text-body-variant-3 text-body-variant-3"
+          class="input-variant-1"
           name="phone-number"
           id="phone-number"
           placeholder="Your Phone Number"
           required
         />
 
-        <p class="invalid-feedback text-red-500 text-sm mt-1 hidden">
+        <p class="invalid-feedback text-red-500 mt-1 hidden">
           Please provide your phone number correctly
         </p>
       </div>
 
       <div class="grid gap-1">
-        <label for="postcode" class="text-body-variant-3 font-semibold">
+        <label for="postcode" class="font-semibold">
           Postcode<sub class="text-red-500 text-2xl">*</sub>
         </label>
 
         <input
           type="text"
-          class="input-variant-1 text-body-variant-3 text-body-variant-3"
+          class="input-variant-1"
           name="postcode"
           id="postcode"
           placeholder="CF14 3LY"
           required
         />
 
-        <p class="invalid-feedback text-red-500 text-sm mt-1 hidden">
+        <p class="invalid-feedback text-red-500 mt-1 hidden">
           Please provide your postcode correctly
         </p>
       </div>
 
       <div class="grid gap-1">
-        <label for="interested-in" class="text-body-variant-3 font-semibold">
+        <label for="interested-in" class="font-semibold">
           I'm Interested In<sub class="text-red-500 text-2xl">*</sub>
         </label>
 
-        <select
-          id="interested-in"
-          name="interested-in"
-          class="input-variant-1 text-body-variant-3"
-        >
+        <select id="interested-in" name="interested-in" class="input-variant-1">
           {
             interestedInOptions.map((option) => (
               <option value={option}>{option}</option>
@@ -156,10 +152,7 @@ const howDidYouHearAboutUsOptions = [
       </div>
 
       <div class="grid gap-1">
-        <label
-          for="preferred-contact-method"
-          class="text-body-variant-3 font-semibold"
-        >
+        <label for="preferred-contact-method" class="font-semibold">
           Preferred Contact Method<sub class="text-red-500 text-2xl">*</sub>
         </label>
 
@@ -173,7 +166,7 @@ const howDidYouHearAboutUsOptions = [
               checked
             />
 
-            <span class="text-body-variant-3">Phone</span>
+            <span>Phone</span>
           </label>
 
           <label class="flex gap-2 items-center">
@@ -184,7 +177,7 @@ const howDidYouHearAboutUsOptions = [
               value="email"
             />
 
-            <span class="text-body-variant-3">Email</span>
+            <span>Email</span>
           </label>
 
           <label class="flex gap-2 items-center">
@@ -195,23 +188,20 @@ const howDidYouHearAboutUsOptions = [
               value="whatsapp"
             />
 
-            <span class="text-body-variant-3">WhatsApp</span>
+            <span>WhatsApp</span>
           </label>
         </div>
       </div>
 
       <div class="grid gap-1">
-        <label
-          for="best-time-to-contact"
-          class="text-body-variant-3 font-semibold"
-        >
+        <label for="best-time-to-contact" class="font-semibold">
           Best Time to Contact<sub class="text-red-500 text-2xl">*</sub>
         </label>
 
         <select
           id="best-time-to-contact"
           name="best-time-to-contact"
-          class="input-variant-1 text-body-variant-3"
+          class="input-variant-1"
         >
           {
             bestTimeToContactOptions.map((time) => (
@@ -222,36 +212,33 @@ const howDidYouHearAboutUsOptions = [
       </div>
 
       <div class="grid gap-1">
-        <label for="message" class="text-body-variant-3 font-semibold">
+        <label for="message" class="font-semibold">
           Message<sub class="text-red-500 text-2xl">*</sub>
         </label>
 
         <textarea
           form="enquiry-form"
           rows="4"
-          class="input-variant-1 h-24.5 resize-none text-body-variant-3 text-body-variant-3"
+          class="input-variant-1 h-24.5 resize-none"
           name="message"
           id="message"
           placeholder="Tell us about your project, questions, or requirements. Include room dimensions if known, property type, and any specific ideas you have."
           required></textarea>
 
-        <p class="invalid-feedback text-red-500 text-sm mt-1 hidden">
+        <p class="invalid-feedback text-red-500 mt-1 hidden">
           Please provide your message
         </p>
       </div>
 
       <div class="grid gap-1">
-        <label
-          for="best-time-to-contact"
-          class="text-body-variant-3 font-semibold"
-        >
+        <label for="best-time-to-contact" class="font-semibold">
           How did you hear about us<sub class="text-red-500 text-2xl">*</sub>
         </label>
 
         <select
           id="how-did-you-hear-about-us"
           name="how-did-you-hear-about-us"
-          class="input-variant-1 text-body-variant-3"
+          class="input-variant-1"
         >
           {
             howDidYouHearAboutUsOptions.map((option) => (
@@ -270,12 +257,12 @@ const howDidYouHearAboutUsOptions = [
           required
         />
 
-        <label for="consent" class="text-body-variant-3 flex-1">
+        <label for="consent" class="flex-1">
           I agree to Supply My Fire storing and processing my information to
           respond to my enquiry, in accordance with the Privacy Policy.
         </label>
 
-        <p class="invalid-feedback text-red-500 text-sm mt-1 hidden w-full">
+        <p class="invalid-feedback text-red-500 mt-1 hidden w-full">
           You must agree before submitting
         </p>
       </div>
@@ -288,7 +275,7 @@ const howDidYouHearAboutUsOptions = [
           variant="primary"
         />
 
-        <p id="enquiry-form-result" class="mt-3 text-sm font-medium"></p>
+        <p id="enquiry-form-result" class="mt-3 font-medium"></p>
       </div>
     </form>
   </div>
