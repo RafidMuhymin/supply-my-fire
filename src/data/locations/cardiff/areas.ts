@@ -1,12 +1,7 @@
 import CardiffShowroomMap from "@/assets/images/cardiff-showroom-map.png";
 
 const data = {
-  title: {
-    main: "Fireplace",
-    highlight1: "Installation",
-    middle: "Throughout",
-    highlight2: "Cardiff",
-  },
+  title: "Fireplace <em>Installation</em> Throughout <em>Cardiff</em>",
   description:
     "Based on Whitchurch Road, we provide professional fireplace installation services throughout Cardiff and surrounding areas. Our team knows Cardiff's diverse property types inside and out - from Victorian terraces to modern new-builds.",
   accordionClass:

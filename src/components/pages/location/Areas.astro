@@ -14,12 +14,7 @@ const { title, description, accordionClass, items, mapImage } = (
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-11">
     <div class="lg:col-span-1 space-y-10">
       <div>
-        <h2>
-          {title.main}
-          <em>{title.highlight1}</em>
-          {title.middle}
-          <em>{title.highlight2}</em>
-        </h2>
+        <h2 set:html={title} />
 
         <p class="text-body-variant-2 mt-3.5">
           {description}
