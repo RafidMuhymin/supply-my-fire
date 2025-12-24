@@ -5,32 +5,26 @@ import StoryImg from "@/assets/images/story-img.jpg";
 
 const steps = [
   {
-    number: "01",
     year: "2015",
     description: "Company Founded",
   },
   {
-    number: "02",
     year: "2018",
     description: "Achieved HETAS approval",
   },
   {
-    number: "03",
     year: "2020",
     description: "Cardiff showroom opened on Whitchurch Road",
   },
   {
-    number: "04",
     year: "2022",
     description: "Became primary dealer for Solution Fires & Vision Fires",
   },
   {
-    number: "05",
     year: "2023",
     description: "Expanded services to Bristol & Bath",
   },
   {
-    number: "06",
     year: "Present",
     description: "1000+ Cardiff installations completed",
   },
@@ -43,7 +37,7 @@ const steps = [
       <h2>Our <em>Story</em></h2>
 
       <div
-        class="space-y-6 mt-2.5 text-sm md:text-lg leading-6 tracking-[0.04] text-neutral-500"
+        class="space-y-6 mt-2.5 text-sm md:text-lg leading-6 tracking-[-0.04em] text-neutral-500"
       >
         <p>
           Supply My Fire was founded in [Year] with a simple mission: to bring
@@ -119,11 +113,11 @@ const steps = [
               "mt-2 sm:mt-9 border-dashed border-primary-900 mb-7",
             ]}
           >
-            <p class="absolute -ml-5 sm:-ml-1 sm:static mb-5 top-3 left-0 -mt-4 bg-primary-900 text-white text-sm rounded-[40px] max-w-fit px-3 py-0.75">
-              {step.number}
+            <p class="absolute -ml-5 sm:ml-0 sm:static mb-5 top-3 left-0 -mt-4 bg-primary-900 text-white text-sm rounded-full max-w-fit px-3 py-0.75">
+              0{i + 1}
             </p>
 
-            <div class="sm:mr-8  -mt-4 mb-10">
+            <div class="sm:mr-8 -mt-4 mb-10">
               <h3 class="text-2xl md:text-3xl xl:text-[46px] font-serif leading-normal md:leading-15 mb-2 md:mb-1">
                 {step.year}
               </h3>
