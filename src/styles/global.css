@@ -165,3 +165,7 @@
     display: none;
   }
 }
+
+@utility map-border {
+  @apply border border-neutral-300 shadow-[0_0_35px_0_rgba(0,0,0,0.1)];
+}
