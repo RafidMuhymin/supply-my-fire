@@ -36,7 +36,7 @@ const { title, installations, button } = Astro.props;
   >
     {
       installations.map((installation) => (
-        <div class="bg-white rounded-lg overflow-hidden shadow-md p-3.5 lg:p-2.5">
+        <div class="bg-white rounded-lg overflow-hidden shadow-md p-3.5 lg:p-2.5 flex flex-col">
           <div>
             <Image
               src={installation.image}
@@ -45,7 +45,7 @@ const { title, installations, button } = Astro.props;
             />
           </div>
 
-          <div class="p-2.5">
+          <div class="grow p-2.5 flex flex-col">
             {installation.badge && (
               <div class=" mb-2.5">
                 <span class="bg-primary-100 px-3 py-1.25 rounded-full text-xs text-secondary">
@@ -60,7 +60,7 @@ const { title, installations, button } = Astro.props;
               {installation.description}
             </p>
 
-            <div class="flex gap-1.5 items-center text-sm text-neutral-600">
+            <div class="flex gap-1.5 items-center text-sm text-neutral-600 mt-auto">
               <div class="w-4.25">
                 <Icon name="location" size={16} />
               </div>
