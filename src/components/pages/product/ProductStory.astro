@@ -4,8 +4,8 @@ import { Icon } from "astro-icon/components";
 
 const { title, paragraphs, features, image } = (
   (await import(
-    `@/data/products/${Astro.params.product}/media-wall.ts`
-  )) as typeof import("@/data/products/media-wall/media-wall.ts")
+    `@/data/products/${Astro.params.product}/product-story.ts`
+  )) as typeof import("@/data/products/media-wall/product-story.ts")
 ).default;
 ---
 
