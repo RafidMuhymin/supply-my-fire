@@ -6,11 +6,7 @@ import MediaWallImg5 from "@/assets/images/media-wall-img-5.jpg";
 import MediaWallImg6 from "@/assets/images/media-wall-img-6.png";
 
 const data = {
-  title: {
-    main: "Custom",
-    highlight: "Media Wall Design",
-    suffix: "Options",
-  },
+  title: "Custom <em>Media Wall Design</em> Options",
   products: [
     {
       image: MediaWallImg1,

@@ -10,12 +10,8 @@ const { title, products } = (
 ---
 
 <section class="bg-[#F8F9FA] py-10 md:py-20">
-  <div class="max-w-300 mx-auto">
-    <h2 class="text-secondary text-center mb-8 lg:mb-12.5">
-      {title.main}
-      <em>{title.highlight}</em>
-      {title.suffix}
-    </h2>
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-secondary text-center mb-8 lg:mb-12.5" set:html={title} />
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 xl:mx-17">
       {
@@ -30,7 +26,7 @@ const { title, products } = (
             </div>
 
             <div class="px-1 py-4">
-              <h3 class="text-h3-variant-2 text-secondary mb-2.5">
+              <h3 class="text-h3-variant-2 text-secondary font-bold mb-2.5">
                 {product.name}
               </h3>
 
