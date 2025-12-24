@@ -6,29 +6,34 @@ const transformCards = [
     icon: "location-3",
     title: "Book Free Home Survey",
     text: "We'll visit you at home",
-    btnText: "Book Survey",
-    btnHref: "#book-survey",
+    button: {
+      text: "Book Survey",
+      href: "#book-survey",
+    },
   },
   {
     icon: "home",
     title: "Visit Our Showroom",
     text: "See our range in person",
-    btnText: "Book Appointment",
-    btnHref: "#book-appointment",
+    button: {
+      text: "Book Appointment",
+      href: "#book-appointment",
+    },
   },
   {
     icon: "telephone",
     title: "Call or Message",
     text: "Speak to an expert",
-    btnText: "Call Now",
-    btnHref: "tel:02920309664",
+    button: {
+      text: "Call Now",
+      href: "tel:02920309664",
+    },
   },
 ];
 ---
 
 <ReadyShared
-  title="Ready to"
-  titleHighlight="Transform Your Home?"
-  description="Get started today with a free consultation. Our experts are ready to help you <br class='hidden md:block' />find the perfect fireplace solution."
+  title="Ready to <em>Transform Your Home?</em>"
+  description="Get started today with a free consultation. Our experts are ready to help you find the perfect fireplace solution."
   cards={transformCards}
 />

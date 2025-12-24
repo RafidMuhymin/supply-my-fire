@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
 import Button from "@/components/Button.astro";
@@ -9,46 +10,37 @@ interface Card {
   icon: string;
   title: string;
   text: string;
-  btnText: string;
-  btnHref?: string;
+  button: {
+    text: string;
+    href: string;
+  };
 }
 
 interface Props {
   title: string;
-  titleHighlight?: string;
   description: string;
   cards: Card[];
-  class?: string;
 }
 
-const { title, titleHighlight, description, cards } = Astro.props;
+const { title, description, cards } = Astro.props;
 ---
 
 <section>
-  <div
-    class="relative rounded-lg overflow-hidden bg-cover bg-center"
-    style={`background-image: url(${BackgroundImage.src})`}
-  >
-    <div class="absolute inset-0 bg-primary-900/97 rounded-lg"></div>
+  <div class="relative rounded-lg overflow-hidden">
+    <Image
+      role="presentation"
+      src={BackgroundImage}
+      alt=""
+      class="absolute inset-0 size-full object-cover -z-20"
+    />
+
+    <div class="absolute inset-0 bg-primary-900/97 -z-10"></div>
 
     <div class="relative z-10 px-5 py-10 lg:p-15">
-      <h2 class="text-white text-center">
-        {title}
-        {
-          titleHighlight && (
-            <>
-              {" "}
-              <em>
-                <br />
-                {titleHighlight}
-              </em>
-            </>
-          )
-        }
-      </h2>
+      <h2 class="text-white text-center max-w-xl mx-auto" set:html={title} />
 
       <p
-        class="text-body-variant-1 text-center mt-4 text-white"
+        class="text-body-variant-1 text-center mt-4 text-white max-w-2xl mx-auto"
         set:html={description}
       />
 
@@ -70,11 +62,10 @@ const { title, titleHighlight, description, cards } = Astro.props;
                 </p>
 
                 <Button
-                  href={card.btnHref || "#"}
+                  href={card.button.href}
                   width="fit"
                   variant="primary"
-                  text={card.btnText}
-                  class=""
+                  text={card.button.text}
                 />
               </div>
             </div>

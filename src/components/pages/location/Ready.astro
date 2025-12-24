@@ -6,9 +6,4 @@ const { title, description, cards } = (
 ).default as typeof import("@/data/locations/cardiff/ready.json");
 ---
 
-<ReadyShared
-  title={title.main}
-  titleHighlight={title.highlight}
-  description={description}
-  cards={cards}
-/>
+<ReadyShared {title} {description} {cards} />
