@@ -29,7 +29,8 @@ const howDidYouHearAboutUsOptions = [
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
     <div>
       <div class="grid max-lg:text-center gap-3">
-        <h2>Visit Our Cardiff <i>Showroom</i></h2>
+        <h2>Visit Our Cardiff <em>Showroom</em></h2>
+
         <p class="text-body-variant-1 md:max-w-102 max-lg:mx-auto text-left">
           Fill out the form below and we'll get back to you within 24 hours
           during business days. The more details you provide, the better we can
@@ -37,6 +38,7 @@ const howDidYouHearAboutUsOptions = [
         </p>
       </div>
     </div>
+
     <form
       action="https://api.web3forms.com/submit"
       method="POST"
@@ -62,6 +64,7 @@ const howDidYouHearAboutUsOptions = [
           <label for="full-name" class="text-body-variant-3 font-semibold">
             Full name<sub class="text-red-500 text-2xl">*</sub>
           </label>
+
           <input
             type="text"
             class="input-variant-1 text-body-variant-3 text-body-variant-3"
@@ -70,14 +73,17 @@ const howDidYouHearAboutUsOptions = [
             placeholder="John Smith"
             required
           />
+
           <p class="invalid-feedback text-red-500 text-sm mt-1 hidden">
-            Please provide your full name.
+            Please provide your full name
           </p>
         </div>
+
         <div class="grid gap-1">
           <label for="email-address" class="text-body-variant-3 font-semibold">
             Email Address<sub class="text-red-500 text-2xl">*</sub>
           </label>
+
           <input
             type="email"
             class="input-variant-1 text-body-variant-3 text-body-variant-3"
@@ -86,15 +92,18 @@ const howDidYouHearAboutUsOptions = [
             placeholder="your.email@example.com"
             required
           />
+
           <p class="invalid-feedback text-red-500 text-sm mt-1 hidden">
-            Please provide your email address correctly.
+            Please provide your email address correctly
           </p>
         </div>
       </div>
+
       <div class="grid gap-1">
         <label for="phone-number" class="text-body-variant-3 font-semibold">
           Phone Number<sub class="text-red-500 text-2xl">*</sub>
         </label>
+
         <input
           type="tel"
           class="input-variant-1 text-body-variant-3 text-body-variant-3"
@@ -103,14 +112,17 @@ const howDidYouHearAboutUsOptions = [
           placeholder="Your Phone Number"
           required
         />
+
         <p class="invalid-feedback text-red-500 text-sm mt-1 hidden">
-          Please provide your phone number correctly.
+          Please provide your phone number correctly
         </p>
       </div>
+
       <div class="grid gap-1">
         <label for="postcode" class="text-body-variant-3 font-semibold">
           Postcode<sub class="text-red-500 text-2xl">*</sub>
         </label>
+
         <input
           type="text"
           class="input-variant-1 text-body-variant-3 text-body-variant-3"
@@ -119,14 +131,17 @@ const howDidYouHearAboutUsOptions = [
           placeholder="CF14 3LY"
           required
         />
+
         <p class="invalid-feedback text-red-500 text-sm mt-1 hidden">
-          Please provide your postcode correctly.
+          Please provide your postcode correctly
         </p>
       </div>
+
       <div class="grid gap-1">
         <label for="interested-in" class="text-body-variant-3 font-semibold">
           I'm Interested In<sub class="text-red-500 text-2xl">*</sub>
         </label>
+
         <select
           id="interested-in"
           name="interested-in"
@@ -139,6 +154,7 @@ const howDidYouHearAboutUsOptions = [
           }
         </select>
       </div>
+
       <div class="grid gap-1">
         <label
           for="preferred-contact-method"
@@ -146,6 +162,7 @@ const howDidYouHearAboutUsOptions = [
         >
           Preferred Contact Method<sub class="text-red-500 text-2xl">*</sub>
         </label>
+
         <div class="flex gap-5">
           <label class="flex gap-2 items-center">
             <input
@@ -155,8 +172,10 @@ const howDidYouHearAboutUsOptions = [
               value="phone"
               checked
             />
+
             <span class="text-body-variant-3">Phone</span>
           </label>
+
           <label class="flex gap-2 items-center">
             <input
               type="radio"
@@ -164,8 +183,10 @@ const howDidYouHearAboutUsOptions = [
               name="preferred-contact-method"
               value="email"
             />
+
             <span class="text-body-variant-3">Email</span>
           </label>
+
           <label class="flex gap-2 items-center">
             <input
               type="radio"
@@ -173,6 +194,7 @@ const howDidYouHearAboutUsOptions = [
               name="preferred-contact-method"
               value="whatsapp"
             />
+
             <span class="text-body-variant-3">WhatsApp</span>
           </label>
         </div>
@@ -185,6 +207,7 @@ const howDidYouHearAboutUsOptions = [
         >
           Best Time to Contact<sub class="text-red-500 text-2xl">*</sub>
         </label>
+
         <select
           id="best-time-to-contact"
           name="best-time-to-contact"
@@ -197,10 +220,12 @@ const howDidYouHearAboutUsOptions = [
           }
         </select>
       </div>
+
       <div class="grid gap-1">
         <label for="message" class="text-body-variant-3 font-semibold">
           Message<sub class="text-red-500 text-2xl">*</sub>
         </label>
+
         <textarea
           form="enquiry-form"
           rows="4"
@@ -209,10 +234,12 @@ const howDidYouHearAboutUsOptions = [
           id="message"
           placeholder="Tell us about your project, questions, or requirements. Include room dimensions if known, property type, and any specific ideas you have."
           required></textarea>
+
         <p class="invalid-feedback text-red-500 text-sm mt-1 hidden">
-          Please provide your message.
+          Please provide your message
         </p>
       </div>
+
       <div class="grid gap-1">
         <label
           for="best-time-to-contact"
@@ -220,6 +247,7 @@ const howDidYouHearAboutUsOptions = [
         >
           How did you hear about us<sub class="text-red-500 text-2xl">*</sub>
         </label>
+
         <select
           id="how-did-you-hear-about-us"
           name="how-did-you-hear-about-us"
@@ -232,7 +260,8 @@ const howDidYouHearAboutUsOptions = [
           }
         </select>
       </div>
-      <div class="flex items-baseline gap-2.5">
+
+      <div class="flex flex-wrap items-baseline gap-2.5">
         <input
           type="checkbox"
           class="accent-primary-500"
@@ -240,49 +269,64 @@ const howDidYouHearAboutUsOptions = [
           id="consent"
           required
         />
-        <label for="consent" class="text-body-variant-3">
+
+        <label for="consent" class="text-body-variant-3 flex-1">
           I agree to Supply My Fire storing and processing my information to
           respond to my enquiry, in accordance with the Privacy Policy.
         </label>
+
+        <p class="invalid-feedback text-red-500 text-sm mt-1 hidden w-full">
+          You must agree before submitting
+        </p>
       </div>
+
       <div class="mt-3">
-        <Button text="Send Enquiry" width="full" variant="primary" />
-        <p id="inquiry-form-result" class="mt-3 text-sm font-medium"></p>
+        <Button
+          type="submit"
+          text="Send Enquiry"
+          width="full"
+          variant="primary"
+        />
+
+        <p id="enquiry-form-result" class="mt-3 text-sm font-medium"></p>
       </div>
     </form>
   </div>
 </section>
 
-<div
-  id="inquiry-form-modal"
-  class="hidden bg-black/50 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen items-center justify-center z-1 p-5"
+<section
+  id="enquiry-form-modal"
+  class="hidden bg-black/50 top-0 left-0 fixed size-full items-center justify-center z-10"
 >
   <div
-    class="bg-white rounded-[10px] md:rounded-3xl relative px-11 md:px-22.5 py-6 md:py-15"
+    class="relative bg-white rounded-[10px] md:rounded-2xl lg:rounded-3xl px-10 md:px-15 lg:px-22.5 py-6 md:py-10 lg:py-12.5"
   >
     <button
       type="button"
-      id="inquiry-form-close"
+      id="enquiry-form-close"
       aria-label="Close"
       class="size-3 md:size-4.5 absolute top-3 md:top-5.5 right-3 md:right-5.5"
     >
-      <Icon id="inquiry-form-close" name="cross" class="w-full h-full" />
+      <Icon id="enquiry-form-close" name="cross" class="w-full h-full" />
     </button>
-    <div class="grid gap-7.5 max-w-147.5">
-      <Icon name="thank-you" class="size-34 lg:size-72 mx-auto" />
+
+    <div class="grid gap-7.5 max-w-xl">
+      <Icon name="thank-you" class="size-34 md:size-50 lg:size-72 mx-auto" />
+
       <div class="grid gap-2 text-center">
-        <h2 id="inquiry-modal-title">Thank You!</h2>
+        <h2 id="enquiry-modal-title">Thank You!</h2>
+
         <p class="text-body-variant-1 text-neutral-500 leading-6">
           Thank You for your enquiry! We’ve received your message and will
-          respond within 24 hours. If your enquiry is urgent, please call us on <strong
-          >
-            029 2030 9664</strong
-          >
+          respond within 24 hours. If your enquiry is urgent, please call us on
+          <strong>
+            <a href="tel:02920309664" class="hover:underline">029 2030 9664</a>
+          </strong>
         </p>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <style lang="scss">
   @reference "@/styles/global.css";
@@ -294,7 +338,7 @@ const howDidYouHearAboutUsOptions = [
       &:invalid {
         @apply outline-red-500 bg-white;
 
-        & + .invalid-feedback {
+        & ~ .invalid-feedback {
           @apply block;
         }
       }
@@ -303,98 +347,101 @@ const howDidYouHearAboutUsOptions = [
 </style>
 
 <script>
-  const form = document.getElementById("enquiry-form") as HTMLFormElement;
-  const modal = document.getElementById("inquiry-form-modal");
-  const result = document.getElementById("inquiry-form-result");
-  const closeBtn = document.getElementById("inquiry-form-close");
+  const form = document.getElementById("enquiry-form") as HTMLFormElement,
+    modal = document.getElementById("enquiry-form-modal"),
+    result = document.getElementById("enquiry-form-result"),
+    closeBtn = document.getElementById("enquiry-form-close");
 
   const openModal = () => {
     if (!modal) return;
+
+    modal.classList.add("flex");
     modal.classList.remove("hidden");
     document.body.classList.add("overflow-hidden");
+
     closeBtn && closeBtn.focus();
   };
 
   const closeModal = () => {
     if (!modal) return;
+
     modal.classList.add("hidden");
+    modal.classList.remove("flex");
     document.body.classList.remove("overflow-hidden");
   };
 
-  form &&
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+  form?.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-      form.classList.add("was-validated");
+    form.classList.add("was-validated");
 
-      if (!form.checkValidity()) {
-        const [invalidEl] = form.querySelectorAll<HTMLInputElement>(":invalid");
+    if (!form.checkValidity()) {
+      const [invalidEl] = form.querySelectorAll<HTMLInputElement>(":invalid");
 
-        invalidEl.focus();
+      invalidEl.focus();
 
-        return;
-      }
+      return;
+    }
 
-      const formData = new FormData(form),
-        object = Object.fromEntries(formData),
-        json = JSON.stringify(object);
+    const formData = new FormData(form),
+      object = Object.fromEntries(formData),
+      json = JSON.stringify(object);
 
-      if (result) {
-        result.style.display = "block";
-        result.innerHTML = "Sending...";
-        result.classList.remove("text-green-500", "text-red-500");
-      }
+    if (result) {
+      result.style.display = "block";
+      result.innerHTML = "Sending...";
+      result.classList.remove("text-green-500", "text-red-500");
+    }
 
-      fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: json,
-      })
-        .then(async (response) => {
-          let data = await response.json();
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    })
+      .then(async (response) => {
+        let data = await response.json();
 
-          if (response.status == 200) {
-            if (result) result.style.display = "none";
+        if (response.status == 200) {
+          if (result) result.style.display = "none";
 
-            openModal();
-          } else {
-            console.log(response);
-
-            if (result) {
-              result.classList.add("text-red-500");
-              result.innerHTML = data.message;
-            }
-          }
-        })
-        .catch((error) => {
-          console.log(error);
+          openModal();
+        } else {
+          console.log(response);
 
           if (result) {
             result.classList.add("text-red-500");
-            result.innerHTML = "Something went wrong!";
+            result.innerHTML = data.message;
           }
-        })
-        .then(function () {
-          form.reset();
-          form.classList.remove("was-validated");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
 
-          setTimeout(() => {
-            if (result) result.style.display = "none";
-          }, 5000);
-        });
-    });
+        if (result) {
+          result.classList.add("text-red-500");
+          result.innerHTML = "Something went wrong!";
+        }
+      })
+      .then(function () {
+        form.reset();
+        form.classList.remove("was-validated");
 
-  closeBtn && closeBtn.addEventListener("click", () => closeModal());
+        setTimeout(() => {
+          if (result) result.style.display = "none";
+        }, 5000);
+      });
+  });
 
-  modal &&
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        closeModal();
-      }
-    });
+  closeBtn?.addEventListener("click", () => closeModal());
+
+  modal?.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
 
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && modal && !modal.classList.contains("hidden")) {
