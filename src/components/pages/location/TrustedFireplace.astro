@@ -7,22 +7,10 @@ const { title, description, statistics } = (
 ---
 
 <section>
-  <h2 class="text-center mb-4 lg:mb-10">
-    {title.main}
-    <em>{title.highlight}</em>
-    {title.suffix}
-  </h2>
+  <h2 class="text-center mb-4 lg:mb-10" set:html={title} />
 
   <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-6 lg:gap-20">
-    <div class="space-y-6">
-      <p class="text-body-variant-2">
-        {description.first}
-      </p>
-
-      <p class="text-body-variant-2">
-        {description.second}
-      </p>
-    </div>
+    <p class="text-body-variant-2" set:html={description} />
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
       {
