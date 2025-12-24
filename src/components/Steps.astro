@@ -2,7 +2,6 @@
 import { Icon } from "astro-icon/components";
 
 interface Step {
-  number: string;
   icon: string;
   title: string;
   description: string;
@@ -13,12 +12,10 @@ interface Props {
   class?: string;
 }
 
-const { steps, class: className = "" } = Astro.props;
+const { steps, class: _class } = Astro.props;
 ---
 
-<div
-  class:list={["sm:space-y-7.5 lg:space-y-0 mt-7.5 lg:mt-13 grid", className]}
->
+<div class:list={["sm:space-y-7.5 lg:space-y-0 mt-7.5 lg:mt-13 grid", _class]}>
   {
     steps.map((step, i) => (
       <div
@@ -38,7 +35,7 @@ const { steps, class: className = "" } = Astro.props;
           ]}
         >
           <p class="absolute -ml-5 sm:-ml-1 sm:static mb-5 top-3 left-0 -mt-4 bg-primary-900 text-white text-sm rounded-[40px] max-w-fit px-3 py-0.75">
-            {step.number}
+            0{i + 1}
           </p>
 
           <div class="sm:mr-5 xl:mr-9">

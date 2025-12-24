@@ -1,35 +1,30 @@
 const data = {
   steps: [
     {
-      number: "01",
       icon: "telephone",
       title: "Get in Touch",
       description:
         "Call, WhatsApp, or book online. Discuss your Cardiff property, style preferences, and budget with our expert team.",
     },
     {
-      number: "02",
       icon: "home",
       title: "Expert Assessment",
       description:
         "Visit our Whitchurch Road showroom to see products firsthand, or we'll visit your Cardiff property for a free home survey at a time that suits you.",
     },
     {
-      number: "03",
       icon: "paint",
       title: "Choose Your Perfect Solution",
       description:
         "We'll guide you through options suited to your Cardiff home, whether it's a Victorian terrace, modern apartment, or period property. Transparent pricing, no hidden costs.",
     },
     {
-      number: "04",
       icon: "tool",
       title: "HETAS & Gas Safe Installation",
       description:
         "Our certified installers handle everything professionally. Most Cardiff installations completed in 1-3 days depending on complexity.",
     },
     {
-      number: "05",
       icon: "double-love",
       title: "Ongoing Support",
       description:
