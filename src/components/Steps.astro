@@ -15,7 +15,12 @@ interface Props {
 const { steps, class: _class } = Astro.props;
 ---
 
-<div class:list={["sm:space-y-7.5 lg:space-y-0 mt-7.5 lg:mt-13 grid", _class]}>
+<div
+  class:list={[
+    "grid sm:space-y-7.5 lg:space-y-0 mt-7.5 lg:mt-13 pl-5 sm:pl-0",
+    _class,
+  ]}
+>
   {
     steps.map((step, i) => (
       <div
@@ -34,7 +39,7 @@ const { steps, class: _class } = Astro.props;
             "mt-2 sm:mt-9 border-dashed border-primary-900 mb-7",
           ]}
         >
-          <p class="absolute -ml-5 sm:-ml-1 sm:static mb-5 top-3 left-0 -mt-4 bg-primary-900 text-white text-sm rounded-[40px] max-w-fit px-3 py-0.75">
+          <p class="absolute -ml-5 sm:ml-0 sm:static mb-5 top-3 left-0 -mt-4 bg-primary-900 text-white text-sm rounded-[40px] max-w-fit px-3 py-0.75">
             0{i + 1}
           </p>
 
