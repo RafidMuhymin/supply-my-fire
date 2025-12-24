@@ -19,23 +19,19 @@ const locations = ["Cardiff", "Newport", "Swansea", "Bristol", "Bath"];
 const contacts = [
   {
     icon: "location",
-    text: "<span class='lg:font-semibold'>Address:</span> 112 Whitchurch Road, Cardiff, CF14 3LY",
+    text: "<span class='font-semibold'>Address:</span> 112 Whitchurch Road, Cardiff, CF14 3LY",
   },
   {
     icon: "call",
-    text: "<span class='lg:font-semibold'>Phone:</span> 029 2030 9664",
+    text: "<span class='font-semibold'>Phone:</span> 029 2030 9664",
   },
   {
     icon: "mailbox",
-    text: "<span class='lg:font-semibold'>Email:</span> info@supplymyfire.com",
+    text: "<span class='font-semibold'>Email:</span> info@supplymyfire.com",
   },
   {
     icon: "whatsapp",
-    text: "<span class='lg:font-semibold'>WhatsApp:</span> 07532 669665",
-  },
-  {
-    icon: "watch",
-    text: "<span class='lg:font-semibold'>Opening Hours:</span> <br/><span>Tuesday-Friday:<br class='hidden lg:block'/> 10:00 AM - 4:00 PM, <br/></span> <span>Saturday:<br class='hidden lg:block'/> 10:00 AM - 2:00 PM</span>",
+    text: "<span class='font-semibold'>WhatsApp:</span> 07532 669665",
   },
 ];
 ---
@@ -85,20 +81,33 @@ const contacts = [
         <div class="space-y-4 lg:space-y-3">
           {
             contacts.map((contact) => (
-              <div class="flex gap-3 items-start">
+              <div class="flex gap-3 items-center">
                 <Icon
                   name={contact.icon}
-                  size={20}
-                  class="text-primary-700 min-w-5"
+                  class="text-primary-700 size-4 lg:size-5 min-w-4 lg:min-w-5"
                 />
 
                 <p
                   set:html={contact.text}
-                  class="text-body-variant-1 lg:leading-5"
+                  class="text-body-variant-1 lg:leading-6.5"
                 />
               </div>
             ))
           }
+
+          <div class="flex gap-3 items-start">
+            <Icon name="watch" class="text-primary-700 size-4 lg:size-5 mt-1" />
+
+            <div class="text-body-variant-1 lg:leading-6.5">
+              <p class="font-semibold">Opening Hours:</p>
+
+              <p class="font-medium mt-2">Tuesday-Friday:</p>
+              <p>10:00 AM - 4:00 PM</p>
+
+              <p class="font-medium mt-2">Saturday:</p>
+              <p>10:00 AM - 2:00 PM</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
