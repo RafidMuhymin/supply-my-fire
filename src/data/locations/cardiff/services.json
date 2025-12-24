@@ -1,9 +1,5 @@
 {
-  "title": {
-    "main": "Our",
-    "highlight": "Cardiff Fireplace Installation",
-    "suffix": "Services"
-  },
+  "title": "Our <em>Cardiff Fireplace Installation</em> Services",
   "services": [
     {
       "icon": "certification-1",
@@ -16,8 +12,10 @@
         "Sound bar and storage integration",
         "Electric or gas fire options"
       ],
-      "buttonText": "View Cardiff Media Walls",
-      "buttonLink": "#",
+      "button": {
+        "text": "View Cardiff Media Walls",
+        "href": "#"
+      },
       "popularIn": null
     },
     {
@@ -31,8 +29,10 @@
         "Energy-efficient heating",
         "Remote control operation"
       ],
-      "buttonText": "View Electric Fires",
-      "buttonLink": "#",
+      "button": {
+        "text": "View Electric Fires",
+        "href": "#"
+      },
       "popularIn": "Cardiff apartments, Roath conversions, city centre properties"
     },
     {
@@ -46,8 +46,10 @@
         "ECO 2022 compliant",
         "Smoke control area suitable"
       ],
-      "buttonText": "View Wood Stoves",
-      "buttonLink": "#",
+      "button": {
+        "text": "View Wood Stoves",
+        "href": "#"
+      },
       "popularIn": "Pontcanna, Whitchurch, Lisvane, Penarth terraces"
     },
     {
@@ -61,8 +63,10 @@
         "Balanced flue options",
         "Traditional or contemporary styles"
       ],
-      "buttonText": "View Gas Fires",
-      "buttonLink": "#",
+      "button": {
+        "text": "View Gas Fires",
+        "href": "#"
+      },
       "popularIn": null
     },
     {
@@ -71,8 +75,10 @@
       "title": "Fireplaces & Mantels Cardiff",
       "description": "Premium limestone, marble, and wooden fireplaces for Cardiff's period and contemporary homes. Custom sizing available to fit your space perfectly.",
       "features": [],
-      "buttonText": "Browse Fireplaces",
-      "buttonLink": "#",
+      "button": {
+        "text": "Browse Fireplaces",
+        "href": "#"
+      },
       "popularIn": null
     }
   ]

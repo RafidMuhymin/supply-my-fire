@@ -10,11 +10,7 @@ const { title, services } = (
 
 <section class="bg-[#F8F9FA] py-10 lg:py-20">
   <div>
-    <h2 class="text-center mb-12.5">
-      {title.main}
-      <em>{title.highlight}</em>
-      {title.suffix}
-    </h2>
+    <h2 class="text-center mb-12.5" set:html={title} />
 
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
       {
@@ -60,10 +56,10 @@ const { title, services } = (
 
             <div>
               <Button
-                href={service.buttonLink}
+                href={service.button.href}
                 width="full"
                 variant="primary"
-                text={service.buttonText}
+                text={service.button.text}
               />
 
               {service.popularIn && (
