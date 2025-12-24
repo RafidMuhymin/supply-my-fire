@@ -6,12 +6,6 @@ import { Icon } from "astro-icon/components";
 
 import Button from "@/components/Button.astro";
 
-interface Title {
-  main: string;
-  highlight: string;
-  suffix: string;
-}
-
 interface Installation {
   image: ImageMetadata;
   title: string;
@@ -26,7 +20,7 @@ interface ButtonConfig {
 }
 
 interface Props {
-  title: Title;
+  title: string;
   installations: Installation[];
   button: ButtonConfig;
 }
@@ -35,11 +29,7 @@ const { title, installations, button } = Astro.props;
 ---
 
 <section>
-  <h2 class="text-center mb-6 sm:mb-10">
-    {title.main}
-    <em>{title.highlight}</em>
-    {title.suffix}
-  </h2>
+  <h2 class="text-center mb-6 sm:mb-10" set:html={title} />
 
   <div
     class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-6 lg:mb-10"

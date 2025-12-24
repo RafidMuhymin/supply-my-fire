@@ -4,11 +4,7 @@ import InstallationImg3 from "@/assets/images/installation-img-3.jpg";
 import InstallationImg4 from "@/assets/images/installation-img-4.jpg";
 
 const data = {
-  title: {
-    main: "Recent",
-    highlight: "Cardiff",
-    suffix: "Installations",
-  },
+  title: "Recent <em>Cardiff</em> Installations",
   installations: [
     {
       image: InstallationImg1,
