@@ -108,7 +108,7 @@
 
   /* Body Text/B1 normal */
   .text-body-variant-2 {
-    @apply text-sm md:text-lg leading-5 lg:leading-6 tracking-[-0.04em] text-neutral-500;
+    @apply text-sm md:text-lg tracking-[-0.04em] text-neutral-500;
   }
 
   /* Body Text/B3 small */
