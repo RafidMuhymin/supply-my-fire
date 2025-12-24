@@ -1,10 +1,7 @@
 import MediaWallImg from "@/assets/images/media-wall-img.jpg";
 
 const data = {
-  title: {
-    main: "What is a",
-    highlight: "Media Wall?",
-  },
+  title: "What is a <em>Media Wall?</em>",
   paragraphs: [
     "A media wall is a custom-designed feature wall that seamlessly combines your television and electric fireplace into one stunning focal point for your Cardiff home. Unlike traditional fireplace installations, media walls are built-in solutions that create a contemporary, streamlined look while completely concealing all wiring, cables, and connections.",
     "At Supply My Fire, we specialise in creating bespoke media walls for Cardiff properties - from modern apartments in the city centre to Victorian terraces in Roath and Pontcanna. Each media wall is custom-designed to your exact specifications, incorporating entertainment systems, sound bars, storage solutions, and stunning electric or gas fires from leading brands like Solution Fires, Vision Fires, and Gazco.",

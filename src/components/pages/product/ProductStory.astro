@@ -12,7 +12,7 @@ const { title, paragraphs, features, image } = (
 <section>
   <div class="grid grid-cols-1 lg:grid-cols-8 gap-8 lg:gap-11">
     <div class="lg:col-span-5">
-      <h2>{title.main} <em>{title.highlight}</em></h2>
+      <h2 set:html={title} />
 
       <div class="space-y-6 mt-2.5 text-body-variant-2">
         {paragraphs.map((paragraph) => <p>{paragraph}</p>)}
