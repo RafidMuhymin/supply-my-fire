@@ -25,7 +25,7 @@ const data = {
       badge: "HETAS approved installation",
       title: "New Build",
       description: "Grey panel design with Vision VS150",
-      location: "Penarth",
+      location: "Heath",
     },
     {
       image: InstallationImg4,
