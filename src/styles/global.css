@@ -59,10 +59,10 @@
   }
 
   :is(section, .section) {
-    @apply px-5 sm:px-8 md:px-12 lg:px-12.5 lg:mx-2.5;
+    @apply px-5 sm:px-8 md:px-12 lg:px-12.5 lg:mx-2.5 lg:rounded-[10px];
 
     &:not(.no-section-padding) {
-      @apply lg:px-15 lg:mx-0;
+      @apply lg:px-15 lg:mx-0 lg:rounded-none;
     }
   }
 
