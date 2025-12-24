@@ -1,18 +1,13 @@
 ---
 import Steps from "@/components/Steps.astro";
 
-const { steps } = (
+const { title, steps } = (
   await import(`@/data/locations/${Astro.params.location}/how-it-works.json`)
 ).default as typeof import("@/data/locations/cardiff/how-it-works.json");
 ---
 
 <section class="bg-primary-50 py-7 sm:py-15 noise">
-  <h2 class="font-serif text-center text-secondary">
-    How
-    <em>Fireplace Installation</em>
-    <br />
-    Works in Cardiff
-  </h2>
+  <h2 class="font-serif text-center text-secondary" set:html={title} />
 
   <Steps
     steps={steps}

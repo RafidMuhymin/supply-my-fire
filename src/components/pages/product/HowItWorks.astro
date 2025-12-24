@@ -1,18 +1,13 @@
 ---
 import Steps from "@/components/Steps.astro";
 
-const { steps } = (
+const { title, steps } = (
   await import(`@/data/products/${Astro.params.product}/how-it-works.json`)
 ).default as typeof import("@/data/products/media-wall/how-it-works.json");
 ---
 
 <section class="bg-primary-50 py-7 sm:py-15 noise">
-  <h2 class="font-serif text-center text-secondary">
-    How
-    <em>Fireplace Installation</em>
-    <br />
-    How Fireplace Installation
-  </h2>
+  <h2 class="font-serif text-center text-secondary" set:html={title} />
 
-  <Steps steps={steps} class="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" />
+  <Steps {steps} class="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" />
 </section>
