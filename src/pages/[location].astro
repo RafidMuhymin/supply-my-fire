@@ -35,10 +35,7 @@ const faqsData = (
 ).default as typeof import("@/data/locations/cardiff/faqs.json");
 ---
 
-<Layout
-  title="Gas Fires and Stoves - Supply My Fire"
-  description="Find the perfect gas fire or stove for your home in your area."
->
+<Layout title={meta.title} description={meta.description}>
   <div>
     <Hero />
     <Planning />

@@ -33,10 +33,7 @@ const faqsData = (
 ).default as typeof import("@/data/products/media-wall/faqs.json");
 ---
 
-<Layout
-  title="Products - Supply My Fire"
-  description="Explore our range of gas fires and stoves."
->
+<Layout title={meta.title} description={meta.description}>
   <div>
     <Hero />
     <Planning />
