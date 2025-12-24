@@ -1,9 +1,7 @@
 ---
 const { title, statistics } = (
-  (await import(
-    `@/data/products/${Astro.params.product}/planning.ts`
-  )) as typeof import("@/data/products/media-wall/planning.ts")
-).default;
+  await import(`@/data/products/${Astro.params.product}/planning.json`)
+).default as typeof import("@/data/products/media-wall/planning.json");
 ---
 
 <section

@@ -2,10 +2,8 @@
 import Steps from "@/components/Steps.astro";
 
 const { steps } = (
-  (await import(
-    `@/data/locations/${Astro.params.location}/how-it-works.ts`
-  )) as typeof import("@/data/locations/cardiff/how-it-works.ts")
-).default;
+  await import(`@/data/locations/${Astro.params.location}/how-it-works.json`)
+).default as typeof import("@/data/locations/cardiff/how-it-works.json");
 ---
 
 <section class="bg-primary-50 py-7 sm:py-15 noise">

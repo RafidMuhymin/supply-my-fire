@@ -2,10 +2,8 @@
 import ReadyShared from "@/components/ReadyShared.astro";
 
 const { title, description, cards } = (
-  (await import(
-    `@/data/locations/${Astro.params.location}/ready.ts`
-  )) as typeof import("@/data/locations/cardiff/ready.ts")
-).default;
+  await import(`@/data/locations/${Astro.params.location}/ready.json`)
+).default as typeof import("@/data/locations/cardiff/ready.json");
 ---
 
 <ReadyShared

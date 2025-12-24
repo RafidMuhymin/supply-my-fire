@@ -1,9 +1,9 @@
 ---
 const { title, description, statistics } = (
-  (await import(
-    `@/data/locations/${Astro.params.location}/trusted-fireplace.ts`
-  )) as typeof import("@/data/locations/cardiff/trusted-fireplace.ts")
-).default;
+  await import(
+    `@/data/locations/${Astro.params.location}/trusted-fireplace.json`
+  )
+).default as typeof import("@/data/locations/cardiff/trusted-fireplace.json");
 ---
 
 <section>

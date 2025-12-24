@@ -4,10 +4,8 @@ import { Icon } from "astro-icon/components";
 import Button from "@/components/Button.astro";
 
 const { title, services } = (
-  (await import(
-    `@/data/locations/${Astro.params.location}/services.ts`
-  )) as typeof import("@/data/locations/cardiff/services.ts")
-).default;
+  await import(`@/data/locations/${Astro.params.location}/services.json`)
+).default as typeof import("@/data/locations/cardiff/services.json");
 ---
 
 <section class="bg-[#F8F9FA] py-10 lg:py-20">

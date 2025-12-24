@@ -1,0 +1,79 @@
+{
+  "title": {
+    "main": "Our",
+    "highlight": "Cardiff Fireplace Installation",
+    "suffix": "Services"
+  },
+  "services": [
+    {
+      "icon": "certification-1",
+      "badge": "Cardiff's #1 Specialist",
+      "title": "Bespoke Media Walls Cardiff",
+      "description": "Cardiff's media wall specialists. Custom-designed walls combining entertainment and heating with completely concealed wiring. Perfect for Cardiff apartments and modern homes where space is at a premium.",
+      "features": [
+        "Complete custom design service",
+        "Concealed wiring and cable management",
+        "Sound bar and storage integration",
+        "Electric or gas fire options"
+      ],
+      "buttonText": "View Cardiff Media Walls",
+      "buttonLink": "#",
+      "popularIn": null
+    },
+    {
+      "icon": "call-center",
+      "badge": null,
+      "title": "Electric Fires Cardiff",
+      "description": "No chimney required - ideal for Cardiff's modern properties and apartments. Realistic flame effects with instant controllable heat. Latest technology from Solution Fires, Vision Fires, and Gazco.",
+      "features": [
+        "No chimney or flue needed",
+        "Install in any room",
+        "Energy-efficient heating",
+        "Remote control operation"
+      ],
+      "buttonText": "View Electric Fires",
+      "buttonLink": "#",
+      "popularIn": "Cardiff apartments, Roath conversions, city centre properties"
+    },
+    {
+      "icon": "certification-2",
+      "badge": null,
+      "title": "Bespoke Media Walls Cardiff",
+      "description": "HETAS approved installation for Cardiff homes. DEFRA approved ECO 2022 stoves suitable for smoke control areas. Perfect for Cardiff's period properties and rural areas.",
+      "features": [
+        "HETAS certified installation",
+        "DEFRA approved models",
+        "ECO 2022 compliant",
+        "Smoke control area suitable"
+      ],
+      "buttonText": "View Wood Stoves",
+      "buttonLink": "#",
+      "popularIn": "Pontcanna, Whitchurch, Lisvane, Penarth terraces"
+    },
+    {
+      "icon": "double-love",
+      "badge": null,
+      "title": "Gas Fire Installation Cardiff",
+      "description": "Gas Safe certified installation throughout Cardiff. High-efficiency fires with exceptional flame quality. Balanced flue options for homes without chimneys.",
+      "features": [
+        "Gas Safe registered engineers",
+        "High-efficiency heating",
+        "Balanced flue options",
+        "Traditional or contemporary styles"
+      ],
+      "buttonText": "View Gas Fires",
+      "buttonLink": "#",
+      "popularIn": null
+    },
+    {
+      "icon": "growth",
+      "badge": null,
+      "title": "Fireplaces & Mantels Cardiff",
+      "description": "Premium limestone, marble, and wooden fireplaces for Cardiff's period and contemporary homes. Custom sizing available to fit your space perfectly.",
+      "features": [],
+      "buttonText": "Browse Fireplaces",
+      "buttonLink": "#",
+      "popularIn": null
+    }
+  ]
+}
