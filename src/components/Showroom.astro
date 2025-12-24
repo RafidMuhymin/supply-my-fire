@@ -4,97 +4,77 @@ import { Icon } from "astro-icon/components";
 
 import Button from "@/components/Button.astro";
 
-import CardiffShowroomMap from "@/assets/images/cardiff-showroom-map.png";
+interface Props {
+  title: string;
+  subtitle: string;
+  description: string;
+  contacts: Array<{
+    icon: string;
+    title: string;
+    text: string;
+  }>;
+  buttons: Array<{
+    href: string;
+    text: string;
+    variant: string;
+  }>;
+  mapImage: {
+    src: ImageMetadata;
+    alt: string;
+  };
+}
 
-const contacts = [
-  {
-    icon: "location",
-    title: "Address:",
-    text: "112 Whitchurch Road, Cardiff, CF14 3LY",
-  },
-  {
-    icon: "call",
-    title: "Phone:",
-    text: "029 2030 9664",
-  },
-  {
-    icon: "watch",
-    title: "Opening Hours:",
-    text: `<br/>Tuesday-Friday: 10:00 AM - 4:00 PM <br/> Saturday: 10:00 AM - 2:00 PM <br/> Monday & Sunday: Closed`,
-  },
-];
+const { title, subtitle, description, contacts, buttons, mapImage } =
+  Astro.props;
 ---
 
-<section class="no-section-padding">
-  <div class="box-variant-1 bg-neutral-100 rounded-[10px] noise">
-    <div class="grid gap-7">
-      <h2 class="text-center">
-        Visit Our Cardiff <em>Showroom</em>
-      </h2>
+<section class="bg-neutral-100 py-7.5 lg:py-15">
+  <h2 class="text-center" set:html={title} />
 
-      <div
-        class="grid grid-cols-1 lg:grid-cols-2 gap-6 xl:gap-10.5 items-center"
-      >
-        <div class="max-w-172 mx-auto grid gap-8 lg:gap-14">
-          <div class="grid md:gap-6 lg:gap-11">
-            <div class="grid gap-6">
-              <h3 class="text-2xl lg:text-[36px] font-serif text-secondary">
-                See Our Range in Person
-              </h3>
+  <div class="lg:grid grid-cols-2 gap-6 xl:gap-10.5 items-center mt-7">
+    <div class="max-w-172 mx-auto mb-6 lg:mb-0">
+      <h3 class="text-2xl lg:text-[36px] font-serif text-secondary">
+        {subtitle}
+      </h3>
 
-              <p class="text-body-variant-1 text-neutral-500">
-                Serving customers from across South Wales and beyond. If you're
-                outside Cardiff, we offer free home surveys throughout Newport,
-                Swansea, Bristol, Bath and surrounding areas.
+      <p class="text-body-variant-1 text-neutral-500 mt-6">
+        {description}
+      </p>
+
+      <div class="space-y-3.5 mt-6 lg:mt-11">
+        {
+          contacts.map((contact) => (
+            <div class="flex items-start">
+              <div class="bg-white p-3 rounded-full w-fit mr-3">
+                <Icon name={contact.icon} size={18} />
+              </div>
+
+              <p class="mt-2 font-semibold leading-6.5">
+                {contact.title}{" "}
+                <span set:html={contact.text} class="font-normal" />
               </p>
             </div>
-
-            <div class="space-y-3.5">
-              {
-                contacts.map((contact) => (
-                  <div class="flex items-start">
-                    <div class="bg-white p-3 rounded-full w-fit mr-3">
-                      <Icon name={contact.icon} size={18} />
-                    </div>
-
-                    <p class="mt-2 font-semibold leading-6.5">
-                      {contact.title}{" "}
-                      <span set:html={contact.text} class="font-normal" />
-                    </p>
-                  </div>
-                ))
-              }
-            </div>
-          </div>
-
-          <div class="flex flex-col sm:flex-row gap-2 lg:gap-3">
-            <Button
-              href="#"
-              width="fit"
-              variant="primary"
-              text="Book Appointment"
-              class="w-full sm:w-fit"
-            />
-            <Button
-              href="#"
-              width="fit"
-              variant="white"
-              text="Book Survey in Your Area"
-              class="w-full sm:w-fit"
-            />
-          </div>
-        </div>
-
-        <div
-          class="h-full w-full lg:max-h-138 rounded-lg shadow-[0px_0px_35px_0px_#0000001A] border border-neutral-300 max-w-172 mx-auto"
-        >
-          <Image
-            src={CardiffShowroomMap}
-            alt="Cardiff Showroom Map"
-            class="w-full h-full object-cover rounded-2xl"
-          />
-        </div>
+          ))
+        }
       </div>
+
+      <div class="flex flex-col sm:flex-row mt-8 lg:mt-14 gap-2 lg:gap-3">
+        {
+          buttons.map((button) => (
+            <Button
+              href={button.href}
+              width="fit"
+              variant={button.variant as any}
+              text={button.text}
+              class="w-full sm:w-fit"
+            />
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="h-full w-full lg:max-h-138 max-w-172 mx-auto">
+      <Image {...mapImage} class="w-full h-full object-cover rounded-2xl" />
     </div>
   </div>
 </section>

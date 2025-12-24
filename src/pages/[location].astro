@@ -33,6 +33,12 @@ const meta = (
 const faqsData = (
   await import(`@/data/locations/${Astro.params.location}/faqs.json`)
 ).default as typeof import("@/data/locations/cardiff/faqs.json");
+
+const showroomData = (
+  (await import(
+    `@/data/locations/${Astro.params.location}/showroom.ts`
+  )) as typeof import("@/data/locations/cardiff/showroom.ts")
+).default;
 ---
 
 <Layout title={meta.title} description={meta.description}>
@@ -49,6 +55,6 @@ const faqsData = (
   <RecentInstallations />
   <Testimonials title={meta.testimonialsTitle} />
   <FAQs {...faqsData} />
-  <Showroom />
+  <Showroom {...showroomData} />
   <Ready />
 </Layout>

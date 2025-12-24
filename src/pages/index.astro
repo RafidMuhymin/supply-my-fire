@@ -16,6 +16,7 @@ import Ready from "@pages/home/Ready.astro";
 import ContactUs from "@pages/home/ContactUs.astro";
 
 import faqsData from "@/data/home/faqs.json";
+import showroomData from "@/data/home/showroom.ts";
 ---
 
 <Layout
@@ -35,7 +36,7 @@ import faqsData from "@/data/home/faqs.json";
   <Testimonials title={`What Our Cardiff <em> Customers Say</em>`} />
   <Dealer />
   <FAQs {...faqsData} />
-  <Showroom />
+  <Showroom {...showroomData} />
   <Ready />
   <ContactUs />
 </Layout>

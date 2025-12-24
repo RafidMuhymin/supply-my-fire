@@ -8,6 +8,8 @@ import Team from "@pages/about-us/Team.astro";
 import Certifications from "@pages/about-us/Certifications.astro";
 import Showroom from "@/components/Showroom.astro";
 import Ready from "@pages/about-us/Ready.astro";
+
+import showroomData from "@/data/about-us/showroom.ts";
 ---
 
 <Layout
@@ -19,6 +21,6 @@ import Ready from "@pages/about-us/Ready.astro";
   <WhatWeStandFor />
   <Team />
   <Certifications />
-  <Showroom />
+  <Showroom {...showroomData} />
   <Ready />
 </Layout>
