@@ -150,6 +150,12 @@
   }
 }
 
+@utility underline {
+  text-decoration-line: underline;
+  text-decoration-skip-ink: none;
+  text-underline-position: under;
+}
+
 @utility hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
