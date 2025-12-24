@@ -1,20 +1,31 @@
 ---
+import fs from "node:fs";
+
+// @ts-ignore
+import unslugify from "unslugify";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
 import Logo from "@/../public/logo.png";
 
-const logos = ["x-icon", "facebook-icon", "instagram-icon", "github-icon"];
-
-const products = [
-  "Media Walls",
-  "Electric Fires",
-  "Wood Burning Stoves",
-  "Gas Fires",
-  "Fireplaces",
+const socials = [
+  {
+    icon: "x",
+    href: "#",
+  },
+  {
+    icon: "facebook",
+    href: "#",
+  },
+  {
+    icon: "instagram",
+    href: "#",
+  },
+  {
+    icon: "github",
+    href: "#",
+  },
 ];
-
-const locations = ["Cardiff", "Newport", "Swansea", "Bristol", "Bath"];
 
 const contacts = [
   {
@@ -34,6 +45,9 @@ const contacts = [
     text: "<span class='font-semibold'>WhatsApp:</span> 07532 669665",
   },
 ];
+
+const locations = await fs.promises.readdir("src/data/locations"),
+  products = await fs.promises.readdir("src/data/products");
 ---
 
 <footer class="bg-secondary mt-15 py-5 md:py-6.5">
@@ -52,7 +66,17 @@ const contacts = [
         </p>
 
         <div class="flex gap-2 mt-4.5">
-          {logos.map((logo) => <Icon name={logo} size={40} />)}
+          {
+            socials.map(({ icon, href }) => (
+              <a
+                href={href}
+                aria-label={icon}
+                class="block hover:scale-110 transition-transform"
+              >
+                <Icon name={icon} size={40} />
+              </a>
+            ))
+          }
         </div>
       </div>
 
@@ -61,7 +85,12 @@ const contacts = [
           <h3 class="text-h3-variant-2 mb-3.5">Products</h3>
           {
             products.map((product) => (
-              <p class="text-body-variant-1">{product}</p>
+              <a
+                href={`/products/${product}`}
+                class="text-body-variant-1 hover:underline"
+              >
+                {unslugify(product)}
+              </a>
             ))
           }
         </div>
@@ -70,7 +99,12 @@ const contacts = [
           <h3 class="text-h3-variant-2 mb-3.5">Locations</h3>
           {
             locations.map((location) => (
-              <p class="text-body-variant-1">{location}</p>
+              <a
+                href={`/${location}`}
+                class="text-body-variant-1 hover:underline"
+              >
+                {unslugify(location)}
+              </a>
             ))
           }
         </div>
@@ -121,3 +155,10 @@ const contacts = [
     </div>
   </section>
 </footer>
+
+<style>
+  .hover\:underline {
+    text-decoration-skip-ink: none;
+    text-underline-position: under;
+  }
+</style>
