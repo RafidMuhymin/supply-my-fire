@@ -9,10 +9,12 @@ const data = {
     "From bespoke media walls to traditional wood burners, we supply and install exceptional fireplaces throughout Cardiff. Visit our Whitchurch Road showroom or book a free home survey. HETAS approved, Gas Safe certified, 40+ years combined experience.",
   buttons: [
     {
+      href: "/contact-us#enquiry-form",
       variant: "primary",
       text: "Visit Our Cardiff Showroom",
     },
     {
+      href: "/contact-us#enquiry-form",
       variant: "transparent",
       text: "Book Free Cardiff Home Survey",
     },

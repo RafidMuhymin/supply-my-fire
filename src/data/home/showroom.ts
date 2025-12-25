@@ -25,12 +25,12 @@ const data = {
   ],
   buttons: [
     {
-      href: "#",
+      href: "/contact-us#enquiry-form",
       variant: "primary",
       text: "Book Appointment",
     },
     {
-      href: "#",
+      href: "/contact-us#enquiry-form",
       variant: "white",
       text: "Book Survey in Your Area",
     },

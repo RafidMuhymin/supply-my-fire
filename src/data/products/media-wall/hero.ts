@@ -9,10 +9,12 @@ const data = {
     "Transform your Cardiff home with a custom-designed media wall combining stunning electric fires with integrated entertainment systems. Complete concealed wiring, professional installation, and expert design service from Cardiff's media wall specialists.",
   buttons: [
     {
+      href: "/contact-us#enquiry-form",
       variant: "primary",
       text: "Book Free Cardiff Home Survey",
     },
     {
+      href: "/contact-us#enquiry-form",
       variant: "transparent",
       text: "Visit Our Cardiff Showroom",
     },

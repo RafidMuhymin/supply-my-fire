@@ -8,7 +8,7 @@
       "text": "See products in person on Whitchurch Road",
       "button": {
         "text": "Book Showroom Visit",
-        "href": "#book-visit"
+        "href": "/contact-us#enquiry-form"
       }
     },
     {
@@ -17,7 +17,7 @@
       "text": "We'll visit your Cardiff property",
       "button": {
         "text": "Request Survey",
-        "href": "#request-survey"
+        "href": "/contact-us#enquiry-form"
       }
     },
     {

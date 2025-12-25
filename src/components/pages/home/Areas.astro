@@ -39,7 +39,7 @@ const areas = [
 ];
 ---
 
-<section>
+<section id="areas">
   <div class="lg:flex space-y-4 lg:space-y-0 items-end justify-between mb-8">
     <h2 class="lg:w-2/5">
       <em>Serving</em> Cardiff, South Wales, Bristol & Bath
@@ -96,7 +96,7 @@ const areas = [
                 <Image
                   src={area.image}
                   alt={area.name}
-                  class="size-full object-cover"
+                  class="w-full h-full object-cover"
                 />
 
                 {area.tag && (
@@ -127,7 +127,7 @@ const areas = [
     </h3>
 
     <Button
-      href="#"
+      href="#areas"
       width="fit"
       variant="primary"
       text="Find Your Local Installation Service"
