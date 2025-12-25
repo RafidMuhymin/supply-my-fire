@@ -2,6 +2,7 @@
 interface FAQ {
   question: string;
   answer: string;
+  excludeFromSchema?: boolean;
 }
 
 interface Props {
@@ -10,7 +11,28 @@ interface Props {
 }
 
 const { title, faqs } = Astro.props;
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs
+    .filter((faq) => !faq.excludeFromSchema)
+    .map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+};
 ---
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(faqSchema)}
+/>
 
 <section
   class="no-section-padding bg-yellow-50 flex flex-col items-center gap-6 md:gap-8 lg:gap-12.5 py-10 lg:py-15"
