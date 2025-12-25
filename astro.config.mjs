@@ -5,6 +5,7 @@ import { defineConfig, fontProviders } from "astro/config";
 
 import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
+import favicons from "astro-favicons";
 import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
@@ -30,6 +31,14 @@ export default defineConfig({
       },
     }),
     sitemap(),
+    favicons({
+      name: "Supply My Fire",
+      short_name: "SMF",
+      withCapo: true,
+      input: {
+        favicons: ["public/favicon.png"],
+      },
+    }),
   ],
 
   experimental: {
