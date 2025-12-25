@@ -69,7 +69,7 @@ const locations = await fs.promises.readdir("src/data/locations"),
           {
             socials.map(({ icon, href }) => (
               <a
-                href={href}
+                {href}
                 aria-label={icon}
                 class="block hover:scale-110 transition-transform"
               >
