@@ -28,6 +28,16 @@ const { title, description } = Astro.props;
 
     <Font cssVariable="--font-onest" preload />
     <Font cssVariable="--font-dm-serif-display" preload />
+
+    <script is:inline type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Corporation",
+        "name": "Supply My Fire",
+        "url": "https://supplymyfire.co.uk/",
+        "logo": "https://supplymyfire.co.uk/logo.png"
+      }
+    </script>
   </head>
 
   <body>
