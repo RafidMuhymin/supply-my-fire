@@ -8,14 +8,17 @@ import BackgroundImageSm from "@/assets/images/hero-bg-shared-sm.png";
 
 const contacts = [
   {
+    href: "tel:02920309664",
     icon: "call",
     text: "029 2030 9664",
   },
   {
+    href: "https://wa.me/447532669665",
     icon: "whatsapp",
     text: "07532 669665",
   },
   {
+    href: "mailto:info@supplymyfire.com",
     icon: "mailbox",
     text: "info@supplymyfire.com",
   },
@@ -49,7 +52,18 @@ const contacts = [
           <p class="flex gap-2 items-center">
             <Icon name={contact.icon} size={20} />
 
-            {contact.text}
+            {(() => {
+              const Tag = contact.href ? "a" : "span";
+
+              return (
+                <Tag
+                  href={contact.href}
+                  class:list={[contact.href && "hover:underline"]}
+                >
+                  {contact.text}
+                </Tag>
+              );
+            })()}
           </p>
         ))
       }

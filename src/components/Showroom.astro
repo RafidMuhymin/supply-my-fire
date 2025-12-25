@@ -12,6 +12,7 @@ interface Props {
     icon: string;
     title: string;
     text: string;
+    href?: string;
   }>;
   buttons: Array<{
     href: string;
@@ -50,8 +51,21 @@ const { title, subtitle, description, contacts, buttons, mapImage } =
               </div>
 
               <p class="mt-2 font-semibold leading-6.5">
-                {contact.title}{" "}
-                <span set:html={contact.text} class="font-normal" />
+                {contact.title}
+                {(() => {
+                  const Tag = contact.href ? "a" : "span";
+
+                  return (
+                    <Tag
+                      href={contact.href}
+                      class:list={[
+                        "font-normal",
+                        contact.href && "hover:underline",
+                      ]}
+                      set:html={contact.text}
+                    />
+                  );
+                })()}
               </p>
             </div>
           ))

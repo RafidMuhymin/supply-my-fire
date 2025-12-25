@@ -14,6 +14,7 @@ const data = {
     {
       icon: "call",
       title: "Phone:",
+      href: "tel:02920309664",
       text: "029 2030 9664",
     },
     {

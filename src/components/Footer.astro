@@ -30,19 +30,26 @@ const socials = [
 const contacts = [
   {
     icon: "location",
-    text: "<span class='font-semibold'>Address:</span> 112 Whitchurch Road, Cardiff, CF14 3LY",
+    label: "Address",
+    text: "112 Whitchurch Road, Cardiff, CF14 3LY",
   },
   {
     icon: "call",
-    text: "<span class='font-semibold'>Phone:</span> 029 2030 9664",
+    label: "Phone",
+    href: "tel:02920309664",
+    text: "029 2030 9664",
   },
   {
     icon: "mailbox",
-    text: "<span class='font-semibold'>Email:</span> info@supplymyfire.com",
+    label: "Email",
+    href: "mailto:info@supplymyfire.com",
+    text: "info@supplymyfire.com",
   },
   {
     icon: "whatsapp",
-    text: "<span class='font-semibold'>WhatsApp:</span> 07532 669665",
+    label: "WhatsApp",
+    href: "https://wa.me/447532669665",
+    text: "07532 669665",
   },
 ];
 
@@ -121,10 +128,21 @@ const locations = await fs.promises.readdir("src/data/locations"),
                   class="text-primary-700 size-4 lg:size-5 min-w-4 lg:min-w-5"
                 />
 
-                <p
-                  set:html={contact.text}
-                  class="text-body-variant-1 lg:leading-6.5"
-                />
+                <p class="text-body-variant-1 lg:leading-6.5">
+                  <span class="font-semibold">{contact.label}:</span>
+                  {(() => {
+                    const Tag = contact.href ? "a" : "span";
+
+                    return (
+                      <Tag
+                        href={contact.href}
+                        class:list={[contact.href && "hover:underline"]}
+                      >
+                        {contact.text}
+                      </Tag>
+                    );
+                  })()}
+                </p>
               </div>
             ))
           }

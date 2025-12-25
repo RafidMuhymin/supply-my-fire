@@ -3,7 +3,22 @@ import { Icon } from "astro-icon/components";
 
 import Button from "@/components/Button.astro";
 
-const contactData = [
+interface Contact {
+  title: string;
+  icon: string;
+  description: string;
+  details: Array<{
+    text: string;
+    icon: string;
+    href?: string;
+  }>;
+  button: {
+    text: string;
+    href: string;
+  };
+}
+
+const contacts: Contact[] = [
   {
     title: "Visit Our Showroom",
     icon: "showroom",
@@ -11,7 +26,7 @@ const contactData = [
       "See electric fires operating, feel the heat, touch finish samples. Expert advice on-site at our Whitchurch Road location.",
     details: [
       {
-        content: "Free parking | Tuesday-Saturday",
+        text: "Free parking | Tuesday-Saturday",
         icon: "car",
       },
     ],
@@ -27,7 +42,7 @@ const contactData = [
       "We'll visit your Cardiff property to assess your space, take measurements, and discuss your fireplace vision at no cost or obligation",
     details: [
       {
-        content: "Available throughout Cardiff, South Wales, Bristol & Bath",
+        text: "Available throughout Cardiff, South Wales, Bristol & Bath",
         icon: "location",
       },
     ],
@@ -43,11 +58,13 @@ const contactData = [
       "Prefer to talk? Call us directly or send a WhatsApp message for quick responses to your questions.",
     details: [
       {
-        content: "029 2030 9664",
+        href: "tel:02920309664",
+        text: "029 2030 9664",
         icon: "call",
       },
       {
-        content: "07532 669665",
+        href: "https://wa.me/447532669665",
+        text: "07532 669665",
         icon: "whatsapp",
       },
     ],
@@ -63,7 +80,8 @@ const contactData = [
       "Send us your questions, project details, or information requests. We'll respond within 24 hours during business days.",
     details: [
       {
-        content: "info@supplymyfire.com",
+        href: "mailto:info@supplymyfire.com",
+        text: "info@supplymyfire.com",
         icon: "mailbox",
       },
     ],
@@ -83,7 +101,7 @@ const contactData = [
 
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
       {
-        contactData.map((contact) => (
+        contacts.map((contact) => (
           <div class="border border-neutral-200 bg-white p-6 rounded-lg flex flex-col">
             <div class="flex flex-col gap-10 flex-1">
               <div class="border border-neutral-200 rounded-lg p-3.5 size-fit">
@@ -103,9 +121,21 @@ const contactData = [
                       <div class="flex items-center gap-2">
                         <Icon name={detail.icon} class="size-5 shrink-0" />
 
-                        <span class="font-medium text-sm">
-                          {detail.content}
-                        </span>
+                        {(() => {
+                          const Tag = detail.href ? "a" : "span";
+
+                          return (
+                            <Tag
+                              href={detail.href}
+                              class:list={[
+                                "font-medium text-sm",
+                                detail.href && "hover:underline",
+                              ]}
+                            >
+                              {detail.text}
+                            </Tag>
+                          );
+                        })()}
                       </div>
                     ))}
                   </div>
