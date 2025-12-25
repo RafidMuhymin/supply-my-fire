@@ -5,29 +5,10 @@ import { Image } from "astro:assets";
 
 import Button from "@/components/Button.astro";
 
-interface Title {
-  main: string;
-  muted: string;
-}
-
-interface SliderImage {
-  src: ImageMetadata;
-  alt: string;
-  width: string;
-  height: string;
-  lgWidth: string;
-  aspectRatio: string;
-}
-
-interface ButtonConfig {
-  href: string;
-  text: string;
-}
-
 interface Props {
-  title: Title;
-  images: SliderImage[];
-  button: ButtonConfig;
+  title: { main: string; muted: string };
+  images: { src: ImageMetadata; alt: string }[];
+  button: { href: string; text: string };
 }
 
 const { title, images, button } = Astro.props;
@@ -42,16 +23,18 @@ const { title, images, button } = Astro.props;
   </h2>
 
   <div
-    id="planing-slider-scroll"
-    class="flex gap-4 items-center overflow-x-scroll hide-scrollbar snap-x snap-mandatory justify-center-safe"
+    id="planning-slider"
+    class="slider-container flex gap-4 items-center justify-center overflow-hidden select-none cursor-grab active:cursor-grabbing touch-pan-y"
   >
     {
-      images.map((image) => (
-        <Image
-          src={image.src}
-          alt={image.alt}
-          class={`${image.width} ${image.height} ${image.lgWidth} ${image.aspectRatio} lg:h-auto rounded-[20px] snap-center`}
-        />
+      images.map((image, i) => (
+        <div class="slide shrink-0" data-index={i}>
+          <Image
+            src={image.src}
+            alt={image.alt}
+            class="rounded-[20px] object-cover pointer-events-none"
+          />
+        </div>
       ))
     }
   </div>
@@ -65,8 +48,262 @@ const { title, images, button } = Astro.props;
   />
 </section>
 
-<script>
-  import centerScrollContent from "@/utils/centerScrollContent";
+<style>
+  .slider-container {
+    height: 15.75rem;
+  }
 
-  centerScrollContent("planing-slider-scroll");
+  .slide,
+  .slide img {
+    width: var(--w);
+    height: var(--h);
+  }
+
+  /* 0 = center, 1 = adjacent, 2 = outer */
+  .slide[data-pos="2"] {
+    --w: 8rem;
+    --h: 11.5rem;
+  }
+  .slide[data-pos="1"] {
+    --w: 9.25rem;
+    --h: 13.5rem;
+  }
+  .slide[data-pos="0"] {
+    --w: 11.25rem;
+    --h: 15.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .slider-container {
+      height: 21rem;
+    }
+
+    .slide[data-pos="2"] {
+      --w: 10rem;
+      --h: 14.25rem;
+    }
+    .slide[data-pos="1"] {
+      --w: 12rem;
+      --h: 17.25rem;
+    }
+    .slide[data-pos="0"] {
+      --w: 15rem;
+      --h: 21rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .slider-container {
+      height: calc(22.7vw * 4 / 3);
+      max-height: 400px;
+    }
+
+    .slide[data-pos="2"] {
+      --w: 16%;
+    }
+    .slide[data-pos="1"] {
+      --w: 18.6%;
+    }
+    .slide[data-pos="0"] {
+      --w: 22.7%;
+    }
+
+    .slide {
+      height: auto;
+    }
+    .slide img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3/4;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .slider-container {
+      height: 400px;
+    }
+
+    .slide[data-pos="2"] {
+      --w: 211px;
+    }
+    .slide[data-pos="1"] {
+      --w: 245px;
+    }
+    .slide[data-pos="0"] {
+      --w: 300px;
+    }
+  }
+</style>
+
+<script>
+  const slider = document.getElementById("planning-slider")!,
+    slides = [...slider.querySelectorAll(".slide")] as HTMLElement[],
+    slideCount = slides.length,
+    DURATION = 350,
+    EASING = "cubic-bezier(0.25, 0.1, 0.25, 1)";
+
+  let centerIndex = 2,
+    isDragging = false,
+    isAnimating = false,
+    dragStartX = 0,
+    hasMoved = false,
+    wheelTimer: ReturnType<typeof setTimeout>;
+
+  const mod = (num: number, modulo: number) =>
+    ((num % modulo) + modulo) % modulo;
+
+  const setPosition = (slide: HTMLElement, position: number) =>
+    slide.setAttribute("data-pos", String(Math.min(Math.abs(position), 2)));
+
+  const setTransform = (pixels: number) =>
+    slides.forEach((s) => (s.style.transform = `translateX(${pixels}px)`));
+
+  const setTransition = (enabled: boolean) => {
+    const transition = `${DURATION}ms ${EASING}`;
+
+    slides.forEach(
+      (s) =>
+        (s.style.transition = enabled
+          ? `transform ${transition}, width ${transition}, height ${transition}`
+          : "none")
+    );
+  };
+
+  const getStepDistance = () => {
+    const [first, second] = [...slider.children] as HTMLElement[];
+
+    return (
+      second.getBoundingClientRect().left -
+        first.getBoundingClientRect().left || 150
+    );
+  };
+
+  const updatePositions = () => {
+    slides.forEach((slide) => {
+      const index = +slide.dataset.index!;
+      let distance = index - centerIndex;
+
+      if (distance > slideCount / 2) distance -= slideCount;
+      if (distance < -slideCount / 2) distance += slideCount;
+
+      setPosition(slide, distance);
+    });
+  };
+
+  const reorderDOM = () => {
+    for (let position = -2; position <= 2; position++) {
+      const index = mod(centerIndex + position, slideCount);
+
+      slider.appendChild(slides.find((s) => +s.dataset.index! === index)!);
+    }
+  };
+
+  const slide = async (direction: 1 | -1) => {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    centerIndex = mod(centerIndex + direction, slideCount);
+    updatePositions();
+
+    setTransition(true);
+    setTransform(-direction * getStepDistance());
+    await new Promise((r) => setTimeout(r, DURATION));
+
+    setTransition(false);
+    reorderDOM();
+    setTransform(0);
+
+    isAnimating = false;
+  };
+
+  const snapBack = async () => {
+    setTransition(true);
+    setTransform(0);
+
+    await new Promise((r) => setTimeout(r, DURATION));
+
+    setTransition(false);
+  };
+
+  const finishDrag = async (deltaX: number) => {
+    if (!isDragging || !hasMoved) return;
+
+    isDragging = false;
+
+    Math.abs(deltaX) > 50 ? await slide(deltaX < 0 ? 1 : -1) : await snapBack();
+  };
+
+  const startDrag = (clientX: number) => {
+    if (isAnimating) return;
+
+    isDragging = true;
+    hasMoved = false;
+    dragStartX = clientX;
+    setTransition(false);
+  };
+
+  const onDrag = (clientX: number) => {
+    if (!isDragging) return;
+
+    const deltaX = clientX - dragStartX;
+    if (Math.abs(deltaX) > 5) hasMoved = true;
+    if (hasMoved) setTransform(deltaX * 0.5);
+  };
+
+  /* Mouse */
+  slider.addEventListener("mousedown", (e) => startDrag(e.clientX));
+  document.addEventListener("mousemove", (e) => onDrag(e.clientX));
+  document.addEventListener("mouseup", (e) =>
+    finishDrag(e.clientX - dragStartX)
+  );
+
+  /* Touch */
+  slider.addEventListener(
+    "touchstart",
+    (e) => startDrag(e.touches[0].clientX),
+    { passive: true }
+  );
+
+  slider.addEventListener(
+    "touchmove",
+    (e) => {
+      if (!isDragging) return;
+
+      const deltaX = e.touches[0].clientX - dragStartX;
+
+      if (Math.abs(deltaX) > 5) {
+        hasMoved = true;
+        e.preventDefault();
+      }
+
+      if (hasMoved) setTransform(deltaX * 0.5);
+    },
+    { passive: false }
+  );
+
+  slider.addEventListener(
+    "touchend",
+    (e) => finishDrag(e.changedTouches[0].clientX - dragStartX),
+    { passive: true }
+  );
+
+  /* Wheel */
+  slider.addEventListener(
+    "wheel",
+    (e) => {
+      e.preventDefault();
+      clearTimeout(wheelTimer);
+
+      wheelTimer = setTimeout(() => {
+        const delta = e.deltaX || e.deltaY;
+
+        if (Math.abs(delta) > 10) slide(delta > 0 ? 1 : -1);
+      }, 50);
+    },
+    { passive: false }
+  );
+
+  /* Init */
+  reorderDOM();
+  updatePositions();
 </script>
